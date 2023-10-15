@@ -1,0 +1,1 @@
+INSERT INTO `newsletters` (`year`, `quarter`, `title`, `description`) VALUES (2020,3,'Imposter Syndrome',NULL);

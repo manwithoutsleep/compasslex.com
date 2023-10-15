@@ -1,0 +1,1 @@
+INSERT INTO `newsletters` (`year`, `quarter`, `title`, `description`) VALUES (2020,4,'Are You Feeling Lonely?',NULL),(2021,1,'Perfectionism vs. Excellence',NULL);
