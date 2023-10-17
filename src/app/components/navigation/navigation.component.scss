@@ -1,0 +1,211 @@
+@import '../../../sass/variables';
+
+$app-navigation-top-section-height-browser: 182px;
+$app-navigation-top-section-height-phone: 60px;
+
+$app-navigation-top-menu-height-browser: 53px;
+
+$app-navigation-header-height-browser: $app-navigation-top-section-height-browser;
+$app-navigation-header-height-phone: $app-navigation-top-section-height-phone;
+
+.navigation-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $site-background-color;
+    margin: 0 auto;
+
+    min-width: $app-min-width;
+    max-width: $app-max-width;
+
+    .navigation-top-section {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+        background-color: $site-background-color;
+        z-index: 1000;
+
+        @media screen and (max-width: $app-phone-width) {
+            // Small screen
+            height: $app-navigation-top-section-height-phone;
+        }
+        @media screen and (min-width: $app-phone-width) {
+            // Large screen
+            height: $app-navigation-top-section-height-browser;
+        }
+
+        .navigation-header {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            background-color: white;
+
+            @media screen and (max-width: $app-phone-width) {
+                // Small screen
+                height: $app-navigation-header-height-phone;
+                position: fixed;
+                /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+                z-index: 2;
+            }
+            @media screen and (min-width: $app-phone-width) {
+                // Large screen
+                height: $app-navigation-header-height-browser;
+            }
+
+            .navigation-header-phone {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                margin-left: 8px;
+                padding: 0;
+                width: 100%;
+                min-width: $app-min-width;
+                @media screen and (max-width: $app-phone-width) {
+                    // Small screen
+                }
+                @media screen and (min-width: $app-phone-width) {
+                    // Large screen
+                    display: none;
+                }
+                a {
+                    display: block;
+                    max-height: $app-navigation-top-section-height-phone;
+                }
+                .menu-button {
+                    @media screen and (max-width: $app-phone-width) {
+                        // Small screen
+                    }
+                    @media screen and (min-width: $app-phone-width) {
+                        // Large screen
+                        display: none;
+                    }
+                }
+            }
+
+            .navigation-header-browser {
+                display: flex;
+                flex-direction: row;
+                box-sizing: border-box;
+                background-color: #ffffff;
+                justify-content: space-between;
+                padding: 12px;
+                width: 100%;
+                @media screen and (max-width: $app-phone-width) {
+                    // Small screen
+                    display: none;
+                }
+                @media screen and (min-width: $app-phone-width) {
+                    // Large screen
+                }
+                h1 {
+                    margin: 0;
+                    a {
+                        border: 0;
+                        color: #ffffff;
+                        display: block;
+                        font-size: 0em;
+                        float: left;
+                        height: 116px;
+                        margin: 0;
+                        padding: 0;
+                        text-decoration: underline;
+                        text-shadow: none;
+                        width: 271px;
+                    }
+                }
+                .navigation-address {
+                    background-color: $site-background-color;
+                    font-size: 16px;
+                    line-height: 22px;
+                    text-align: right;
+                }
+            }
+        }
+
+        .navigation-top-menu {
+            display: flex;
+            background-color: $margin-background-color;
+            border-color: $margin-background-color;
+            border-style: solid;
+            border-width: 5px 0 0 0;
+            font-weight: bold;
+            height: $app-navigation-top-menu-height-browser;
+            justify-content: space-around;
+            padding: 4px 0;
+            @media screen and (max-width: $app-phone-width) {
+                // Small screen
+                display: none;
+            }
+            @media screen and (min-width: $app-phone-width) {
+                // Large screen
+            }
+            button {
+                box-shadow: none;
+                border: none;
+                background: none;
+                outline: none;
+                -webkit-tap-highlight-color: transparent;
+                text-align: center;
+                color: $font-color-dark;
+                font-size: 20px;
+                font-weight: 400;
+                padding: 0;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+  
+    .navigation-sidenav-container {
+        /*  When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+            causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+        background-color: $site-background-color;
+        flex: 1;
+        .navigation-sidenav {            
+            background-color: $card-background-color;
+            .navigation-sidenav-list {
+                padding: 8px 0 0 0;
+                .navigation-sidenav-link {
+                    box-sizing: border-box;
+                    color: $font-color-dark;
+                    display: flex;
+                    flex-direction: row;
+                    font-size: 20px;
+                    font-weight: 700;
+                    height: 48px;
+                    line-height: 20px;
+                    padding: 14px 16px;
+                    text-align: left;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+  
+    .compass-is-mobile .navigation-sidenav-container {
+        /*  When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+            `<body>` to be our scrolling element for mobile layouts. */
+        flex: 1 0 auto;
+    }
+}
+
+/* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version.*/
+::ng-deep .mat-list-item-content {
+    font-size: 20px;
+    font-weight: 100;
+
+    @media screen and (max-width: $app-phone-width) {
+        // Small screen
+        color: $font-color-compass-navy;
+        font-weight: bold;
+    }
+    @media screen and (min-width: $app-phone-width) {
+        // Large screen
+        color: $font-color-compass-navy;
+        font-weight: normal;
+    }
+}

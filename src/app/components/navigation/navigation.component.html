@@ -1,0 +1,46 @@
+<div class="navigation-container mat-typography">
+    <div class="navigation-top-section">
+        <mat-toolbar color="primary" class="navigation-header mat-elevation-z4">
+            <h1 class="navigation-header-phone">
+                <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <a routerLink="/"><img src="/assets/site-images/CompassLogoSmall.png" alt="Compass Christian Counseling"></a>
+                <a routerLink="/"><img src="/assets/site-images/CompassIconSmall.png" alt="Compass Christian Counseling"></a>
+            </h1>
+            <div class="navigation-header-browser">
+                <h1><a routerLink="/"><img src="/assets/site-images/CompassLogoAndIcon.png" alt="Compass Christian Counseling"></a></h1>
+                <div class="navigation-address">
+                    Compass Christian Counseling<br />
+                    651 Perimeter Drive, Suite 115<br />
+                    Lexington, KY 40517<br />
+                    (859) 721-3259
+                </div>
+            </div>
+        </mat-toolbar>
+        <mat-toolbar class="navigation-top-menu">
+            <button routerLink="/meet-us">Meet Us</button>
+            <button routerLink="/our-services">Our Services</button>
+            <button routerLink="/faq">FAQ</button>
+            <button routerLink="/getting-started">Getting Started</button>
+            <button routerLink="/resources">Resources</button>
+            <button routerLink="/contact-us">Contact Us</button>
+        </mat-toolbar>
+    </div>
+    <mat-sidenav-container class="navigation-sidenav-container">
+        <mat-sidenav class="navigation-sidenav" #sidenav mode="over" fixedInViewport="true" fixedTopGap="56">
+            <mat-nav-list class="navigation-sidenav-list">
+                <a class="navigation-sidenav-link" routerLink="/home" (click)=sidenav.toggle()>Home</a>
+                <a class="navigation-sidenav-link" routerLink="/meet-us" (click)=sidenav.toggle()>Meet Us</a>
+                <a class="navigation-sidenav-link" routerLink="/our-services" (click)=sidenav.toggle()>Our Services</a>
+                <a class="navigation-sidenav-link" routerLink="/faq" (click)=sidenav.toggle()>FAQ</a>
+                <a class="navigation-sidenav-link" routerLink="/getting-started" (click)=sidenav.toggle()>Getting Started</a>
+                <a class="navigation-sidenav-link" routerLink="/resources" (click)=sidenav.toggle()>Resources</a>
+                <a class="navigation-sidenav-link" routerLink="/contact-us" (click)=sidenav.toggle()>Contact Us</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
