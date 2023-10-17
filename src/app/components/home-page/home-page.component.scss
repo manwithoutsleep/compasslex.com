@@ -1,0 +1,146 @@
+@import '../../../sass/variables';
+
+.home-page-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    .home-page-left-column {
+        display: flex;
+        flex-direction: column;
+        width: 644px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        
+        .home-page-rotator {
+            margin: -49px 0 0 0;
+            width: 644px;
+            max-width: 100%;
+
+            img {
+                max-width: 100%;
+            }
+            div {
+                background: rgba(255, 255, 255, 0.6);
+                position: absolute;
+                padding: 0 10px;
+                top: 0;
+                left: 65%;
+                width: 28%;
+                height: 100%;
+                text-align: center;
+                overflow: hidden;
+                p {
+                    display: inline-block;
+                    line-height: 1.5;
+                    vertical-align: middle;
+
+                    @media screen and (max-width: $app-phone-width) {
+                        // Small screen
+                        font-size: 18px;
+                        margin-top: 25%;
+                    }
+                    @media screen and (min-width: $app-phone-width) {
+                        font-size: 25px;
+                        margin-top: 40%;
+                    }
+                }
+            }
+        }
+
+        .home-page-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 100%;
+
+            .ui-card-body {
+                p {
+                    font-size: 1.2em;
+                    line-height: 1.2em;
+                }
+            }
+
+            .home-page-covid-note {
+                color: #ff0000;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .home-page-right-column {
+        display: flex;
+        flex-direction: column;
+        width: 316px;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        
+        .home-page-video {
+            width: 302px;
+            max-width: 100%;
+            padding: 0;
+            .ui-card-body {
+                padding: 0;
+                button {
+                    cursor: pointer;
+                    display: block;
+                    margin: 4px auto;
+                    width: 280px;
+                    max-width: 100%;
+                }
+                video {
+                    margin: 0;
+                    height: 168px;
+                    width: 302px;
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .home-page-social-media {
+            max-width: 100%;
+            text-align: center;
+
+            button {
+                font-size: 1em;
+                font-weight: bold;
+                margin: 5px auto 15px auto;
+            }
+
+            .home-page-social-media-notice {
+                font-weight: bold;
+                text-align: center;
+            }
+
+            .home-page-social-media-icons {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+            }
+        }
+        
+        .home-page-newsletter {
+            width: 302px;
+            max-width: 100%;
+            padding: 0;
+            button {
+                background: none;
+                border: 0;
+                cursor: pointer;
+                margin: 0;
+                padding: 0;
+        
+                img {
+                    margin: 5px auto;
+                    padding: 0 auto;
+                }
+            }
+            p {
+                text-align: center;
+            }
+        }
+    }
+}

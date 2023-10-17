@@ -1,0 +1,18 @@
+.getting-started-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .getting-started-left-column {
+        width: 255px;
+        button {
+            width: 100%;
+            margin: 4px 0;
+        }
+    }
+
+    .getting-started-right-column {
+        width: 660px;
+    }
+}

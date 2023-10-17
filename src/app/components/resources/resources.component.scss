@@ -1,0 +1,48 @@
+.resources-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .resources-left-column {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+
+        .resources-crisis-contacts {
+            .resources-crisis-phone-numbers {
+                margin: 0;
+                dt {
+                    font-weight: bold;
+                }
+                dd {
+                    margin-bottom: 6px;
+                }
+            }
+            .resources-immediate-help {
+                margin-top: 6px;
+            }
+        }
+    }
+
+    .resources-center-column {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+
+        .resourses-quick-self-assessments {
+            a {
+                display: block;
+            }
+        }
+        .resources-newsletter {
+            a {
+                display: block;
+            }
+        }
+    }
+
+    .resources-right-column {
+        width: 300px;
+    }
+}

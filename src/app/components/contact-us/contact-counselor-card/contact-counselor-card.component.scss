@@ -1,0 +1,34 @@
+.contact-counselor-card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+
+    img, div {
+        margin-bottom: 12px;
+    }
+
+    .contact-counselor-card-info {
+        width: 250px;
+
+        .contact-counselor-card-name {
+            font-size: 18px;
+            font-style: italic;
+        }
+    
+        .contact-counselor-card-phone {
+            font-weight: bold;
+        }
+    
+        .contact-counselor-card-appt-button {
+            line-height: 1.2em;
+            padding-bottom: 5px;
+            padding-top: 5px;
+    }
+    
+        button {
+            font-size: 12px;
+        }
+    }
+}

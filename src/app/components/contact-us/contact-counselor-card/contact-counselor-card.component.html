@@ -1,0 +1,9 @@
+<div class="contact-counselor-card-container" *ngIf="counselor">
+    <img src="{{ getImageLink() }}" alt="{{ getFirstName() }} {{ getLastName() }}" />
+    <div class="contact-counselor-card-info">
+        <div class="contact-counselor-card-name">{{ getFirstName() }} {{ getLastName() }}</div>
+        <div class="contact-counselor-card-phone">{{ getPhone() }}</div>
+        <div class="contact-counselor-card-email"><a href="mailto:{{ getEmail() }}" target="_blank">{{ getEmail() }}</a></div>
+        <a class="button contact-counselor-card-appt-button" mat-stroked-button color="accent" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
+    </div>
+</div>

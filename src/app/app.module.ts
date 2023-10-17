@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponentsModule } from './components/app.components.module';
 import { AppStoreModule } from './store/app.store.module';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,11 +16,10 @@ import { AppStoreModule } from './store/app.store.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     AppComponentsModule,
-    AppStoreModule
+    AppStoreModule,
+    HttpClientModule
   ],
   providers: [],
-  bootstrap: [
-    AppComponent
-  ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

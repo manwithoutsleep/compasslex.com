@@ -1,0 +1,56 @@
+@import '../../../sass/variables';
+
+.contact-us-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+
+    .contact-us-left-column {
+        margin: 0 4px;
+        max-width: 465px;
+
+        .contact-us-intro {
+            margin-bottom: 12px;
+        }
+    }
+
+    .contact-us-right-column {
+        display: flex;
+        flex-direction: column;
+        margin: 0 0 0 4px;
+        width: 100%;
+        max-width: 473px;
+
+        .contact-us-direction-info {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 0;
+            justify-content: flex-start;
+            width: 100%;
+
+            .contact-us-directions {
+                margin: 0 4px 6px 4px;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            img {
+                margin: 0 4px 0 4px;
+                width: 100%;
+            }
+
+            .contact-us-address {
+                margin: 0 4px 6px 4px;
+            }
+        }
+    }
+}
+
+::ng-deep .contact-us-map {
+    height: 550px;
+    width: 100%;
+    max-width: 465px;
+}

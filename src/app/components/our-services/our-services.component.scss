@@ -1,0 +1,39 @@
+.our-services-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    .our-services-left-column {
+        display: flex;
+        flex-direction: column;
+        width: 275px;
+        div {
+            padding: 8px;
+        }
+    }
+
+    .our-services-images {
+        display: flex;
+        flex-direction: column;
+        div {
+            background-color: #191248;
+            margin-top: 8px;
+            img {
+                border-color: #191248;
+                border-style: solid;
+                border-width: 6px;
+                border-radius: 15px;
+                display: block;
+                height: 164px;
+                margin: 0;
+                padding: 0;
+                width: 227px;
+            }
+        }
+    }
+
+    .our-services-right-column {
+        width: 408px;
+    }
+}

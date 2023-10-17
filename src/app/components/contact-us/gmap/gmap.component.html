@@ -1,0 +1,6 @@
+<google-map [zoom]="map.zoom" [center]="map.center" [options]="map.options" class="g-map" #gMap>
+    <map-marker #markerCompass [position]="marker.position" [label]="marker.label" [title]="marker.title" [options]="marker.options" (mapClick)="openInfoWindow()"></map-marker>
+    <map-info-window #infoWindowCompass [options]="infoWindowOptions">
+        <b>Compass Christian Counseling</b><br />651 Perimeter Drive, Suite 115<br />Lexington, KY 40517
+    </map-info-window>
+</google-map>

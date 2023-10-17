@@ -1,0 +1,24 @@
+@import '../../../sass/variables';
+
+.newsletters-container {    
+    padding: 0 8px;
+
+    .latest-newsletter {
+        cursor: pointer;
+        margin: 12px auto 32px auto;
+        text-align: center;
+        width: 288px;
+    }
+    .newsletters {      
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;  
+        justify-content: space-evenly;
+        img {
+            cursor: pointer;
+            height: 266px;
+            width: 280px;
+            margin: 4px;
+        }
+    }
+}

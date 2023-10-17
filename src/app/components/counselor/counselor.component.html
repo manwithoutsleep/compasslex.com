@@ -1,0 +1,49 @@
+<h2 *ngIf="counselor">{{ getFirstName() }} {{ getLastName() }}</h2>
+
+<div class="counselor-container" *ngIf="counselor">
+
+    <div class="counselor-image">
+        <img src="{{ getImageLink() }}" />
+        <div>
+            {{ getCounselorName() }}<br />
+            <ul>
+                <li *ngFor="let title of counselor?.titles">{{ title }}</li>
+            </ul>
+            Compass Christian Counseling
+            <p>
+                <a class="button" mat-stroked-button color="accent" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
+            </p>
+        </div>
+    </div>
+  
+    <div class="counselor-content">
+        <div [innerHTML]="getLongDescription()"></div>
+  
+        <div *ngIf="counselor.credentials.length">
+            <strong>Educational/Professional</strong>
+            <ul>
+                <li *ngFor="let credential of counselor?.credentials">{{ credential }}</li>
+            </ul>
+        </div>
+  
+        <div *ngIf="counselor.memberships.length">
+            <strong>Member of:</strong>
+            <ul>
+                <li *ngFor="let membership of counselor?.memberships">{{ membership }}</li>
+            </ul>
+        </div>
+  
+        <div *ngIf="counselor.insurance.length">
+            <strong>In Network Provider for:</strong>
+            <ul>
+                <li *ngFor="let insurance of counselor?.insurance">{{ insurance }}</li>
+            </ul>
+        </div>
+  
+        <div>
+            Contact me: <a href="mailto:{{ getEmail() }}" target="_blank">{{ getEmail() }}</a>
+        </div>
+  
+    </div>
+  
+</div>

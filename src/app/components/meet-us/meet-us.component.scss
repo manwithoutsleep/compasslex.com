@@ -1,0 +1,10 @@
+@import '../../../sass/variables';
+
+.meet-us-container {
+    .meet-us-counselors {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+}
