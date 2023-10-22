@@ -1,24 +1,32 @@
 // Colors
-$title-background-color: #191248;
-$margin-background-color: #f2c58a;
-$card-background-color: #fbe3c9;
-$site-background-color: #ffffff;
+$background-color-title: #191248;
+$background-color-margin: #f2c58a;
+$background-color-card: #fbe3c9;
+$background-color-site: #ffffff;
 
-$border-color: $title-background-color;
+$border-color: $background-color-title;
 
-$font-color-light: $card-background-color;
-$font-color-mid: $margin-background-color;
-$font-color-dark: $title-background-color;
-$font-color-compass-navy: #191248;
+$font-color-light: $background-color-card;
+$font-color-mid: $background-color-margin;
+$font-color-dark: $background-color-title;
+$font-color-dark-hightlight: #43208a;
 
 // App Dimensions
-$app-max-width: 980px;
-$app-phone-width: 600px;
+$app-max-width: 1440px;
 $app-min-width: 320px;
+$app-width-small-screen: 600px;
 
-// 1 brown          803909
-// 2 Carrot Orange  ef9622
-// 3 Manhattan      f2c58a
-// 4 Champagne      fbe3c9
-// 5 Spun Pearl     adaabf
-// 6 Prelude        CCC8E4
+// Sample colors
+$brown:          #803909;
+$carrot-orange:  #ef9622;
+$manhattan:      #f2c58a;
+$champagne:      #fbe3c9;
+$spun-pearl:     #adaabf;
+$prelude:        #ccc8e4;
+
+// Triadic palette from #191248:
+$color-one: #191248;
+$color-two: #43208a;
+$color-three: #b0379c;
+$color-four: #e06c74;
+$color-five: #f9d423;

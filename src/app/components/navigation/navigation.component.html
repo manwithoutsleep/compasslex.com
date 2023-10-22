@@ -1,32 +1,29 @@
 <div class="navigation-container mat-typography">
-    <div class="navigation-top-section">
-        <mat-toolbar color="primary" class="navigation-header mat-elevation-z4">
-            <h1 class="navigation-header-phone">
-                <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <a routerLink="/"><img src="/assets/site-images/CompassLogoSmall.png" alt="Compass Christian Counseling"></a>
-                <a routerLink="/"><img src="/assets/site-images/CompassIconSmall.png" alt="Compass Christian Counseling"></a>
-            </h1>
-            <div class="navigation-header-browser">
-                <h1><a routerLink="/"><img src="/assets/site-images/CompassLogoAndIcon.png" alt="Compass Christian Counseling"></a></h1>
-                <div class="navigation-address">
-                    Compass Christian Counseling<br />
-                    651 Perimeter Drive, Suite 115<br />
-                    Lexington, KY 40517<br />
+    <header color="primary" class="navigation-header mat-elevation-z4">
+        <h1 class="navigation-header-small-screen">
+            <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <a routerLink="/"><img src="/assets/site-images/CompassLogoSmall.png" alt="Compass Christian Counseling"></a>
+            <a routerLink="/"><img src="/assets/site-images/CompassIconSmall.png" alt="Compass Christian Counseling"></a>
+        </h1>
+        <div class="navigation-header-large-screen">
+            <h1><a routerLink="/"><img src="/assets/site-images/CompassLogoAndIcon.png" alt="Compass Christian Counseling"></a></h1>
+            <div class="navigation-header-right">
+                <div class="navigation-contact-info">
                     (859) 721-3259
                 </div>
+                <div class="navigation-top-menu">
+                    <button routerLink="/meet-us">Meet Us</button>
+                    <button routerLink="/our-services">Our Services</button>
+                    <button routerLink="/faq">FAQ</button>
+                    <button routerLink="/getting-started">Getting Started</button>
+                    <button routerLink="/resources">Resources</button>
+                    <button routerLink="/contact-us">Contact Us</button>
+                </div>
             </div>
-        </mat-toolbar>
-        <mat-toolbar class="navigation-top-menu">
-            <button routerLink="/meet-us">Meet Us</button>
-            <button routerLink="/our-services">Our Services</button>
-            <button routerLink="/faq">FAQ</button>
-            <button routerLink="/getting-started">Getting Started</button>
-            <button routerLink="/resources">Resources</button>
-            <button routerLink="/contact-us">Contact Us</button>
-        </mat-toolbar>
-    </div>
+        </div>
+    </header>
     <mat-sidenav-container class="navigation-sidenav-container">
         <mat-sidenav class="navigation-sidenav" #sidenav mode="over" fixedInViewport="true" fixedTopGap="56">
             <mat-nav-list class="navigation-sidenav-list">
@@ -39,8 +36,22 @@
                 <a class="navigation-sidenav-link" routerLink="/contact-us" (click)=sidenav.toggle()>Contact Us</a>
             </mat-nav-list>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <mat-sidenav-content class="navigation-sidenav-content">
             <router-outlet></router-outlet>
+            <footer class="navigation-sidenav-footer">
+                <div class="navigation-sidenav-footer-address">
+                    <div class="address">
+                        Compass Christian Counseling<br />
+                        651 Perimeter Drive, Suite 115<br />
+                        Lexington, KY 40517<br />
+                        (859) 721-3259<br />
+                    </div>
+                    <img src="/assets/site-images/contactus-building_267x160.jpg" alt="building" />
+                </div>
+                <div class="navigation-sidenav-footer-map">
+                    <app-gmap class="footer-map"></app-gmap>
+                </div>
+            </footer>
         </mat-sidenav-content>
     </mat-sidenav-container>
 </div>

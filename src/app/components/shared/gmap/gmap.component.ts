@@ -10,6 +10,10 @@ export class GmapComponent implements OnInit {
     @ViewChild('infoWindowCompass', { static: false }) infoWindow: MapInfoWindow | undefined;
     @ViewChild('markerCompass', { static: false }) mapMarker: MapMarker | undefined;
 
+    constructor() {}
+
+    ngOnInit(): void {}
+
     // angular-google-maps (AGM) is not supported with Angular 12+
     // https://github.com/SebastianM/angular-google-maps
     // 
@@ -72,6 +76,4 @@ export class GmapComponent implements OnInit {
             this.infoWindow.open(this.mapMarker);
         }
     }
-
-    ngOnInit(): void { }
 }

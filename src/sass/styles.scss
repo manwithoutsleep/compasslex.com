@@ -2,7 +2,7 @@
 
 html,
 body {
-    background-color: $margin-background-color;
+    background-color: $background-color-margin;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -29,7 +29,7 @@ div, p {
 }
 
 h2 {
-    background-color: $title-background-color;
+    background-color: $background-color-title;
     color: $font-color-light;
     margin: 0;
     padding: 6px 12px;
@@ -55,13 +55,13 @@ button {
 }
 
 .button {
-    color: $title-background-color;
-    background-color: $margin-background-color;
+    color: $background-color-title;
+    background-color: $background-color-margin;
     font-weight: bold;
 }
 
 .ui-card {
-    border: 3px solid $title-background-color;
+    border: 3px solid $background-color-title;
     border-radius: 4px;
     box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
     margin: 4px;
@@ -70,7 +70,7 @@ button {
     .ui-card-title {
         align-content: center;
         align-items: center;
-        background-color: $title-background-color;
+        background-color: $background-color-title;
         color: $font-color-light;
         display: flex;
         font-size: 18px;
