@@ -174,46 +174,67 @@ $app-navigation-contact-info-height-large-screen: 50px;
             }
         }
         .navigation-sidenav-content {
-            .navigation-sidenav-footer {
-                align-items: center;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-evenly;
-                margin: 0 auto;
-                max-width: $app-max-width;
-                padding: 0 0 16px 0;
-                .navigation-sidenav-footer-address {
-                    display: flex;
-                    flex-direction: column;
-                    .address {
-                        font-size: 18px;
-                        line-height: 30px;
-                    }
-                }
-                .navigation-sidenav-footer-map {
-                    align-items: center;
-                    display: flex;
-                    flex-direction: column;
-                    @media screen and (max-width: $app-width-small-screen) {
-                        // Small screen
-                        width: 100%;
-                    }
-                    @media screen and (min-width: $app-width-small-screen) {
-                        // Large screen
-                        height: 500px;
-                        width: 100%;
-                        max-width: 465px;
-                    }
-                }
+            
+            @media screen and (max-width: $app-width-small-screen) {
+                // Small screen
+                display: none;
+                margin-top: $app-navigation-header-height-small-screen;
+            }
+            @media screen and (min-width: $app-width-small-screen) {
+                // Large screen
+                margin-top: 0;
             }
         }
     }
-  
+
     .compass-is-mobile .navigation-sidenav-container {
         /*  When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
             `<body>` to be our scrolling element for mobile layouts. */
         flex: 1 0 auto;
+    }
+
+    .navigation-footer {
+        align-items: center;
+        background-size: cover;
+        background-color: transparent;
+        background-image: url("/assets/site-images/footer-horizon.jpg");
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: 0 auto;
+        padding: 0 0 16px 0;
+        width: 100%;
+        .fadeTop{
+            height:30px;width:100%;position:absolute;left:0; top:0;
+            background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+            background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+            background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+            background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+        }
+        .navigation-footer-address {
+            display: flex;
+            flex-direction: column;
+            .address {
+                font-size: 18px;
+                line-height: 30px;
+            }
+        }
+        .navigation-footer-map {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            @media screen and (max-width: $app-width-small-screen) {
+                // Small screen
+                width: 100%;
+            }
+            @media screen and (min-width: $app-width-small-screen) {
+                // Large screen
+                width: 100%;
+                max-width: 465px;
+            }
+        }
     }
 }
 

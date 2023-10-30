@@ -10,16 +10,14 @@ import { Newsletter } from 'src/app/models/newsletter';
 export class HomePageComponent implements OnInit {
     @Input() latestNewsletter: Newsletter | null | undefined;
 
-    rotatorImageIndex = 0;
+    rotatorImageIndex = 1;
 
     constructor() {
         setInterval(() => {
-            if (this.rotatorImageIndex === 4) {
-                this.rotatorImageIndex = 0;
-            } else {
-                this.rotatorImageIndex += 1;
-            }
-        }, 6000);
+            // Get the next image in the array
+            this.rotatorImageIndex = (this.rotatorImageIndex % 5) + 1;
+            console.log("Rotator image index: " + this.rotatorImageIndex);
+        }, 5000);
     }
 
     ngOnInit(): void { }

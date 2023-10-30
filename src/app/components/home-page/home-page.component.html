@@ -1,49 +1,73 @@
 <div class="home-page-container">
 
-    <div class="home-page-left-column">
+    <div class="home-page-rotator">
+        <p class="rotator-text">Sometimes you just need a little help along the way</p>
+        <div id="rotator-item-1" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 1}" style="background-image: url(/assets/slider-images/slider-image-1.jpg);"></div>
+        <div id="rotator-item-2" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 2}" style="background-image: url(/assets/slider-images/slider-image-2.jpg);"></div>
+        <div id="rotator-item-3" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 3}" style="background-image: url(/assets/slider-images/slider-image-3.jpg);"></div>
+        <div id="rotator-item-4" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 4}" style="background-image: url(/assets/slider-images/slider-image-4.jpg);"></div>
+        <div id="rotator-item-5" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 5}" style="background-image: url(/assets/slider-images/slider-image-5.jpg);"></div>
+    </div>
 
-        <mat-tab-group [selectedIndex]="getRotatorImageIndex()" animationDuration="3000ms" class="home-page-rotator">
-            <mat-tab>
-                <ng-template mat-tab-label></ng-template>
-                <img class="home-page-rotator-image" src="/assets/slider-images/slider-image-1.jpg" />
-                <div><p>Sometimes you just need a little help along the way</p></div>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label></ng-template>
-                <img class="home-page-rotator-image" src="/assets/slider-images/slider-image-2.jpg" />
-                <div><p>Sometimes you just need a little help along the way</p></div>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label></ng-template>
-                <img class="home-page-rotator-image" src="/assets/slider-images/slider-image-3.jpg" />
-                <div><p>Sometimes you just need a little help along the way</p></div>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label></ng-template>
-                <img class="home-page-rotator-image" src="/assets/slider-images/slider-image-4.jpg" />
-                <div><p>Sometimes you just need a little help along the way</p></div>
-            </mat-tab>
-            <mat-tab>
-                <ng-template mat-tab-label></ng-template>
-                <img class="home-page-rotator-image" src="/assets/slider-images/slider-image-5.jpg" />
-                <div><p>Sometimes you just need a little help along the way</p></div>
-            </mat-tab>
-        </mat-tab-group>
-
-        <div class="ui-card home-page-content">
-            <div class="ui-card-title">Welcome!</div>
-            <div class="ui-card-body">
-                <p>
-                    At Compass Christian Counseling our goal is to provide a safe and supportive place for individuals,
-                    couples, and families to find hope and healing.  You might be looking for extra support and guidance
-                    through a challenging situation or are ready to take steps in a new direction.  The first thing we'll
-                    do is listen without judgment.  Then, we'll walk alongside of you on your journey.  Together we will
-                    create solutions and new possibilities that will help you reach your goals.  We all have a unique path
-                    we take through life&hellip; and sometimes we just need a little help along the way.
-                </p>
+    <div class="home-page-content">
+        <div class="content-row row-1">
+            <div class="text">
+                <div class="home-page-text-box">
+                    <h2>First home page message</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                        est laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="text">
+                <div class="home-page-text-box">
+                    <h2>Some info about Compass Christian Counseling</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+                    <p>Ut enim ad minim veniam</p>
+                    <p>350 voluptate velit</p>
+                    <p>officia deserunt mollit anim</p>
+                </div>
             </div>
         </div>
 
+        <div class="content-row row-2">
+            <div class="image" style="background-image: url(/assets/site-images/placeholder-image.png);"></div>
+            <div class="text">
+                <div class="home-page-text-box">
+                    <h2>Second home page message</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                        est laborum.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-row row-3">
+            <div class="text">
+                <div class="home-page-text-box">
+                    <h2>Third message on the home page</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                        ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                        est laborum.
+                    </p>
+                </div>
+            </div>
+            <div class="image" style="background-image: url(/assets/site-images/placeholder-image.png)"></div>
+        </div>
     </div>
 
 </div>

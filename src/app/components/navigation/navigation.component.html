@@ -38,20 +38,21 @@
         </mat-sidenav>
         <mat-sidenav-content class="navigation-sidenav-content">
             <router-outlet></router-outlet>
-            <footer class="navigation-sidenav-footer">
-                <div class="navigation-sidenav-footer-address">
-                    <div class="address">
-                        Compass Christian Counseling<br />
-                        651 Perimeter Drive, Suite 115<br />
-                        Lexington, KY 40517<br />
-                        (859) 721-3259<br />
-                    </div>
-                    <img src="/assets/site-images/contactus-building_267x160.jpg" alt="building" />
-                </div>
-                <div class="navigation-sidenav-footer-map">
-                    <app-gmap class="footer-map"></app-gmap>
-                </div>
-            </footer>
         </mat-sidenav-content>
     </mat-sidenav-container>
+    <footer class="navigation-footer">
+        <div class="fade-top"></div>
+        <div class="navigation-footer-address">
+            <div class="address">
+                Compass Christian Counseling<br />
+                651 Perimeter Drive, Suite 115<br />
+                Lexington, KY 40517<br />
+                (859) 721-3259<br />
+            </div>
+            <img src="/assets/site-images/contactus-building_267x160.jpg" alt="building" />
+        </div>
+        <div class="navigation-footer-map">
+            <app-gmap class="footer-map"></app-gmap>
+        </div>
+    </footer>
 </div>
