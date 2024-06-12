@@ -3,6 +3,9 @@ import { NavigationComponent } from './navigation.component';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ActivatedRoute } from '@angular/router';
+import { SharedFakeModule } from '../shared/shared.fake.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { GmapFakeComponent } from '../shared/gmap/gmap.fake.component';
 
 describe('NavigationComponent', () => {
     let component: NavigationComponent;
@@ -12,10 +15,13 @@ describe('NavigationComponent', () => {
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             declarations: [
-                NavigationComponent
+                NavigationComponent,
+                GmapFakeComponent
             ],
             imports: [
-                RouterTestingModule
+                RouterTestingModule,
+                SharedFakeModule,
+                NoopAnimationsModule
             ],
             providers: [
                 { provide: ActivatedRoute, useValue: mockActivatedRoute }

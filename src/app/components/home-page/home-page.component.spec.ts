@@ -23,9 +23,9 @@ describe('HomePageComponent', () => {
     });
 
     describe('getRotatorImageIndex', () => {
-        it('should return zero', () => {
+        it('should return one', () => {
             const actual = component.getRotatorImageIndex();
-            expect(actual).toEqual(0);
+            expect(actual).toEqual(1);
         });
     });
 

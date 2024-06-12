@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
 import { Newsletter } from 'src/app/models/newsletter';
 
 @Component({

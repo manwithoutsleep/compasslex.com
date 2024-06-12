@@ -1,6 +1,7 @@
 import { TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { NavigationFakeComponent } from './components/navigation/navigation.fake.component';
 
 describe('AppComponent', () => {
   beforeEach(waitForAsync(() => {
@@ -9,7 +10,8 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        NavigationFakeComponent
       ],
     }).compileComponents();
   }));

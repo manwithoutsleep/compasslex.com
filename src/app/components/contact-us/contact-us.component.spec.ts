@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ContactUsComponent } from './contact-us.component';
+import { GmapFakeComponent } from '../shared/gmap/gmap.fake.component';
 
 describe('ContactUsComponent', () => {
   let component: ContactUsComponent;
@@ -7,7 +8,10 @@ describe('ContactUsComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ContactUsComponent ]
+      declarations: [
+        ContactUsComponent,
+        GmapFakeComponent
+      ]
     })
     .compileComponents();
   }));
