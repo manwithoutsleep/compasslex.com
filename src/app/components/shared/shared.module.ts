@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { AppMaterialModule } from './app.material.module';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { CommonModule } from '@angular/common';
-import { GoogleMapsModule } from '@angular/google-maps';
 import { GmapComponent } from './gmap/gmap.component';
 
 @NgModule({
@@ -12,8 +11,7 @@ import { GmapComponent } from './gmap/gmap.component';
     ],
     imports: [
         AppMaterialModule,
-        CommonModule,
-        GoogleMapsModule
+        CommonModule
     ],
     exports: [
         AppMaterialModule,

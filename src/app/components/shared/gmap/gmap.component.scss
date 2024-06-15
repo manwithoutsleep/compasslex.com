@@ -1,22 +1,9 @@
 @import '../../../../sass/variables';
 
-.g-map {
+#map {
     background-color: $background-color-card;
-    height: 500px;
+    height: 400px;
     width: 465px;
     max-width: 465px;
     margin: 0 4px 4px 4px;
-
-}
-
-div.map-container {
-    height: 500px;
-    width: 465px;
-    max-width: 465px;
-}
-
-::ng-deep .map-container {
-    height: 500px;
-    width: 465px;
-    max-width: 465px;
 }

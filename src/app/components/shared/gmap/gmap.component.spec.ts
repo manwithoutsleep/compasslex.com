@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { MapInfoWindow, MapMarker } from '@angular/google-maps';
 import { GmapComponent } from './gmap.component';
 
 describe('GmapComponent', () => {
@@ -9,9 +8,7 @@ describe('GmapComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
-          GmapComponent,
-          MapInfoWindow,
-          MapMarker
+          GmapComponent
         ]
     })
     .compileComponents();
@@ -23,7 +20,7 @@ describe('GmapComponent', () => {
     fixture.detectChanges();
   });
 
-  xit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 });
