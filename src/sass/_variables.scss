@@ -1,20 +1,29 @@
-// Colors
-$background-color-title: #191248;
-$background-color-margin: #f2c58a;
-$background-color-card: #fbe3c9;
-$background-color-site: #ffffff;
-
+// New site colors
+$polar-mist: #ddeff7;
 $bengal-blue: #b1cfdd;
 $raspberry-smoothie: #c6a3b3;
 $north-pole-blue: #709eb4;
 $ultra-pure-white: #f8f9f3;
 
+// Old site colors
+$deep-sapphire: #191248;   // formerly $background-color-title
+$warm-sand: #f2c58a;       // formerly $background-color-margin
+$peach-puff: #fbe3c9;      // formerly $background-color-card
+$pure-white: #ffffff;      // formerly $background-color-site
+$royal-indigo: #43208a;    // formerly $font-color-dark-hightlight
+
+// Colors
+$background-color-title: $deep-sapphire;
+$background-color-margin: $raspberry-smoothie;
+$background-color-card: $bengal-blue;
+$background-color-site: $pure-white;
+
 $border-color: $background-color-title;
 
-$font-color-light: $background-color-card;
+$font-color-light: $polar-mist;
 $font-color-mid: $background-color-margin;
 $font-color-dark: $background-color-title;
-$font-color-dark-hightlight: #43208a;
+$font-color-dark-hightlight: $royal-indigo;
 
 // App Dimensions
 $app-max-width: 1440px;
