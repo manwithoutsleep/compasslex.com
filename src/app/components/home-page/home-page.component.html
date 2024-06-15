@@ -7,6 +7,11 @@
         <div id="rotator-item-3" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 3}" style="background-image: url(/assets/slider-images/slider-image-3.jpg);"></div>
         <div id="rotator-item-4" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 4}" style="background-image: url(/assets/slider-images/slider-image-4.jpg);"></div>
         <div id="rotator-item-5" class="rotator-item" [ngClass] = "{active: this.rotatorImageIndex === 5}" style="background-image: url(/assets/slider-images/slider-image-5.jpg);"></div>
+        <!--
+            Could make these different Z values,
+            use animations to change the transparency of the front one revealing the next one,
+            then move the transparent front one to the back and the rest up by one
+        -->
     </div>
 
     <div class="home-page-content">

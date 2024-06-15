@@ -15,11 +15,12 @@ export class HomePageComponent implements OnInit {
         setInterval(() => {
             // Get the next image in the array
             this.rotatorImageIndex = (this.rotatorImageIndex % 5) + 1;
-            console.log("Rotator image index: " + this.rotatorImageIndex);
-        }, 5000);
+        }, 7000);
     }
 
-    ngOnInit(): void { }
+    ngOnInit(): void {        
+        this.loadImages();
+     }
 
     public getRotatorImageIndex(): number {
         return this.rotatorImageIndex;
@@ -61,6 +62,21 @@ export class HomePageComponent implements OnInit {
                 return 'Winter ';
             default:
                 return '';
+        }
+    }
+
+    images = [
+        "/assets/slider-images/slider-image-1.jpg",
+        "/assets/slider-images/slider-image-2.jpg",
+        "/assets/slider-images/slider-image-3.jpg",
+        "/assets/slider-images/slider-image-4.jpg",
+        "/assets/slider-images/slider-image-5.jpg"
+    ];
+
+    loadImages(){
+        for(let i = 0; i < this.images.length; i++){
+            let img = new Image();
+            img.src = this.images[i];
         }
     }
 }
