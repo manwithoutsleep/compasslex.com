@@ -37,8 +37,6 @@ $rotator-large-screen-width-break: 1100px;
 
             @media screen and (max-width: $app-width-small-screen) {
                 // Small screen
-                font-size: 16px;
-                line-height: 18px;
                 top: max(124px, calc(160px + (0.33 * min(0px, calc(100vw - $rotator-small-screen-width-break)))));
                 width: 100%;
             }
@@ -123,8 +121,6 @@ $rotator-large-screen-width-break: 1100px;
                     }
                     p {
                         background-color: transparent;
-                        font-size: 1.2em;
-                        line-height: 1.2em;
                         margin: 0;
                         padding: 8px;
                     }

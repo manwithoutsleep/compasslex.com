@@ -107,7 +107,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
                     flex-direction: row;
                     flex-wrap: wrap;
                     justify-content: space-around;
-                    font-size: 20px;
+                    font-size: 1.3em;
                     line-height: 50px;
                     padding: 0 32px;
                     text-align: center;
@@ -141,7 +141,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
                         background: transparent;
                         color: $font-color-dark;
                         display: flex;
-                        font-size: 20px;
+                        font-size: 1.3em;
                         font-weight: 400;
                         outline: none;
                         padding: 0 4px;
@@ -173,7 +173,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
                     color: $font-color-dark;
                     display: flex;
                     flex-direction: row;
-                    font-size: 20px;
+                    font-size: 1.3em;
                     font-weight: 700;
                     height: 48px;
                     line-height: 20px;
@@ -230,7 +230,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
             flex-direction: column;
             margin-bottom: 4px;
             .address {
-                font-size: 18px;
+                font-size: 1.1em;
                 line-height: 30px;
             }
         }
@@ -253,7 +253,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
 
 /* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version.*/
 ::ng-deep .mat-list-item-content {
-    font-size: 20px;
+    font-size: 1.3em;
     font-weight: 100;
 
     @media screen and (max-width: $app-width-small-screen) {

@@ -38,12 +38,42 @@
             }
 
             img {
-                margin: 0 4px 0 4px;
-                width: 100%;
+                @media screen and (max-width: $app-width-small-screen) {
+                    // Small screen
+                    display: none;
+                }
+                @media screen and (min-width: $app-width-small-screen) {
+                    // Large screen
+                    display: block;
+                    margin: 0 4px 0 4px;
+                    width: 100%;
+                }
             }
 
             .contact-us-address {
-                margin: 0 4px 6px 4px;
+                @media screen and (max-width: $app-width-small-screen) {
+                    // Small screen
+                    display: none;
+                }
+                @media screen and (min-width: $app-width-small-screen) {
+                    // Large screen
+                    display: block;
+                    margin: 0 4px 6px 4px;
+                }
+            }
+        }
+
+        .contact-us-map {
+            @media screen and (max-width: $app-width-small-screen) {
+                // Small screen
+                display: none;
+            }
+            @media screen and (min-width: $app-width-small-screen) {
+                // Large screen
+                border: 0;
+                display: block;
+                margin: 0;
+                padding: 0;
             }
         }
     }
