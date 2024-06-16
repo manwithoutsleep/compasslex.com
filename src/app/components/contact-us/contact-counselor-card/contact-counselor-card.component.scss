@@ -1,3 +1,5 @@
+@import '../../../../sass/variables';
+
 .contact-counselor-card-container {
     display: flex;
     flex-direction: row;
@@ -22,9 +24,19 @@
         }
     
         .contact-counselor-card-appt-button {
+            background-color: $ultra-pure-white;
+            border: 1px outset;
+            border-color: $background-color-title;
+            border-radius: 3px;
+            color: $font-color-dark;
+            display: block;
+            font-weight: bold;
             line-height: 1.2em;
             padding-bottom: 5px;
             padding-top: 5px;
+            text-align: center;
+            text-decoration: none;
+            width: auto;
     }
     
         button {
