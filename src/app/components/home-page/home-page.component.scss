@@ -59,6 +59,7 @@ $rotator-large-screen-width-break: 1100px;
             animation-name: home-page-image-animation;
             animation-timing-function: ease-in-out;
             background-color: transparent;
+            background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             display: none;
@@ -89,7 +90,7 @@ $rotator-large-screen-width-break: 1100px;
             min-height: 250px;
             width: 100%;
             .image {
-                background-position: center center;
+                background-position: top center;
                 background-repeat: no-repeat;
                 background-size: cover;
                 flex: 1;
