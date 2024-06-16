@@ -33,6 +33,7 @@ export class GmapComponent implements OnInit {
                 center: position,
                 mapId: 'CompassMapId',
                 zoom: 14,
+                gestureHandling: "cooperative"
             });
 
             const anchor = new AdvancedMarkerElement({
