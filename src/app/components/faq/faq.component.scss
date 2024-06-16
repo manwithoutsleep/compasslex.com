@@ -1,7 +1,12 @@
+@import '../../../sass/variables';
+
 .faq-container {
+    margin: 0 auto;
     padding: 0 8px;
+    max-width: $app-max-width;
+
     h3 {
-        color: #803909;
+        color: $font-color-dark;
         font-style: italic;
         font-weight: bold;
         line-height: 22px;

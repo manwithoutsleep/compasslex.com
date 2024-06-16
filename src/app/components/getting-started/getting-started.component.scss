@@ -1,14 +1,35 @@
+@import '../../../sass/variables';
+
 .getting-started-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: $app-max-width;
 
     .getting-started-left-column {
         width: 255px;
-        button {
-            width: 100%;
-            margin: 4px 0;
+        .getting-started-button {
+            background-color: $ultra-pure-white;
+            border: 1px outset;
+            border-color: $background-color-title;
+            border-radius: 3px;
+            color: $font-color-dark;
+            display: block;
+            font-weight: bold;
+            line-height: 1.2em;
+            margin: 0 0 8px 0;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            text-align: center;
+            text-decoration: none;
+            width: auto;
+            &:hover {
+                transition: all 0.3s ease-in-out;
+                text-shadow: $background-color-card 0 0 3px, #aaaaff 0 0 5px, $background-color-title 0 0 25px;
+                cursor: pointer;
+            }
         }
     }
 

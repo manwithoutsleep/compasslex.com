@@ -1,8 +1,12 @@
+@import '../../../sass/variables';
+
 .our-services-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 0 auto;
+    max-width: $app-max-width;
 
     .our-services-left-column {
         display: flex;
