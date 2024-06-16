@@ -30,4 +30,7 @@ export class CounselorFakeComponent {
     getDirectoryId(): string {
         return "irrelevant counselor directory id";
     }
+    getAppointmentLink(): string {
+        return "irrelevant appointment link";
+    }
 }
