@@ -204,11 +204,6 @@ $app-navigation-contact-info-height-large-screen: 50px;
 
     .navigation-footer {
         align-items: center;
-        background-size: contain;
-        background-color: transparent;
-        background-image: url("/assets/site-images/footer-horizon.jpg");
-        background-position: bottom;
-        background-repeat: no-repeat;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -216,9 +211,24 @@ $app-navigation-contact-info-height-large-screen: 50px;
         margin: 0 auto;
         padding: 0 0 16px 0;
         width: 100%;
+
+        @media screen and (max-width: $app-width-small-screen) {
+            // Small screen
+            background-color: transparent;
+        }
+        @media screen and (min-width: $app-width-small-screen) {
+            // Large screen
+            background-size: contain;
+            background-color: transparent;
+            background-image: url("/assets/site-images/footer-horizon.jpg");
+            background-position: bottom;
+            background-repeat: no-repeat;
+        }
+
         .navigation-footer-address {
             display: flex;
             flex-direction: column;
+            margin-bottom: 4px;
             .address {
                 font-size: 18px;
                 line-height: 30px;
