@@ -124,7 +124,13 @@ $rotator-large-screen-width-break: 1100px;
                         margin: 0;
                         padding: 8px;
                     }
-                }
+                    p.intro {
+                        font-size: 1.2em;
+                        line-height: 1.3em;
+                        max-width: 750px;
+                        margin: 0 auto;
+                    }
+            }
 
                 @media screen and (max-width: $app-width-small-screen) {
                     // Small screen
@@ -136,13 +142,16 @@ $rotator-large-screen-width-break: 1100px;
         }
 
         .row-1 {
-            background-color: $ultra-pure-white;
+            background-color: transparent;
         }
         .row-2 {
             background-color: $bengal-blue;
         }
         .row-3 {
             background-color: $raspberry-smoothie;
+        }
+        .row-4 {
+            background-color: $ultra-pure-white;
         }
 }
 
