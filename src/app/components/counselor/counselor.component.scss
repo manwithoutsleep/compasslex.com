@@ -1,14 +1,16 @@
 @import '../../../sass/variables';
 
 .counselor-container {
-    justify-content: space-between;
-    padding: 4px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 8px;
+    max-width: $app-max-width;
 
     .counselor-image {
-        display: flex;
-        flex-direction: column;
-        float: left;
-        margin: 0 8px 16px 0;
+        margin: 0 18px 16px 0;
         width: 227px;
 
         img {
@@ -16,6 +18,7 @@
             border-radius: 15px;
             border-style: solid;
             border-width: 3px;
+            margin-bottom: 6px;
         }
 
         ul {
@@ -23,21 +26,26 @@
             margin: 0;
             padding: 0;
         }
-        p {
-            margin-top: 5px;
+        
+        .counselor-appt-button {
+            background-color: $ultra-pure-white;
+            border: 1px outset;
+            border-color: $background-color-title;
+            border-radius: 3px;
+            color: $font-color-dark;
+            display: block;
+            font-weight: bold;
+            line-height: 1.2em;
+            margin-top: 12px;
+            padding-bottom: 5px;
+            padding-top: 5px;
             text-align: center;
-
-            a {
-                line-height: 1.2em;
-                padding-bottom: 5px;
-                padding-top: 5px;
-            }
+            text-decoration: none;
+            width: auto;
         }
     }
 
     .counselor-content {
-        display: flex;
-        flex-direction: column;
         min-width: 250px;
         max-width: 730px;
 

@@ -10,9 +10,7 @@
                 <li *ngFor="let title of counselor?.titles">{{ title }}</li>
             </ul>
             Compass Christian Counseling
-            <p>
-                <a class="button" mat-stroked-button color="accent" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
-            </p>
+            <a class="counselor-appt-button" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
         </div>
     </div>
   
