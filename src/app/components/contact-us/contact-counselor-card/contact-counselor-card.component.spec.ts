@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { ContactCounselorCardComponent } from './contact-counselor-card.component';
 import { counselorBuilder } from 'src/app/models/builders/counselor-builder';
