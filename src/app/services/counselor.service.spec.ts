@@ -1,9 +1,10 @@
 import { CounselorService } from './counselor.service';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, flushMicrotasks, fakeAsync } from '@angular/core/testing';
 import { CounselorData } from '../models/counselor-data';
 import { counselorBuilder } from '../models/builders/counselor-builder';
 import { environment } from 'src/environments/environment';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CounselorService', () => {
 
@@ -15,13 +16,13 @@ describe('CounselorService', () => {
     beforeEach(() => {
 
         TestBed.configureTestingModule({
-            imports: [
-                HttpClientTestingModule
-            ],
-            providers: [
-                CounselorService
-            ]
-        }).compileComponents();
+    imports: [],
+    providers: [
+        CounselorService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
         httpTestingController = TestBed.inject(HttpTestingController);
         sut = TestBed.inject(CounselorService);
     });

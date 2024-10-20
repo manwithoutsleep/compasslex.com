@@ -1,9 +1,10 @@
 import { NewsletterService } from './newsletter.service';
-import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed, flushMicrotasks, fakeAsync } from '@angular/core/testing';
 import { NewsletterData } from '../models/newsletter-data';
 import { newsletterBuilder } from '../models/builders/newsletter-builder';
 import { environment } from 'src/environments/environment';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NewsletterService', () => {
 
@@ -15,13 +16,13 @@ describe('NewsletterService', () => {
     beforeEach(() => {
 
         TestBed.configureTestingModule({
-            imports: [
-                HttpClientTestingModule
-            ],
-            providers: [
-                NewsletterService
-            ]
-        }).compileComponents();
+    imports: [],
+    providers: [
+        NewsletterService,
+        provideHttpClient(withInterceptorsFromDi()),
+        provideHttpClientTesting()
+    ]
+}).compileComponents();
         httpTestingController = TestBed.inject(HttpTestingController);
         sut = TestBed.inject(NewsletterService);
     });
