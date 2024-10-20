@@ -6,10 +6,18 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { ContactCounselorCardComponent } from './contact-counselor-card/contact-counselor-card.component';
 import { provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 
-@NgModule({ declarations: [
+@NgModule({
+    declarations: [
         ContactUsControllerComponent,
         ContactUsComponent,
         ContactCounselorCardComponent
-    ], imports: [SharedModule,
-        AppRoutingModule], providers: [provideHttpClient(withInterceptorsFromDi(), withJsonpSupport())] })
+    ], 
+    imports: [
+        SharedModule,
+        AppRoutingModule
+    ],
+    providers: [
+        provideHttpClient(withInterceptorsFromDi(), withJsonpSupport())
+    ]
+})
 export class ContactUsModule { }
