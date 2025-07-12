@@ -8,7 +8,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 
 describe('CounselorService', () => {
 
-    const baseUrl = environment.currentBaseUrl + '/counselor';
+    const baseUrl = '../assets/data/counselor.json';
 
     let sut: CounselorService;
     let httpTestingController: HttpTestingController;
