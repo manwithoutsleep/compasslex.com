@@ -1,7 +1,11 @@
 <h2>Meet Us</h2>
 
 <div class="meet-us-container">
-    <div *ngIf="counselorList && counselorList.length > 0" class="meet-us-counselors">
-        <app-meet-counselor-card *ngFor="let counselor of counselorList" [counselor]="counselor"></app-meet-counselor-card>
+  @if (counselorList && counselorList.length > 0) {
+    <div class="meet-us-counselors">
+      @for (counselor of counselorList; track counselor) {
+        <app-meet-counselor-card [counselor]="counselor"></app-meet-counselor-card>
+      }
     </div>
+  }
 </div>

@@ -1,47 +1,57 @@
-<h2 *ngIf="counselor">{{ getFirstName() }} {{ getLastName() }}</h2>
+@if (counselor) {
+  <h2>{{ getFirstName() }} {{ getLastName() }}</h2>
+}
 
-<div class="counselor-container" *ngIf="counselor">
-
+@if (counselor) {
+  <div class="counselor-container">
     <div class="counselor-image">
-        <img src="{{ getImageLink() }}" />
-        <div>
-            {{ getCounselorName() }}<br />
-            <ul>
-                <li *ngFor="let title of counselor?.titles">{{ title }}</li>
-            </ul>
-            Compass Christian Counseling
-            <a class="counselor-appt-button" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
-        </div>
+      <img src="{{ getImageLink() }}" />
+      <div>
+        {{ getCounselorName() }}<br />
+        <ul>
+          @for (title of counselor?.titles; track title) {
+            <li>{{ title }}</li>
+          }
+        </ul>
+        Compass Christian Counseling
+        <a class="counselor-appt-button" href="{{ getAppointmentLink() }}" target="_blank">Make an appointment<br />with {{ getFirstName() }}</a>
+      </div>
     </div>
-  
     <div class="counselor-content">
-        <div [innerHTML]="getLongDescription()"></div>
-  
-        <div *ngIf="counselor.credentials.length">
-            <strong>Educational/Professional</strong>
-            <ul>
-                <li *ngFor="let credential of counselor?.credentials">{{ credential }}</li>
-            </ul>
-        </div>
-  
-        <div *ngIf="counselor.memberships.length">
-            <strong>Member of:</strong>
-            <ul>
-                <li *ngFor="let membership of counselor?.memberships">{{ membership }}</li>
-            </ul>
-        </div>
-  
-        <div *ngIf="counselor.insurance.length">
-            <strong>In Network Provider for:</strong>
-            <ul>
-                <li *ngFor="let insurance of counselor?.insurance">{{ insurance }}</li>
-            </ul>
-        </div>
-  
+      <div [innerHTML]="getLongDescription()"></div>
+      @if (counselor.credentials.length) {
         <div>
-            Contact me: <a href="mailto:{{ getEmail() }}" target="_blank">{{ getEmail() }}</a>
+          <strong>Educational/Professional</strong>
+          <ul>
+            @for (credential of counselor?.credentials; track credential) {
+              <li>{{ credential }}</li>
+            }
+          </ul>
         </div>
-  
+      }
+      @if (counselor.memberships.length) {
+        <div>
+          <strong>Member of:</strong>
+          <ul>
+            @for (membership of counselor?.memberships; track membership) {
+              <li>{{ membership }}</li>
+            }
+          </ul>
+        </div>
+      }
+      @if (counselor.insurance.length) {
+        <div>
+          <strong>In Network Provider for:</strong>
+          <ul>
+            @for (insurance of counselor?.insurance; track insurance) {
+              <li>{{ insurance }}</li>
+            }
+          </ul>
+        </div>
+      }
+      <div>
+        Contact me: <a href="mailto:{{ getEmail() }}" target="_blank">{{ getEmail() }}</a>
+      </div>
     </div>
-  
-</div>
+  </div>
+}

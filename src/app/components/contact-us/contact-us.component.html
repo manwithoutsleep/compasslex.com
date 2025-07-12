@@ -2,33 +2,35 @@
 
 <div class="contact-us-container">
 
-    <div class="contact-us-left-column">
-        <div class="contact-us-intro">
-            Call us with questions! Often we are in session and will not
-            be able to answer the phone, but please leave a message and
-            we will make every effort to return your call in a timely manner.
-        </div>
-        
-        <app-contact-counselor-card *ngFor="let counselor of counselorList" [counselor]="counselor"></app-contact-counselor-card>
+  <div class="contact-us-left-column">
+    <div class="contact-us-intro">
+      Call us with questions! Often we are in session and will not
+      be able to answer the phone, but please leave a message and
+      we will make every effort to return your call in a timely manner.
     </div>
 
-    <div class="contact-us-right-column">
-        <div class="contact-us-direction-info">
-            <div class="contact-us-directions">
-                We are located at the corner of New Circle Road and Alumni Drive. Take New Circle Road and exit at Alumni
-                Drive (travel south away from Lexington city center). Take the first left onto Perimeter Drive, 651
-                Perimeter is the six-story glass office building on the left, Suite 115 is on the 1st floor.
-            </div>
-    
-            <div><img src="/assets/site-images/contactus-building_267x160.jpg" alt="building" /></div>
-    
-            <div class="contact-us-address">
-                <strong>Compass Christian Counseling</strong><br />
-                651 Perimeter Drive, Suite 115<br />
-                Lexington, KY 40517<br />
-            </div>
-        </div>
+    @for (counselor of counselorList; track counselor) {
+      <app-contact-counselor-card [counselor]="counselor"></app-contact-counselor-card>
+    }
+  </div>
 
-        <div class="contact-us-map"><app-gmap></app-gmap></div>
+  <div class="contact-us-right-column">
+    <div class="contact-us-direction-info">
+      <div class="contact-us-directions">
+        We are located at the corner of New Circle Road and Alumni Drive. Take New Circle Road and exit at Alumni
+        Drive (travel south away from Lexington city center). Take the first left onto Perimeter Drive, 651
+        Perimeter is the six-story glass office building on the left, Suite 115 is on the 1st floor.
+      </div>
+
+      <div><img src="/assets/site-images/contactus-building_267x160.jpg" alt="building" /></div>
+
+      <div class="contact-us-address">
+        <strong>Compass Christian Counseling</strong><br />
+        651 Perimeter Drive, Suite 115<br />
+        Lexington, KY 40517<br />
+      </div>
     </div>
+
+    <div class="contact-us-map"><app-gmap></app-gmap></div>
+  </div>
 </div>
