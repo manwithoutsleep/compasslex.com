@@ -10,7 +10,7 @@
         <div>
           {{ getCounselorName() }}<br />
           <ul class="counselor-card-titles">
-            @for (title of counselor?.titles; track title) {
+            @for (title of counselor.titles; track title) {
               <li>{{ title }}</li>
             }
           </ul>

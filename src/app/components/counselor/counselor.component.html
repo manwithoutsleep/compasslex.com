@@ -9,7 +9,7 @@
       <div>
         {{ getCounselorName() }}<br />
         <ul>
-          @for (title of counselor?.titles; track title) {
+          @for (title of counselor.titles; track title) {
             <li>{{ title }}</li>
           }
         </ul>
@@ -23,7 +23,7 @@
         <div>
           <strong>Educational/Professional</strong>
           <ul>
-            @for (credential of counselor?.credentials; track credential) {
+            @for (credential of counselor.credentials; track credential) {
               <li>{{ credential }}</li>
             }
           </ul>
@@ -33,7 +33,7 @@
         <div>
           <strong>Member of:</strong>
           <ul>
-            @for (membership of counselor?.memberships; track membership) {
+            @for (membership of counselor.memberships; track membership) {
               <li>{{ membership }}</li>
             }
           </ul>
@@ -43,7 +43,7 @@
         <div>
           <strong>In Network Provider for:</strong>
           <ul>
-            @for (insurance of counselor?.insurance; track insurance) {
+            @for (insurance of counselor.insurance; track insurance) {
               <li>{{ insurance }}</li>
             }
           </ul>
