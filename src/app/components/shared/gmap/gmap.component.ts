@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
     selector: 'app-gmap',
     templateUrl: './gmap.component.html',
     styleUrls: ['./gmap.component.scss'],
+    standalone: false
 })
 export class GmapComponent implements OnInit {
 

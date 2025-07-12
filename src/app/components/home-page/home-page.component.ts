@@ -5,6 +5,7 @@ import { Newsletter } from 'src/app/models/newsletter';
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
+    standalone: false
 })
 export class HomePageComponent implements OnInit {
     @Input() latestNewsletter: Newsletter | null | undefined;

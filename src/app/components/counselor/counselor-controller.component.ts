@@ -17,7 +17,8 @@ import { ActivatedRoute } from '@angular/router';
         [errorTypes]="errors$ | async"
         [messageResolver]="errorMessageResolver">
     </app-error-page>`,
-    styles: []
+    styles: [],
+    standalone: false
 })
 export class CounselorControllerComponent implements OnInit {
     public counselor$ = new Observable<Counselor | null | undefined>();

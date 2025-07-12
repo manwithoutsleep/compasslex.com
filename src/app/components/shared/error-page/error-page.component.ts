@@ -5,6 +5,7 @@ import { StoreStatus } from './resolvers/store-status';
     selector: 'app-error-page',
     templateUrl: './error-page.component.html',
     styleUrls: ['./error-page.component.scss'],
+    standalone: false
 })
 export class ErrorPageComponent implements OnInit {
     @Input() errorTypes: StoreStatus[] | null | undefined;

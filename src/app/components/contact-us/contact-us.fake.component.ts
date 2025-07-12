@@ -3,7 +3,8 @@ import { Counselor } from 'src/app/models/counselor';
 
 @Component({
     selector: 'app-contact-us',
-    template: '<div></div>'
+    template: '<div></div>',
+    standalone: false
 })
 export class ContactUsFakeComponent {
     @Input() counselorList: readonly Counselor[] | null | undefined;

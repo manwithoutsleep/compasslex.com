@@ -5,6 +5,7 @@ import { Newsletter } from 'src/app/models/newsletter';
     selector: 'app-newsletters',
     templateUrl: './newsletters.component.html',
     styleUrls: ['./newsletters.component.scss'],
+    standalone: false
 })
 export class NewslettersComponent implements OnInit {
     @Input() newsletterList: Newsletter[] | null | undefined;

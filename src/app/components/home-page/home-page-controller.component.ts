@@ -20,7 +20,8 @@ import {
         [errorTypes]="errors$ | async"
         [messageResolver]="errorMessageResolver">
     </app-error-page>`,
-    styles: []
+    styles: [],
+    standalone: false
 })
 export class HomePageControllerComponent implements OnInit {
     public latestNewsletter$ = new Observable<Newsletter | null | undefined>();

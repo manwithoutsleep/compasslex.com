@@ -5,6 +5,7 @@ import { Counselor } from 'src/app/models/counselor';
     selector: 'app-contact-counselor-card',
     templateUrl: './contact-counselor-card.component.html',
     styleUrls: ['./contact-counselor-card.component.scss'],
+    standalone: false
 })
 export class ContactCounselorCardComponent implements OnInit {
     @Input() counselor: Counselor | null | undefined;

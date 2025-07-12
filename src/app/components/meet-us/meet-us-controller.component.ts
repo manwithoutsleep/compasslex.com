@@ -16,7 +16,8 @@ import { selectAllCounselors, selectCounselorListLoadState, selectCounselorListS
         [errorTypes]="errors$ | async"
         [messageResolver]="errorMessageResolver">
     </app-error-page>`,
-    styles: []
+    styles: [],
+    standalone: false
 })
 export class MeetUsControllerComponent implements OnInit {
     public counselorList$ = new Observable<readonly Counselor[] | null | undefined>();

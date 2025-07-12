@@ -22,7 +22,8 @@ import {
         [errorTypes]="errors$ | async"
         [messageResolver]="errorMessageResolver">
     </app-error-page>`,
-    styles: []
+    styles: [],
+    standalone: false
 })
 export class NewslettersControllerComponent implements OnInit {
     public newsletterList$ = new Observable<Newsletter[] | null | undefined>();
