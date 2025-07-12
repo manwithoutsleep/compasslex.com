@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AppMaterialModule } from './shared/app.material.module';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { FaqComponent } from './faq/faq.component';
 import { GettingStartedComponent } from './getting-started/getting-started.component';
@@ -22,7 +21,6 @@ import { HomePageModule } from './home-page/home-page.module';
         ResourcesComponent
     ],
     imports: [
-        AppMaterialModule,
         AppRoutingModule,
         ContactUsModule,
         CounselorModule,
