@@ -1,4 +1,4 @@
-@import '../../../../sass/variables';
+@use '../../../../sass/variables' as v;
 
 #map {
     background-color: $background-color-card;

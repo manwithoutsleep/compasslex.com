@@ -1,4 +1,4 @@
-@import '../../../sass/variables';
+@use '../../../sass/variables' as v;
 
 $rotator-small-screen-width-break: 477px;
 $rotator-large-screen-width-break: 1100px;
