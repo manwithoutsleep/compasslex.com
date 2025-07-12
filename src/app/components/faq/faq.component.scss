@@ -3,10 +3,10 @@
 .faq-container {
     margin: 0 auto;
     padding: 0 8px;
-    max-width: $app-max-width;
+    max-width: v.$app-max-width;
 
     h3 {
-        color: $font-color-dark;
+        color: v.$font-color-dark;
         font-style: italic;
         font-weight: bold;
         line-height: 22px;

@@ -27,20 +27,20 @@ $rotator-large-screen-width-break: 1100px;
         width: 100%;
 
         .rotator-text {
-            color: $peach-puff;
+            color: v.$peach-puff;
             font-weight: bold;
             margin: 10px;
             position: absolute;
             text-align: center;
-            text-shadow: $background-color-title 0 0 3px, #aaaaff 0 0 5px, $background-color-card 0 0 25px;
+            text-shadow: v.$background-color-title 0 0 3px, #aaaaff 0 0 5px, v.$background-color-card 0 0 25px;
             z-index: 1000;
 
-            @media screen and (max-width: $app-width-small-screen) {
+            @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
                 top: max(124px, calc(160px + (0.33 * min(0px, calc(100vw - $rotator-small-screen-width-break)))));
                 width: 100%;
             }
-            @media screen and (min-width: $app-width-small-screen) {
+            @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
                 font-size: min(30px, calc(30px + (0.026 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
                 line-height: min(50px, calc(50px + (0.060 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
@@ -77,8 +77,8 @@ $rotator-large-screen-width-break: 1100px;
         max-width: 100%;
         z-index: 1000;
 
-        min-width: $app-min-width;
-        max-width: $app-max-width;
+        min-width: v.$app-min-width;
+        max-width: v.$app-max-width;
 
         .content-row {
             display: flex;
@@ -92,13 +92,13 @@ $rotator-large-screen-width-break: 1100px;
                 background-repeat: no-repeat;
                 background-size: cover;
                 flex: 1;
-                min-width: calc($app-min-width / 2);
+                min-width: calc(v.$app-min-width / 2);
 
-                @media screen and (max-width: $app-width-small-screen) {
+                @media screen and (max-width: v.$app-width-small-screen) {
                     // Small screen
                     height: 250px;
                 }
-                @media screen and (min-width: $app-width-small-screen) {
+                @media screen and (min-width: v.$app-width-small-screen) {
                     // Large screen
                 }
             }
@@ -106,13 +106,13 @@ $rotator-large-screen-width-break: 1100px;
                 align-items: center;
                 flex: 1;
                 margin: 8px;
-                min-width: calc($app-min-width / 2);
+                min-width: calc(v.$app-min-width / 2);
                 .home-page-text-box {
                     display: flex;
                     flex-direction: column;
                     h2 {
                         background-color: transparent;
-                        color: $font-color-dark;
+                        color: v.$font-color-dark;
                         font-size: 1.5em;
                         line-height: 1.5em;
                         margin: 0;
@@ -132,10 +132,10 @@ $rotator-large-screen-width-break: 1100px;
                     }
             }
 
-                @media screen and (max-width: $app-width-small-screen) {
+                @media screen and (max-width: v.$app-width-small-screen) {
                     // Small screen
                 }
-                @media screen and (min-width: $app-width-small-screen) {
+                @media screen and (min-width: v.$app-width-small-screen) {
                     // Large screen
                 }
             }
@@ -145,13 +145,13 @@ $rotator-large-screen-width-break: 1100px;
             background-color: transparent;
         }
         .row-2 {
-            background-color: $bengal-blue;
+            background-color: v.$bengal-blue;
         }
         .row-3 {
-            background-color: $raspberry-smoothie;
+            background-color: v.$raspberry-smoothie;
         }
         .row-4 {
-            background-color: $ultra-pure-white;
+            background-color: v.$ultra-pure-white;
         }
 }
 

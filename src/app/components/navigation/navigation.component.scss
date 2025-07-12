@@ -12,22 +12,22 @@ $app-navigation-contact-info-height-large-screen: 50px;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: $background-color-site;
+    background-color: v.$background-color-site;
     margin: 0 auto;
     width: 100%;
 
     .navigation-header {
-        background-color: $background-color-site;
+        background-color: v.$background-color-site;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         margin: 0 auto;
         padding: 0;
         width: 100vw;
-        max-width: $app-max-width;
+        max-width: v.$app-max-width;
         z-index: 1000;
 
-        @media screen and (max-width: $app-width-small-screen) {
+        @media screen and (max-width: v.$app-width-small-screen) {
             // Small screen
             height: $app-navigation-header-height-small-screen;
             position: fixed;
@@ -35,7 +35,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
             /* Make sure the toolbar will stay on top of the content as it scrolls past. */
             z-index: 2;
         }
-        @media screen and (min-width: $app-width-small-screen) {
+        @media screen and (min-width: v.$app-width-small-screen) {
             // Large screen
         }
 
@@ -48,12 +48,12 @@ $app-navigation-contact-info-height-large-screen: 50px;
             margin: 0;
             padding: 0 8px;
             width: 100%;
-            min-width: $app-min-width;
+            min-width: v.$app-min-width;
 
-            @media screen and (max-width: $app-width-small-screen) {
+            @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
             }
-            @media screen and (min-width: $app-width-small-screen) {
+            @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
                 display: none;
             }
@@ -71,11 +71,11 @@ $app-navigation-contact-info-height-large-screen: 50px;
             justify-content: space-between;
             padding: 12px;
             width: 100%;
-            @media screen and (max-width: $app-width-small-screen) {
+            @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
                 display: none;
             }
-            @media screen and (min-width: $app-width-small-screen) {
+            @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
             }
             h1 {
@@ -112,8 +112,8 @@ $app-navigation-contact-info-height-large-screen: 50px;
                     padding: 0 32px;
                     text-align: center;
                     .navigation-appointment-button {
-                        background-color: $background-color-title;
-                        color: $font-color-light;
+                        background-color: v.$background-color-title;
+                        color: v.$font-color-light;
                         cursor: pointer;
                     }
                 }
@@ -128,18 +128,18 @@ $app-navigation-contact-info-height-large-screen: 50px;
                     height: $app-navigation-top-menu-height-large-screen;
                     justify-content: space-around;
                     padding: 9px 0;
-                    @media screen and (max-width: $app-width-small-screen) {
+                    @media screen and (max-width: v.$app-width-small-screen) {
                         // Small screen
                         display: none;
                     }
-                    @media screen and (min-width: $app-width-small-screen) {
+                    @media screen and (min-width: v.$app-width-small-screen) {
                         // Large screen
                     }
                     button {
                         box-shadow: none;
                         border: none;
                         background: transparent;
-                        color: $font-color-dark;
+                        color: v.$font-color-dark;
                         display: flex;
                         font-size: 1.3em;
                         font-weight: 400;
@@ -150,7 +150,7 @@ $app-navigation-contact-info-height-large-screen: 50px;
                         &:hover {
                             transition: all 0.3s ease-in-out;
                             // color: $font-color-dark-hightlight;
-                            text-shadow: $background-color-card 0 0 3px, #aaaaff 0 0 5px, $background-color-title 0 0 25px;
+                            text-shadow: v.$background-color-card 0 0 3px, #aaaaff 0 0 5px, v.$background-color-title 0 0 25px;
                             cursor: pointer;
                         }
                     }
@@ -162,15 +162,15 @@ $app-navigation-contact-info-height-large-screen: 50px;
     .navigation-sidenav-container {
         /*  When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
             causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
-        background-color: $background-color-site;
+        background-color: v.$background-color-site;
         flex: 1;
         .navigation-sidenav {            
-            background-color: $background-color-card;
+            background-color: v.$background-color-card;
             .navigation-sidenav-list {
                 padding: 8px 0 0 0;
                 .navigation-sidenav-link {
                     box-sizing: border-box;
-                    color: $font-color-dark;
+                    color: v.$font-color-dark;
                     display: flex;
                     flex-direction: row;
                     font-size: 1.3em;
@@ -185,11 +185,11 @@ $app-navigation-contact-info-height-large-screen: 50px;
         }
         .navigation-sidenav-content {
             
-            @media screen and (max-width: $app-width-small-screen) {
+            @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
                 margin-top: $app-navigation-header-height-small-screen;
             }
-            @media screen and (min-width: $app-width-small-screen) {
+            @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
                 margin-top: 0;
             }
@@ -212,11 +212,11 @@ $app-navigation-contact-info-height-large-screen: 50px;
         padding: 0 0 16px 0;
         width: 100%;
 
-        @media screen and (max-width: $app-width-small-screen) {
+        @media screen and (max-width: v.$app-width-small-screen) {
             // Small screen
             background-color: transparent;
         }
-        @media screen and (min-width: $app-width-small-screen) {
+        @media screen and (min-width: v.$app-width-small-screen) {
             // Large screen
             background-size: contain;
             background-color: transparent;
@@ -238,11 +238,11 @@ $app-navigation-contact-info-height-large-screen: 50px;
             align-items: center;
             display: flex;
             flex-direction: column;
-            @media screen and (max-width: $app-width-small-screen) {
+            @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
                 width: 100%;
             }
-            @media screen and (min-width: $app-width-small-screen) {
+            @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
                 width: 100%;
                 max-width: 465px;
@@ -256,14 +256,14 @@ $app-navigation-contact-info-height-large-screen: 50px;
     font-size: 1.3em;
     font-weight: 100;
 
-    @media screen and (max-width: $app-width-small-screen) {
+    @media screen and (max-width: v.$app-width-small-screen) {
         // Small screen
-        color: $font-color-dark;
+        color: v.$font-color-dark;
         font-weight: bold;
     }
-    @media screen and (min-width: $app-width-small-screen) {
+    @media screen and (min-width: v.$app-width-small-screen) {
         // Large screen
-        color: $font-color-dark;
+        color: v.$font-color-dark;
         font-weight: normal;
     }
 }

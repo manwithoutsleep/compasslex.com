@@ -1,7 +1,7 @@
 @use '../../../../sass/variables' as v;
 
 #map {
-    background-color: $background-color-card;
+    background-color: v.$background-color-card;
     border: 0;
     height: 400px;
     width: 404px;

@@ -6,7 +6,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0 auto;
-    max-width: $app-max-width;
+    max-width: v.$app-max-width;
 
     .resources-left-column {
         display: flex;

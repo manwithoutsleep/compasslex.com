@@ -2,7 +2,7 @@
 
 html,
 body {
-    background-color: $background-color-site;
+    background-color: v.$background-color-site;
     width: 100%;
     height: 100%;
     margin: 0;
@@ -25,12 +25,12 @@ a {
 }
 
 div, p {
-    color: $font-color-dark;
+    color: v.$font-color-dark;
 }
 
 h2 {
-    background-color: $background-color-title;
-    color: $font-color-light;
+    background-color: v.$background-color-title;
+    color: v.$font-color-light;
     margin: 0;
     padding: 6px 12px;
     white-space: nowrap;
@@ -38,13 +38,13 @@ h2 {
 }
 
 h3 {
-    color: $font-color-mid;
+    color: v.$font-color-mid;
     font-style: italic;
     font-weight: bold;
 }
 
 input {
-    color: $font-color-dark;
+    color: v.$font-color-dark;
     font-family: Roboto, sans-serif;
     font-size: 16px;
 }
@@ -55,13 +55,13 @@ button {
 }
 
 .button {
-    color: $background-color-title;
-    background-color: $background-color-margin;
+    color: v.$background-color-title;
+    background-color: v.$background-color-margin;
     font-weight: bold;
 }
 
 .ui-card {
-    border: 3px solid $background-color-title;
+    border: 3px solid v.$background-color-title;
     border-radius: 4px;
     box-shadow: 0 2px 2px rgba(0,0,0,.24), 0 0 2px rgba(0,0,0,.12);
     margin: 4px;
@@ -70,8 +70,8 @@ button {
     .ui-card-title {
         align-content: center;
         align-items: center;
-        background-color: $background-color-title;
-        color: $font-color-light;
+        background-color: v.$background-color-title;
+        color: v.$font-color-light;
         display: flex;
         font-size: 18px;
         justify-content: center;

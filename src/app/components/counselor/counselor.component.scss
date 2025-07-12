@@ -7,14 +7,14 @@
     justify-content: center;
     margin: 0 auto;
     padding: 0 8px;
-    max-width: $app-max-width;
+    max-width: v.$app-max-width;
 
     .counselor-image {
         margin: 0 18px 16px 0;
         width: 227px;
 
         img {
-            border-color: $background-color-site;
+            border-color: v.$background-color-site;
             border-radius: 15px;
             border-style: solid;
             border-width: 3px;
@@ -28,11 +28,11 @@
         }
         
         .counselor-appt-button {
-            background-color: $ultra-pure-white;
+            background-color: v.$ultra-pure-white;
             border: 1px outset;
-            border-color: $background-color-title;
+            border-color: v.$background-color-title;
             border-radius: 3px;
-            color: $font-color-dark;
+            color: v.$font-color-dark;
             display: block;
             font-weight: bold;
             line-height: 1.2em;

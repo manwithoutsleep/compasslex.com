@@ -24,11 +24,11 @@
         }
 
         .contact-counselor-card-appt-button {
-            background-color: $ultra-pure-white;
+            background-color: v.$ultra-pure-white;
             border: 1px outset;
-            border-color: $background-color-title;
+            border-color: v.$background-color-title;
             border-radius: 3px;
-            color: $font-color-dark;
+            color: v.$font-color-dark;
             display: block;
             font-weight: bold;
             line-height: 1.2em;

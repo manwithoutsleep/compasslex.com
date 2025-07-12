@@ -3,7 +3,7 @@
 .newsletters-container {    
     margin: 0 auto;
     padding: 0 8px;
-    max-width: $app-max-width;
+    max-width: v.$app-max-width;
 
     .latest-newsletter {
         cursor: pointer;

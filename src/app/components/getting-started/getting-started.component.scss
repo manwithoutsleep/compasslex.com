@@ -6,16 +6,16 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0 auto;
-    max-width: $app-max-width;
+    max-width: v.$app-max-width;
 
     .getting-started-left-column {
         width: 255px;
         .getting-started-button {
-            background-color: $ultra-pure-white;
+            background-color: v.$ultra-pure-white;
             border: 1px outset;
-            border-color: $background-color-title;
+            border-color: v.$background-color-title;
             border-radius: 3px;
-            color: $font-color-dark;
+            color: v.$font-color-dark;
             display: block;
             font-weight: bold;
             line-height: 1.2em;
@@ -27,7 +27,7 @@
             width: auto;
             &:hover {
                 transition: all 0.3s ease-in-out;
-                text-shadow: $background-color-card 0 0 3px, #aaaaff 0 0 5px, $background-color-title 0 0 25px;
+                text-shadow: v.$background-color-card 0 0 3px, #aaaaff 0 0 5px, v.$background-color-title 0 0 25px;
                 cursor: pointer;
             }
         }
