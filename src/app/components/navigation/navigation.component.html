@@ -1,8 +1,8 @@
-<div class="navigation-container mat-typography">
-    <header color="primary" class="navigation-header mat-elevation-z4">
+<div class="navigation-container">
+    <header color="primary" class="navigation-header elevated">
         <h1 class="navigation-header-small-screen">
-            <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
-                <mat-icon>menu</mat-icon>
+            <button (click)="toggleSidenav()" class="menu-button icon-button">
+                <span class="material-icons">menu</span>
             </button>
             <a routerLink="/"><img src="/assets/site-images/CompassLogoSmall.png" alt="Compass Christian Counseling"></a>
             <a routerLink="/"><img src="/assets/site-images/CompassIconSmall.png" alt="Compass Christian Counseling"></a>
@@ -25,21 +25,22 @@
             </div>
         </div>
     </header>
-    <mat-sidenav-container class="navigation-sidenav-container">
-        <mat-sidenav class="navigation-sidenav" #sidenav mode="over" fixedInViewport="true" fixedTopGap="56">
-            <mat-nav-list class="navigation-sidenav-list">
-                <a class="navigation-sidenav-link" routerLink="/home" (click)=sidenav.toggle()>Home</a>
-                <a class="navigation-sidenav-link" routerLink="/meet-us" (click)=sidenav.toggle()>Meet Us</a>
-                <a class="navigation-sidenav-link" routerLink="/our-services" (click)=sidenav.toggle()>Our Services</a>
-                <a class="navigation-sidenav-link" routerLink="/faq" (click)=sidenav.toggle()>FAQ</a>
-                <a class="navigation-sidenav-link" routerLink="/resources" (click)=sidenav.toggle()>Resources</a>
-                <a class="navigation-sidenav-link" routerLink="/contact-us" (click)=sidenav.toggle()>Contact Us</a>
-            </mat-nav-list>
-        </mat-sidenav>
-        <mat-sidenav-content class="navigation-sidenav-content">
+    <div class="navigation-sidenav-container">
+        <div class="navigation-sidenav" #sidenav [class.open]="sidenavOpen">
+            <nav class="navigation-sidenav-list">
+                <a class="navigation-sidenav-link" routerLink="/home" (click)="closeSidenav()">Home</a>
+                <a class="navigation-sidenav-link" routerLink="/meet-us" (click)="closeSidenav()">Meet Us</a>
+                <a class="navigation-sidenav-link" routerLink="/our-services" (click)="closeSidenav()">Our Services</a>
+                <a class="navigation-sidenav-link" routerLink="/faq" (click)="closeSidenav()">FAQ</a>
+                <a class="navigation-sidenav-link" routerLink="/resources" (click)="closeSidenav()">Resources</a>
+                <a class="navigation-sidenav-link" routerLink="/contact-us" (click)="closeSidenav()">Contact Us</a>
+            </nav>
+        </div>
+        <div class="navigation-sidenav-backdrop" [class.show]="sidenavOpen" (click)="closeSidenav()"></div>
+        <main class="navigation-sidenav-content">
             <router-outlet></router-outlet>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
+        </main>
+    </div>
     <footer class="navigation-footer">
         <div class="navigation-footer-address">
             <div class="address">

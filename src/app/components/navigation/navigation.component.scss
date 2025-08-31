@@ -26,6 +26,10 @@ $app-navigation-contact-info-height-large-screen: 50px;
         width: 100vw;
         max-width: v.$app-max-width;
         z-index: 1000;
+        
+        &.elevated {
+            box-shadow: 0 2px 4px -1px rgba(0,0,0,0.2), 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12);
+        }
 
         @media screen and (max-width: v.$app-width-small-screen) {
             // Small screen
@@ -60,6 +64,26 @@ $app-navigation-contact-info-height-large-screen: 50px;
 
             a {
                 display: flex;
+            }
+            
+            .menu-button {
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.04);
+                }
+                
+                .material-icons {
+                    font-size: 24px;
+                }
             }
         }
 
@@ -160,14 +184,29 @@ $app-navigation-contact-info-height-large-screen: 50px;
     }
   
     .navigation-sidenav-container {
-        /*  When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
-            causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
         background-color: v.$background-color-site;
         flex: 1;
-        .navigation-sidenav {            
+        position: relative;
+        
+        .navigation-sidenav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
             background-color: v.$background-color-card;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+            box-shadow: 0 8px 10px -5px rgba(0,0,0,0.2), 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12);
+            
+            &.open {
+                transform: translateX(0);
+            }
+            
             .navigation-sidenav-list {
                 padding: 8px 0 0 0;
+                
                 .navigation-sidenav-link {
                     box-sizing: border-box;
                     color: v.$font-color-dark;
@@ -180,17 +219,37 @@ $app-navigation-contact-info-height-large-screen: 50px;
                     padding: 14px 16px;
                     text-align: left;
                     text-decoration: none;
+                    
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.04);
+                    }
                 }
             }
         }
-        .navigation-sidenav-content {
+        
+        .navigation-sidenav-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+            z-index: 999;
             
+            &.show {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        
+        .navigation-sidenav-content {
             @media screen and (max-width: v.$app-width-small-screen) {
-                // Small screen
                 margin-top: $app-navigation-header-height-small-screen;
             }
             @media screen and (min-width: v.$app-width-small-screen) {
-                // Large screen
                 margin-top: 0;
             }
         }
@@ -251,19 +310,3 @@ $app-navigation-contact-info-height-large-screen: 50px;
     }
 }
 
-/* TODO(mdc-migration): The following rule targets internal classes of list that may no longer apply for the MDC version.*/
-::ng-deep .mat-list-item-content {
-    font-size: 1.3em;
-    font-weight: 100;
-
-    @media screen and (max-width: v.$app-width-small-screen) {
-        // Small screen
-        color: v.$font-color-dark;
-        font-weight: bold;
-    }
-    @media screen and (min-width: v.$app-width-small-screen) {
-        // Large screen
-        color: v.$font-color-dark;
-        font-weight: normal;
-    }
-}

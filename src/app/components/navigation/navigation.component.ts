@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
     styleUrls: ['./navigation.component.scss'],
     standalone: false
 })
-export class NavigationComponent {}
+export class NavigationComponent {
+    sidenavOpen = false;
+
+    toggleSidenav() {
+        this.sidenavOpen = !this.sidenavOpen;
+    }
+
+    closeSidenav() {
+        this.sidenavOpen = false;
+    }
+}

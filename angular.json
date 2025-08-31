@@ -32,7 +32,6 @@
               "src/.htaccess"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/sass/styles.scss"
             ],
             "scripts": [],
@@ -51,8 +50,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "6kb"
+                  "maximumWarning": "8kb",
+                  "maximumError": "8kb"
                 }
               ],
               "fileReplacements": [
@@ -104,7 +103,6 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/sass/styles.scss"
             ],
             "scripts": []
