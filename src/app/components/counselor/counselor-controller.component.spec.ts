@@ -1,9 +1,8 @@
 import { CounselorControllerComponent } from './counselor-controller.component';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
-import { convertToParamMap, ActivatedRoute } from '@angular/router';
+import { convertToParamMap, ActivatedRoute, provideRouter } from '@angular/router';
 import { createCounselorState } from 'src/app/store/states/counselor-state';
-import { RouterTestingModule } from '@angular/router/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { CounselorFakeComponent } from './counselor.fake.component';
 import { Random } from 'random-test-values';
@@ -25,11 +24,11 @@ describe('CounselorControllerComponent', () => {
                 CounselorFakeComponent
             ],
             imports: [
-                RouterTestingModule,
                 NoopAnimationsModule,
                 SharedFakeModule
             ],
             providers: [
+                provideRouter([]),
                 provideMockStore({ initialState }),
                 { provide: ActivatedRoute, useValue: routeSpy }
             ]

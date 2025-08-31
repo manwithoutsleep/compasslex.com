@@ -5,7 +5,7 @@ import { createCounselorState } from 'src/app/store/states/counselor-state';
 import { ErrorPageFakeComponent } from '../shared/error-page/error-page.fake.component';
 import { ContactUsFakeComponent } from './contact-us.fake.component';
 import { SharedFakeModule } from '../shared/shared.fake.module';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideRouter } from '@angular/router';
 
 describe('ContactUsControllerComponent', () => {
     let component: ContactUsControllerComponent;
@@ -22,10 +22,10 @@ describe('ContactUsControllerComponent', () => {
             ErrorPageFakeComponent
         ],
         imports: [
-            SharedFakeModule,
-            RouterTestingModule.withRoutes([])
+            SharedFakeModule
         ],
         providers: [
+            provideRouter([]),
             provideMockStore({ initialState })
         ]
     };
