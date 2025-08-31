@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.0.
 
-## Server-Side PHP
+## Server-Side PHP (Decommissioned)
 
 Press Ctrl-F5 to launch IIS Express
 Press Ctrl-Shit-P to bring up the Command Palette
