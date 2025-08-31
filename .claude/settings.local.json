@@ -4,7 +4,8 @@
       "Bash(ng build)",
       "Bash(npm run lint)",
       "Bash(ng serve:*)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(ng test:*)"
     ],
     "deny": [],
     "ask": []
