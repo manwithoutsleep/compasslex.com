@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   currentBaseUrl: 'https://test.compasslex.com/api/public',
-  googleMapsApiKey: 'AIzaSyCV-zq7eU8kdVVHggU6I2vO3Pf-blx2b7A'
+  googleMapsApiKey: 'DEV_KEY_PLACEHOLDER'
 };
 
 /*
