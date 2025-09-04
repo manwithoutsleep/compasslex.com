@@ -1,0 +1,60 @@
+name: Deploy to GoDaddy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Create .env file
+      run: |
+        echo "GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" > .env
+        
+    - name: Build application
+      run: npm run build:prod
+      
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          # Create backup of current deployment
+          if [ -d "public_html/compasslex.com_backup" ]; then
+            rm -rf public_html/compasslex.com_backup
+          fi
+          if [ -d "public_html/compasslex.com" ]; then
+            cp -r public_html/compasslex.com public_html/compasslex.com_backup
+          fi
+          
+          # Clear existing files (except .htaccess if it exists)
+          mkdir -p public_html/compasslex.com
+          find public_html/compasslex.com -type f ! -name '.htaccess' -delete
+          find public_html/compasslex.com -type d -empty -delete
+          
+    - name: Upload build files
+      uses: appleboy/scp-action@v0.1.4
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "dist/browser/*,!dist/browser/.htaccess"
+        target: "public_html/compasslex.com"
+        strip_components: 2
