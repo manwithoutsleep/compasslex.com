@@ -50,11 +50,12 @@ jobs:
           find public_html/compasslex.com -type d -empty -delete
           
     - name: Upload build files
-      uses: appleboy/scp-action@v0.1.4
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "dist/browser/*,!dist/browser/.htaccess"
-        target: "public_html/compasslex.com"
-        strip_components: 2
+      run: |
+        # Setup SSH key
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        
+        # Deploy files using rsync (excluding .htaccess)
+        rsync -avz --delete --exclude='.htaccess' dist/browser/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/compasslex.com/
