@@ -8,7 +8,18 @@ const envConfig = `export const environment = {
   googleMapsApiKey: '${process.env.GOOGLE_MAPS_API_KEY || ''}'
 };`;
 
-// Write the environment file
-fs.writeFileSync('./src/environments/environment.prod.ts', envConfig);
+const targetDir = path.join(__dirname, 'src', 'environments');
+const targetFile = path.join(targetDir, 'environment.prod.ts');
 
-console.log('Environment variables injected into environment.prod.ts');
+try {
+    // 2. Ensure the directory exists (idempotent)
+    fs.mkdirSync(targetDir, { recursive: true });
+
+    // 3. Write the file
+    fs.writeFileSync(targetFile, envConfig);
+
+    console.log(`Successfully created environment file at ${targetFile}`);
+} catch (err) {
+    console.error('Error writing environment file:', err);
+    process.exit(1); // Exit with an error code
+}
