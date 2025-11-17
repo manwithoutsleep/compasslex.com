@@ -10,14 +10,16 @@ const envConfig = `export const environment = {
 };`;
 
 const targetDir = path.join(__dirname, 'src', 'environments');
-const targetFile = path.join(targetDir, 'environment.prod.ts');
+const targetFileProd = path.join(targetDir, 'environment.prod.ts');
+const targetFile = path.join(targetDir, 'environment.ts');
 
 try {
     // 2. Ensure the directory exists (idempotent)
     fs.mkdirSync(targetDir, { recursive: true });
 
-    // 3. Write the file
-    fs.writeFileSync(targetFile, envConfig);
+    // 3. Write the files (overwriting if they exist)
+    fs.writeFileSync(targetFile, '');
+    fs.writeFileSync(targetFileProd, envConfig);
 
     console.log(`Successfully created environment file at ${targetFile}`);
 } catch (err) {
