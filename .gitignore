@@ -404,4 +404,5 @@ FodyWeavers.xsd
 
 # PHP Composer
 vendor/
-.env
+
+# Environment files
