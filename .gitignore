@@ -409,5 +409,5 @@ vendor/
 .env*
 .env*.local
 !.env.example
-.environment*
-.environment.*
+environment*
+environment.*
