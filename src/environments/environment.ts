@@ -3,9 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  currentBaseUrl: 'https://test.compasslex.com/api/public',
-  googleMapsApiKey: 'DEV_KEY_PLACEHOLDER'
+    production: false,
+    currentBaseUrl: 'https://test.compasslex.com/api/public',
+    googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
 };
 
 /*

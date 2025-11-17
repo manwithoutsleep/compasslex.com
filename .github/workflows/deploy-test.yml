@@ -37,17 +37,17 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Create backup of current test deployment
-          if [ -d "public_html/test.compasslex.com_backup" ]; then
-            rm -rf public_html/test.compasslex.com_backup
+          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}" ]; then
+            rm -rf ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}
           fi
-          if [ -d "public_html/test.compasslex.com" ]; then
-            cp -r public_html/test.compasslex.com public_html/test.compasslex.com_backup
+          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}" ]; then
+            cp -r ${{ secrets.DEPLOY_FOLDER_UAT }} ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}
           fi
           
           # Clear existing test files (except .htaccess if it exists)
-          mkdir -p public_html/test.compasslex.com
-          find public_html/test.compasslex.com -type f ! -name '.htaccess' -delete
-          find public_html/test.compasslex.com -type d -empty -delete
+          mkdir -p ${{ secrets.DEPLOY_FOLDER_UAT }}
+          find ${{ secrets.DEPLOY_FOLDER_UAT }} -type f ! -name '.htaccess' -delete
+          find ${{ secrets.DEPLOY_FOLDER_UAT }} -type d -empty -delete
           
     - name: Setup SSH
       uses: webfactory/ssh-agent@v0.9.0
@@ -60,4 +60,4 @@ jobs:
     - name: Upload build files to test
       run: |
         # Deploy files to test environment using rsync (excluding .htaccess)
-        rsync -avz --delete --exclude='.htaccess' dist/browser/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:public_html/test.compasslex.com/
+        rsync -avz --delete --exclude='.htaccess' dist/browser/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_FOLDER_UAT }}/

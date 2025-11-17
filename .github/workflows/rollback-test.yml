@@ -29,8 +29,8 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           # Check if backup exists
-          if [ ! -d "public_html/test.compasslex.com_backup" ]; then
-            echo "❌ No backup found at public_html/test.compasslex.com_backup"
+          if [ ! -d "${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}" ]; then
+            echo "❌ No backup found at ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}"
             echo "Cannot perform rollback without a backup."
             exit 1
           fi
@@ -38,30 +38,30 @@ jobs:
           echo "📦 Backup found. Starting rollback process..."
           
           # Create a backup of current state before rollback
-          if [ -d "public_html/test.compasslex.com_pre_rollback" ]; then
-            rm -rf public_html/test.compasslex.com_pre_rollback
+          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback" ]; then
+            rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
           fi
-          if [ -d "public_html/test.compasslex.com" ]; then
-            cp -r public_html/test.compasslex.com public_html/test.compasslex.com_pre_rollback
-            echo "💾 Current state backed up to test.compasslex.com_pre_rollback"
+          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}" ]; then
+            cp -r ${{ secrets.DEPLOY_FOLDER_UAT }} ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
+            echo "💾 Current state backed up to $(basename ${{ secrets.DEPLOY_FOLDER_UAT }})_pre_rollback"
           fi
           
           # Remove current files
-          rm -rf public_html/test.compasslex.com/*
+          rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}/*
           
           # Restore from backup
-          cp -r public_html/test.compasslex.com_backup/* public_html/test.compasslex.com/
+          cp -r ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}/* ${{ secrets.DEPLOY_FOLDER_UAT }}/
           
           echo "✅ Rollback completed successfully!"
           echo "🔄 Test environment restored from previous backup"
-          echo "💡 Current deployment backed up to test.compasslex.com_pre_rollback"
+          echo "💡 Current deployment backed up to ${{ secrets.UAT_URL }}_pre_rollback"
           
     - name: Rollback summary
       run: |
         echo "🎉 Test environment rollback completed!"
         echo ""
         echo "📍 What happened:"
-        echo "  • test.compasslex.com restored from backup"
-        echo "  • Previous state saved to test.compasslex.com_pre_rollback"
+        echo "  • Test environment restored from backup"
+        echo "  • Previous state saved to pre-rollback backup"
         echo ""
-        echo "🌐 Your test site should now be accessible at test.compasslex.com"
+        echo "🌐 Your test site should now be accessible at ${{ secrets.UAT_URL }}"

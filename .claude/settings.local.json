@@ -5,7 +5,12 @@
       "Bash(npm run lint)",
       "Bash(ng serve:*)",
       "Bash(timeout:*)",
-      "Bash(ng test:*)"
+      "Bash(ng test:*)",
+      "Bash(npm run build:prod:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git tag:*)",
+      "Bash(gh pr create:*)"
     ],
     "deny": [],
     "ask": []
