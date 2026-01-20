@@ -14,24 +14,20 @@ describe('CounselorControllerComponent', () => {
     let mockReduxStore: MockStore<{}>;
 
     const firstName = Random.String();
-    const routeSpy = { snapshot: { paramMap: convertToParamMap({ firstname: firstName }) } };
-    const initialState = { counselors: createCounselorState([], false)};
+    const routeSpy = {
+        snapshot: { paramMap: convertToParamMap({ firstname: firstName }) },
+    };
+    const initialState = { counselors: createCounselorState([], false) };
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                CounselorControllerComponent,
-                CounselorFakeComponent
-            ],
-            imports: [
-                NoopAnimationsModule,
-                SharedFakeModule
-            ],
+            declarations: [CounselorControllerComponent, CounselorFakeComponent],
+            imports: [NoopAnimationsModule, SharedFakeModule],
             providers: [
                 provideRouter([]),
                 provideMockStore({ initialState }),
-                { provide: ActivatedRoute, useValue: routeSpy }
-            ]
+                { provide: ActivatedRoute, useValue: routeSpy },
+            ],
         }).compileComponents();
 
         mockReduxStore = TestBed.inject(MockStore);

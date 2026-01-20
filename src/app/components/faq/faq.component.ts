@@ -4,13 +4,10 @@ import { Component, OnInit } from '@angular/core';
     selector: 'app-faq',
     templateUrl: './faq.component.html',
     styleUrls: ['./faq.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class FaqComponent implements OnInit {
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+    ngOnInit(): void {}
 }

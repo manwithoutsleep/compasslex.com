@@ -40,9 +40,9 @@ describe('CounselorCardComponent', () => {
         });
 
         it('should append Clinical Director when the counselor name is Linda Fentress', () => {
-            component.counselor = counselorBuilder( {
+            component.counselor = counselorBuilder({
                 firstname: 'Linda',
-                lastname: 'Fentress'
+                lastname: 'Fentress',
             });
 
             const expected = 'Linda Fentress, Clinical Director';

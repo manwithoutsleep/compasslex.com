@@ -13,18 +13,13 @@ export const metaReducers: MetaReducer<any>[] = !environment.production ? [store
 @NgModule({
     declarations: [],
     imports: [
-        StoreModule.forRoot({ }, {metaReducers}),
+        StoreModule.forRoot({}, { metaReducers }),
         StoreModule.forRoot({
             counselors: counselorReducer,
-            newsletters: newsletterReducer
+            newsletters: newsletterReducer,
         }),
-        EffectsModule.forRoot([
-            CounselorServiceEffects,
-            NewsletterServiceEffects
-        ])
+        EffectsModule.forRoot([CounselorServiceEffects, NewsletterServiceEffects]),
     ],
-    exports: [
-        StoreModule
-    ]
+    exports: [StoreModule],
 })
-export class AppStoreModule { }
+export class AppStoreModule {}

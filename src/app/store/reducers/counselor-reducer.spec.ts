@@ -19,11 +19,9 @@ describe('counselorReducer', () => {
     });
 
     it('should replace the counselor state when the getCounselorListSuccessAction is fired', () => {
-        const expectedCounselorState = { counselorList: [
-            counselorBuilder(),
-            counselorBuilder(),
-            counselorBuilder()
-        ] } as CounselorData;
+        const expectedCounselorState = {
+            counselorList: [counselorBuilder(), counselorBuilder(), counselorBuilder()],
+        } as CounselorData;
 
         const action = getCounselorListSuccessAction(expectedCounselorState);
 

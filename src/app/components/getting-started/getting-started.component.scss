@@ -27,7 +27,10 @@
             width: auto;
             &:hover {
                 transition: all 0.3s ease-in-out;
-                text-shadow: v.$background-color-card 0 0 3px, #aaaaff 0 0 5px, v.$background-color-title 0 0 25px;
+                text-shadow:
+                    v.$background-color-card 0 0 3px,
+                    #aaaaff 0 0 5px,
+                    v.$background-color-title 0 0 25px;
                 cursor: pointer;
             }
         }

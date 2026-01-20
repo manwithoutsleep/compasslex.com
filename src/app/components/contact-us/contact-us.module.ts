@@ -7,17 +7,8 @@ import { ContactCounselorCardComponent } from './contact-counselor-card/contact-
 import { provideHttpClient, withInterceptorsFromDi, withJsonpSupport } from '@angular/common/http';
 
 @NgModule({
-    declarations: [
-        ContactUsControllerComponent,
-        ContactUsComponent,
-        ContactCounselorCardComponent
-    ], 
-    imports: [
-        SharedModule,
-        AppRoutingModule
-    ],
-    providers: [
-        provideHttpClient(withInterceptorsFromDi(), withJsonpSupport())
-    ]
+    declarations: [ContactUsControllerComponent, ContactUsComponent, ContactCounselorCardComponent],
+    imports: [SharedModule, AppRoutingModule],
+    providers: [provideHttpClient(withInterceptorsFromDi(), withJsonpSupport())],
 })
-export class ContactUsModule { }
+export class ContactUsModule {}

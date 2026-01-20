@@ -5,9 +5,12 @@ export interface NewsletterState {
     isLoaded: boolean;
 }
 
-export function createNewsletterState(newsletterList: readonly Newsletter[], isLoaded: boolean): NewsletterState {
+export function createNewsletterState(
+    newsletterList: readonly Newsletter[],
+    isLoaded: boolean
+): NewsletterState {
     return {
         newsletterList,
-        isLoaded
+        isLoaded,
     };
 }

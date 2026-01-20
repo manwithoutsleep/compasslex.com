@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ErrorPageComponent } from './error-page.component';
-import { CounselorListStoreStatus, counselorListErrorMessageResolver } from './resolvers/counselor-list-error-message-resolver';
+import {
+    CounselorListStoreStatus,
+    counselorListErrorMessageResolver,
+} from './resolvers/counselor-list-error-message-resolver';
 
 describe('ErrorPageComponent', () => {
     let component: ErrorPageComponent;
@@ -21,9 +24,7 @@ describe('ErrorPageComponent', () => {
 
     describe('hasError', () => {
         it('should return true when errorTypes is not empty', () => {
-            component.errorTypes = [
-                CounselorListStoreStatus.LOADING_COUNSELOR_LIST,
-            ];
+            component.errorTypes = [CounselorListStoreStatus.LOADING_COUNSELOR_LIST];
             expect(component.hasError()).toBeTrue();
         });
 
@@ -35,15 +36,15 @@ describe('ErrorPageComponent', () => {
 
     describe('getErrorMessage', () => {
         it('should return the first error message when one exists', () => {
-            component.errorTypes = [
-                CounselorListStoreStatus.LOADING_COUNSELOR_LIST,
-            ];
+            component.errorTypes = [CounselorListStoreStatus.LOADING_COUNSELOR_LIST];
 
             component.messageResolver = [counselorListErrorMessageResolver];
 
             const actual = component.getErrorMessage();
 
-            expect(actual).toEqual(counselorListErrorMessageResolver(CounselorListStoreStatus.LOADING_COUNSELOR_LIST));
+            expect(actual).toEqual(
+                counselorListErrorMessageResolver(CounselorListStoreStatus.LOADING_COUNSELOR_LIST)
+            );
         });
 
         it('should return an empty string if there is no error', () => {

@@ -4,17 +4,8 @@ import { CommonModule } from '@angular/common';
 import { GmapComponent } from './gmap/gmap.component';
 
 @NgModule({
-    declarations: [
-        ErrorPageComponent,
-        GmapComponent
-    ],
-    imports: [
-        CommonModule
-    ],
-    exports: [
-        CommonModule,
-        ErrorPageComponent,
-        GmapComponent
-    ]
+    declarations: [ErrorPageComponent, GmapComponent],
+    imports: [CommonModule],
+    exports: [CommonModule, ErrorPageComponent, GmapComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

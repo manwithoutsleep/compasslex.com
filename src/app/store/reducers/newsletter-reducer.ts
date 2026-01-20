@@ -6,5 +6,7 @@ export const initialNewsletterState = createNewsletterState([], false);
 
 export const newsletterReducer = createReducer(
     initialNewsletterState,
-    on(getNewsletterListSuccessAction, (_state, { newsletterList }) => createNewsletterState(newsletterList, true))
+    on(getNewsletterListSuccessAction, (_state, { newsletterList }) =>
+        createNewsletterState(newsletterList, true)
+    )
 );

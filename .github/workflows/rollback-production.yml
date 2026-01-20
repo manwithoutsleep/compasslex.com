@@ -1,91 +1,91 @@
 name: 🚨 Rollback Production Environment
 
 on:
-  workflow_dispatch:
-    inputs:
-      confirm_rollback:
-        description: '⚠️ PRODUCTION ROLLBACK: Type "ROLLBACK-PRODUCTION" to confirm'
-        required: true
-        type: string
-      reason:
-        description: 'Reason for rollback (required for audit trail)'
-        required: true
-        type: string
+    workflow_dispatch:
+        inputs:
+            confirm_rollback:
+                description: '⚠️ PRODUCTION ROLLBACK: Type "ROLLBACK-PRODUCTION" to confirm'
+                required: true
+                type: string
+            reason:
+                description: 'Reason for rollback (required for audit trail)'
+                required: true
+                type: string
 
 jobs:
-  rollback-production:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Validate rollback confirmation
-      run: |
-        if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK-PRODUCTION" ]; then
-          echo "❌ PRODUCTION ROLLBACK CANCELLED"
-          echo "You must type 'ROLLBACK-PRODUCTION' to confirm this action."
-          exit 1
-        fi
-        echo "🚨 PRODUCTION ROLLBACK CONFIRMED"
-        echo "Reason: ${{ github.event.inputs.reason }}"
-        echo "Proceeding with production restoration..."
-        
-    - name: Rollback production environment
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          # Check if backup exists
-          if [ ! -d "${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}" ]; then
-            echo "❌ CRITICAL ERROR: No backup found at ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}"
-            echo "Cannot perform production rollback without a backup."
-            echo "🚨 PRODUCTION ROLLBACK FAILED - NO BACKUP AVAILABLE"
-            exit 1
-          fi
-          
-          echo "🚨 PRODUCTION ROLLBACK IN PROGRESS"
-          echo "📦 Backup found. Starting rollback process..."
-          echo "Reason: ${{ github.event.inputs.reason }}"
-          
-          # Create a backup of current production state before rollback
-          if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback" ]; then
-            rm -rf ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback
-          fi
-          if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}" ]; then
-            cp -r ${{ secrets.DEPLOY_FOLDER_PROD }} ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback
-            echo "💾 Current production state backed up to $(basename ${{ secrets.DEPLOY_FOLDER_PROD }})_pre_rollback"
-          fi
-          
-          # Remove current production files (preserve .htaccess)
-          find ${{ secrets.DEPLOY_FOLDER_PROD }} -type f ! -name '.htaccess' -delete
-          find ${{ secrets.DEPLOY_FOLDER_PROD }} -type d -empty -delete
-          
-          # Restore from backup (preserve .htaccess)
-          cp -r ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}/* ${{ secrets.DEPLOY_FOLDER_PROD }}/
-          # Don't overwrite .htaccess if it exists in current production
-          if [ -f "${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback/.htaccess" ]; then
-            cp ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback/.htaccess ${{ secrets.DEPLOY_FOLDER_PROD }}/
-            echo "🔒 Preserved production .htaccess file"
-          fi
-          
-          echo "✅ PRODUCTION ROLLBACK COMPLETED"
-          echo "🌐 Production site restored from previous backup"
-          echo "💡 Previous production backed up to com_pre_rollback"
-          
-    - name: Production rollback summary
-      run: |
-        echo "🚨 PRODUCTION ENVIRONMENT ROLLBACK COMPLETED!"
-        echo ""
-        echo "📍 What happened:"
-        echo "  • Production environment restored from backup"
-        echo "  • Previous production saved to pre-rollback backup"
-        echo "  • .htaccess file preserved"
-        echo ""
-        echo "📋 Rollback details:"
-        echo "  • Triggered by: ${{ github.actor }}"
-        echo "  • Reason: ${{ github.event.inputs.reason }}"
-        echo "  • Time: $(date)"
-        echo ""
-        echo "🌐 Your live site should now be accessible at ${{ secrets.PROD_URL }}
-        echo ""
-        echo "⚠️  IMPORTANT: Verify the site is working correctly!"
+    rollback-production:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Validate rollback confirmation
+              run: |
+                  if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK-PRODUCTION" ]; then
+                    echo "❌ PRODUCTION ROLLBACK CANCELLED"
+                    echo "You must type 'ROLLBACK-PRODUCTION' to confirm this action."
+                    exit 1
+                  fi
+                  echo "🚨 PRODUCTION ROLLBACK CONFIRMED"
+                  echo "Reason: ${{ github.event.inputs.reason }}"
+                  echo "Proceeding with production restoration..."
+
+            - name: Rollback production environment
+              uses: appleboy/ssh-action@v1.0.0
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  script: |
+                      # Check if backup exists
+                      if [ ! -d "${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}" ]; then
+                        echo "❌ CRITICAL ERROR: No backup found at ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}"
+                        echo "Cannot perform production rollback without a backup."
+                        echo "🚨 PRODUCTION ROLLBACK FAILED - NO BACKUP AVAILABLE"
+                        exit 1
+                      fi
+
+                      echo "🚨 PRODUCTION ROLLBACK IN PROGRESS"
+                      echo "📦 Backup found. Starting rollback process..."
+                      echo "Reason: ${{ github.event.inputs.reason }}"
+
+                      # Create a backup of current production state before rollback
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback" ]; then
+                        rm -rf ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback
+                      fi
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}" ]; then
+                        cp -r ${{ secrets.DEPLOY_FOLDER_PROD }} ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback
+                        echo "💾 Current production state backed up to $(basename ${{ secrets.DEPLOY_FOLDER_PROD }})_pre_rollback"
+                      fi
+
+                      # Remove current production files (preserve .htaccess)
+                      find ${{ secrets.DEPLOY_FOLDER_PROD }} -type f ! -name '.htaccess' -delete
+                      find ${{ secrets.DEPLOY_FOLDER_PROD }} -type d -empty -delete
+
+                      # Restore from backup (preserve .htaccess)
+                      cp -r ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}/* ${{ secrets.DEPLOY_FOLDER_PROD }}/
+                      # Don't overwrite .htaccess if it exists in current production
+                      if [ -f "${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback/.htaccess" ]; then
+                        cp ${{ secrets.DEPLOY_FOLDER_PROD }}_pre_rollback/.htaccess ${{ secrets.DEPLOY_FOLDER_PROD }}/
+                        echo "🔒 Preserved production .htaccess file"
+                      fi
+
+                      echo "✅ PRODUCTION ROLLBACK COMPLETED"
+                      echo "🌐 Production site restored from previous backup"
+                      echo "💡 Previous production backed up to com_pre_rollback"
+
+            - name: Production rollback summary
+              run: |
+                  echo "🚨 PRODUCTION ENVIRONMENT ROLLBACK COMPLETED!"
+                  echo ""
+                  echo "📍 What happened:"
+                  echo "  • Production environment restored from backup"
+                  echo "  • Previous production saved to pre-rollback backup"
+                  echo "  • .htaccess file preserved"
+                  echo ""
+                  echo "📋 Rollback details:"
+                  echo "  • Triggered by: ${{ github.actor }}"
+                  echo "  • Reason: ${{ github.event.inputs.reason }}"
+                  echo "  • Time: $(date)"
+                  echo ""
+                  echo "🌐 Your live site should now be accessible at ${{ secrets.PROD_URL }}
+                  echo ""
+                  echo "⚠️  IMPORTANT: Verify the site is working correctly!"

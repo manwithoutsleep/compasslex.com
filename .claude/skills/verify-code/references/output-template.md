@@ -46,7 +46,7 @@ Use this template when reporting verification results:
 
 ## Guidelines
 
-- Include only sections that are relevant (omit sections with no issues)
-- For each issue, describe exactly what you observed
-- For each resolution, explain WHAT you changed and WHY it fixes the root cause
-- Final verification should confirm the fix works and doesn't introduce new problems
+-   Include only sections that are relevant (omit sections with no issues)
+-   For each issue, describe exactly what you observed
+-   For each resolution, explain WHAT you changed and WHY it fixes the root cause
+-   Final verification should confirm the fix works and doesn't introduce new problems

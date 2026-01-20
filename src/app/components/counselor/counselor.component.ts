@@ -5,7 +5,7 @@ import { Counselor } from 'src/app/models/counselor';
     selector: 'app-counselor',
     templateUrl: './counselor.component.html',
     styleUrls: ['./counselor.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class CounselorComponent implements OnInit {
     @Input() counselor: Counselor | null | undefined;
@@ -15,7 +15,9 @@ export class CounselorComponent implements OnInit {
     ngOnInit(): void {}
 
     getCounselorName(): string {
-        let counselorName = this.counselor ? this.counselor.firstname + ' ' + this.counselor.lastname : '';
+        let counselorName = this.counselor
+            ? this.counselor.firstname + ' ' + this.counselor.lastname
+            : '';
         if (counselorName === 'Linda Fentress') {
             counselorName += ', Clinical Director';
         }
@@ -23,7 +25,11 @@ export class CounselorComponent implements OnInit {
     }
 
     getImageLink(): string {
-        return '/assets/site-images/' + this.counselor?.firstname?.toLowerCase() + '-read-more-221x276.jpg';
+        return (
+            '/assets/site-images/' +
+            this.counselor?.firstname?.toLowerCase() +
+            '-read-more-221x276.jpg'
+        );
     }
 
     getFirstName(): string {

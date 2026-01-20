@@ -5,9 +5,12 @@ export interface CounselorState {
     isLoaded: boolean;
 }
 
-export function createCounselorState(counselorList: readonly Counselor[], isLoaded: boolean): CounselorState {
+export function createCounselorState(
+    counselorList: readonly Counselor[],
+    isLoaded: boolean
+): CounselorState {
     return {
         counselorList,
-        isLoaded
+        isLoaded,
     };
 }

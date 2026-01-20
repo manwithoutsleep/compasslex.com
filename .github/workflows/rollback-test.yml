@@ -1,67 +1,67 @@
 name: Rollback Test Environment
 
 on:
-  workflow_dispatch:
-    inputs:
-      confirm_rollback:
-        description: 'Type "ROLLBACK" to confirm you want to restore from backup'
-        required: true
-        type: string
+    workflow_dispatch:
+        inputs:
+            confirm_rollback:
+                description: 'Type "ROLLBACK" to confirm you want to restore from backup'
+                required: true
+                type: string
 
 jobs:
-  rollback-test:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Validate rollback confirmation
-      run: |
-        if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK" ]; then
-          echo "❌ Rollback cancelled. You must type 'ROLLBACK' to confirm."
-          exit 1
-        fi
-        echo "✅ Rollback confirmed. Proceeding with restoration."
-        
-    - name: Rollback test environment
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          # Check if backup exists
-          if [ ! -d "${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}" ]; then
-            echo "❌ No backup found at ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}"
-            echo "Cannot perform rollback without a backup."
-            exit 1
-          fi
-          
-          echo "📦 Backup found. Starting rollback process..."
-          
-          # Create a backup of current state before rollback
-          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback" ]; then
-            rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
-          fi
-          if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}" ]; then
-            cp -r ${{ secrets.DEPLOY_FOLDER_UAT }} ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
-            echo "💾 Current state backed up to $(basename ${{ secrets.DEPLOY_FOLDER_UAT }})_pre_rollback"
-          fi
-          
-          # Remove current files
-          rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}/*
-          
-          # Restore from backup
-          cp -r ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}/* ${{ secrets.DEPLOY_FOLDER_UAT }}/
-          
-          echo "✅ Rollback completed successfully!"
-          echo "🔄 Test environment restored from previous backup"
-          echo "💡 Current deployment backed up to ${{ secrets.UAT_URL }}_pre_rollback"
-          
-    - name: Rollback summary
-      run: |
-        echo "🎉 Test environment rollback completed!"
-        echo ""
-        echo "📍 What happened:"
-        echo "  • Test environment restored from backup"
-        echo "  • Previous state saved to pre-rollback backup"
-        echo ""
-        echo "🌐 Your test site should now be accessible at ${{ secrets.UAT_URL }}"
+    rollback-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Validate rollback confirmation
+              run: |
+                  if [ "${{ github.event.inputs.confirm_rollback }}" != "ROLLBACK" ]; then
+                    echo "❌ Rollback cancelled. You must type 'ROLLBACK' to confirm."
+                    exit 1
+                  fi
+                  echo "✅ Rollback confirmed. Proceeding with restoration."
+
+            - name: Rollback test environment
+              uses: appleboy/ssh-action@v1.0.0
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  script: |
+                      # Check if backup exists
+                      if [ ! -d "${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}" ]; then
+                        echo "❌ No backup found at ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}"
+                        echo "Cannot perform rollback without a backup."
+                        exit 1
+                      fi
+
+                      echo "📦 Backup found. Starting rollback process..."
+
+                      # Create a backup of current state before rollback
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback" ]; then
+                        rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
+                      fi
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_UAT }}" ]; then
+                        cp -r ${{ secrets.DEPLOY_FOLDER_UAT }} ${{ secrets.DEPLOY_FOLDER_UAT }}_pre_rollback
+                        echo "💾 Current state backed up to $(basename ${{ secrets.DEPLOY_FOLDER_UAT }})_pre_rollback"
+                      fi
+
+                      # Remove current files
+                      rm -rf ${{ secrets.DEPLOY_FOLDER_UAT }}/*
+
+                      # Restore from backup
+                      cp -r ${{ secrets.DEPLOY_FOLDER_UAT_BACKUP }}/* ${{ secrets.DEPLOY_FOLDER_UAT }}/
+
+                      echo "✅ Rollback completed successfully!"
+                      echo "🔄 Test environment restored from previous backup"
+                      echo "💡 Current deployment backed up to ${{ secrets.UAT_URL }}_pre_rollback"
+
+            - name: Rollback summary
+              run: |
+                  echo "🎉 Test environment rollback completed!"
+                  echo ""
+                  echo "📍 What happened:"
+                  echo "  • Test environment restored from backup"
+                  echo "  • Previous state saved to pre-rollback backup"
+                  echo ""
+                  echo "🌐 Your test site should now be accessible at ${{ secrets.UAT_URL }}"

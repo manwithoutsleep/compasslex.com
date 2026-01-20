@@ -7,21 +7,16 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-@NgModule({ declarations: [
-        AppComponent
-    ],
-    bootstrap: [
-        AppComponent
-    ],
+@NgModule({
+    declarations: [AppComponent],
+    bootstrap: [AppComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         AppComponentsModule,
-        AppStoreModule
+        AppStoreModule,
     ],
-    providers: [
-        provideHttpClient(withInterceptorsFromDi())
-    ]
+    providers: [provideHttpClient(withInterceptorsFromDi())],
 })
-export class AppModule { }
+export class AppModule {}

@@ -8,9 +8,7 @@ describe('HomePageComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                HomePageComponent
-            ],
+            declarations: [HomePageComponent],
         }).compileComponents();
 
         fixture = TestBed.createComponent(HomePageComponent);
@@ -30,7 +28,7 @@ describe('HomePageComponent', () => {
     });
 
     describe('getNewsletterAltText', () => {
-        it('should return the image URL of the given newsletter', () => {            
+        it('should return the image URL of the given newsletter', () => {
             component.latestNewsletter = newsletterBuilder();
             const expected = `${component.getNewsletterDate()} - ${component.latestNewsletter.title}`;
             const actual = component.getNewsletterAltText();
@@ -46,10 +44,10 @@ describe('HomePageComponent', () => {
             const actual = component.getNewsletterAltText();
             expect(actual).toEqual('');
         });
-    });    
+    });
 
     describe('getNewsletterImageUrl', () => {
-        it('should return the image URL of the given newsletter', () => {            
+        it('should return the image URL of the given newsletter', () => {
             component.latestNewsletter = newsletterBuilder();
             const expected = `/assets/newsletters/CompassNewsletter${component.latestNewsletter.year}Q${component.latestNewsletter.quarter}.png`;
             const actual = component.getNewsletterImageUrl();
@@ -65,10 +63,10 @@ describe('HomePageComponent', () => {
             const actual = component.getNewsletterImageUrl();
             expect(actual).toEqual('');
         });
-    });    
+    });
 
     describe('getNewsletterDate', () => {
-        it('should return the date of the given newsletter', () => {            
+        it('should return the date of the given newsletter', () => {
             component.latestNewsletter = newsletterBuilder();
             let season = '';
             switch (component.latestNewsletter.quarter) {

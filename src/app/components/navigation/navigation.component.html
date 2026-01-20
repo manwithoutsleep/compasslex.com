@@ -4,15 +4,31 @@
             <button (click)="toggleSidenav()" class="menu-button icon-button">
                 <span class="material-icons">menu</span>
             </button>
-            <a routerLink="/"><img src="/assets/site-images/CompassLogoSmall.png" alt="Compass Christian Counseling"></a>
-            <a routerLink="/"><img src="/assets/site-images/CompassIconSmall.png" alt="Compass Christian Counseling"></a>
+            <a routerLink="/"
+                ><img
+                    src="/assets/site-images/CompassLogoSmall.png"
+                    alt="Compass Christian Counseling"
+            /></a>
+            <a routerLink="/"
+                ><img
+                    src="/assets/site-images/CompassIconSmall.png"
+                    alt="Compass Christian Counseling"
+            /></a>
         </h1>
         <div class="navigation-header-large-screen">
-            <h1><a routerLink="/"><img src="/assets/site-images/CompassLogoAndIcon.png" alt="Compass Christian Counseling"></a></h1>
+            <h1>
+                <a routerLink="/"
+                    ><img
+                        src="/assets/site-images/CompassLogoAndIcon.png"
+                        alt="Compass Christian Counseling"
+                /></a>
+            </h1>
             <div class="navigation-header-right">
                 <div class="navigation-contact-info">
                     <div>(859) 721-3259</div>
-                    <button class="navigation-appointment-button" routerLink="/contact-us">Make an Appointment</button>
+                    <button class="navigation-appointment-button" routerLink="/contact-us">
+                        Make an Appointment
+                    </button>
                 </div>
                 <div class="navigation-top-menu">
                     <button routerLink="/home">Home</button>
@@ -28,15 +44,33 @@
     <div class="navigation-sidenav-container">
         <div class="navigation-sidenav" #sidenav [class.open]="sidenavOpen">
             <nav class="navigation-sidenav-list">
-                <a class="navigation-sidenav-link" routerLink="/home" (click)="closeSidenav()">Home</a>
-                <a class="navigation-sidenav-link" routerLink="/meet-us" (click)="closeSidenav()">Meet Us</a>
-                <a class="navigation-sidenav-link" routerLink="/our-services" (click)="closeSidenav()">Our Services</a>
-                <a class="navigation-sidenav-link" routerLink="/faq" (click)="closeSidenav()">FAQ</a>
-                <a class="navigation-sidenav-link" routerLink="/resources" (click)="closeSidenav()">Resources</a>
-                <a class="navigation-sidenav-link" routerLink="/contact-us" (click)="closeSidenav()">Contact Us</a>
+                <a class="navigation-sidenav-link" routerLink="/home" (click)="closeSidenav()"
+                    >Home</a
+                >
+                <a class="navigation-sidenav-link" routerLink="/meet-us" (click)="closeSidenav()"
+                    >Meet Us</a
+                >
+                <a
+                    class="navigation-sidenav-link"
+                    routerLink="/our-services"
+                    (click)="closeSidenav()"
+                    >Our Services</a
+                >
+                <a class="navigation-sidenav-link" routerLink="/faq" (click)="closeSidenav()"
+                    >FAQ</a
+                >
+                <a class="navigation-sidenav-link" routerLink="/resources" (click)="closeSidenav()"
+                    >Resources</a
+                >
+                <a class="navigation-sidenav-link" routerLink="/contact-us" (click)="closeSidenav()"
+                    >Contact Us</a
+                >
             </nav>
         </div>
-        <div class="navigation-sidenav-backdrop" [class.show]="sidenavOpen" (click)="closeSidenav()"></div>
+        <div
+            class="navigation-sidenav-backdrop"
+            [class.show]="sidenavOpen"
+            (click)="closeSidenav()"></div>
         <main class="navigation-sidenav-content">
             <router-outlet></router-outlet>
         </main>

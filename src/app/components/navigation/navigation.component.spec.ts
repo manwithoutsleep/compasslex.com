@@ -13,19 +13,12 @@ describe('NavigationComponent', () => {
 
     beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                NavigationComponent,
-                GmapFakeComponent
-            ],
-            imports: [
-                RouterOutlet,
-                SharedFakeModule,
-                NoopAnimationsModule
-            ],
+            declarations: [NavigationComponent, GmapFakeComponent],
+            imports: [RouterOutlet, SharedFakeModule, NoopAnimationsModule],
             providers: [
                 provideRouter([]),
-                { provide: ActivatedRoute, useValue: mockActivatedRoute }
-            ]
+                { provide: ActivatedRoute, useValue: mockActivatedRoute },
+            ],
         }).compileComponents();
 
         fixture = TestBed.createComponent(NavigationComponent);

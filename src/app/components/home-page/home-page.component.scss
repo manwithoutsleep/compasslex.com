@@ -17,7 +17,7 @@ $rotator-large-screen-width-break: 1100px;
     flex-direction: column;
     margin: 0;
     padding: 0;
-        
+
     .home-page-rotator {
         display: flex;
         height: max(min(33.33333vw, 400px), 200px);
@@ -32,21 +32,42 @@ $rotator-large-screen-width-break: 1100px;
             margin: 10px;
             position: absolute;
             text-align: center;
-            text-shadow: v.$background-color-title 0 0 3px, #aaaaff 0 0 5px, v.$background-color-card 0 0 25px;
+            text-shadow:
+                v.$background-color-title 0 0 3px,
+                #aaaaff 0 0 5px,
+                v.$background-color-card 0 0 25px;
             z-index: 1000;
 
             @media screen and (max-width: v.$app-width-small-screen) {
                 // Small screen
-                top: max(124px, calc(160px + (0.33 * min(0px, calc(100vw - $rotator-small-screen-width-break)))));
+                top: max(
+                    124px,
+                    calc(160px + (0.33 * min(0px, calc(100vw - $rotator-small-screen-width-break))))
+                );
                 width: 100%;
             }
             @media screen and (min-width: v.$app-width-small-screen) {
                 // Large screen
-                font-size: min(30px, calc(30px + (0.026 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
-                line-height: min(50px, calc(50px + (0.060 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
-                right: min(50px, calc(50px + (0.064 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
-                top: min(70px, calc(70px + (0.10 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
-                width: min(200px, calc(200px + (0.17 * min(0px, calc(100vw - $rotator-large-screen-width-break)))));
+                font-size: min(
+                    30px,
+                    calc(30px + (0.026 * min(0px, calc(100vw - $rotator-large-screen-width-break))))
+                );
+                line-height: min(
+                    50px,
+                    calc(50px + (0.06 * min(0px, calc(100vw - $rotator-large-screen-width-break))))
+                );
+                right: min(
+                    50px,
+                    calc(50px + (0.064 * min(0px, calc(100vw - $rotator-large-screen-width-break))))
+                );
+                top: min(
+                    70px,
+                    calc(70px + (0.1 * min(0px, calc(100vw - $rotator-large-screen-width-break))))
+                );
+                width: min(
+                    200px,
+                    calc(200px + (0.17 * min(0px, calc(100vw - $rotator-large-screen-width-break))))
+                );
             }
         }
 
@@ -130,7 +151,7 @@ $rotator-large-screen-width-break: 1100px;
                         max-width: 750px;
                         margin: 0 auto;
                     }
-            }
+                }
 
                 @media screen and (max-width: v.$app-width-small-screen) {
                     // Small screen
@@ -153,7 +174,7 @@ $rotator-large-screen-width-break: 1100px;
         .row-4 {
             background-color: v.$ultra-pure-white;
         }
-}
+    }
 
     .home-page-right-column {
         display: flex;
@@ -162,7 +183,7 @@ $rotator-large-screen-width-break: 1100px;
         max-width: 100%;
         margin: 0;
         padding: 0;
-        
+
         .home-page-video {
             width: 302px;
             max-width: 100%;
@@ -206,7 +227,7 @@ $rotator-large-screen-width-break: 1100px;
                 justify-content: space-evenly;
             }
         }
-        
+
         .home-page-newsletter {
             width: 302px;
             max-width: 100%;
@@ -217,7 +238,7 @@ $rotator-large-screen-width-break: 1100px;
                 cursor: pointer;
                 margin: 0;
                 padding: 0;
-        
+
                 img {
                     margin: 5px auto;
                     padding: 0 auto;

@@ -59,12 +59,12 @@ This prompt expects the following input parameter:
 
 3. Identify logical boundaries for breaking down the work based on:
 
-- **Functional cohesion**: Group related functionality together
-- **Logical dependencies**: Identify what must be built before other things
-- **File scope**: Consider which files/modules will be affected by each task
-- **Testability**: Each sub-task should be independently testable
-- **Size balance**: Aim for sub-tasks of roughly similar complexity (not too
-  small, not too large)
+-   **Functional cohesion**: Group related functionality together
+-   **Logical dependencies**: Identify what must be built before other things
+-   **File scope**: Consider which files/modules will be affected by each task
+-   **Testability**: Each sub-task should be independently testable
+-   **Size balance**: Aim for sub-tasks of roughly similar complexity (not too
+    small, not too large)
 
 4. Determine the optimal number of sub-tasks:
     - Minimum 2 sub-tasks (otherwise, no breakdown is needed)
@@ -78,12 +78,12 @@ This prompt expects the following input parameter:
 
 5. For each identified sub-task, analyze dependencies:
 
-- **Sequential dependencies**: Task B requires Task A to be completed first
-- **Parallel opportunities**: Tasks that can be executed simultaneously
-- **Shared resources**: Tasks that modify the same files (potential conflicts)
-- **Data flow**: Does one task produce data/state needed by another?
-- **Testing dependencies**: Must tests pass before proceeding to dependent
-  tasks?
+-   **Sequential dependencies**: Task B requires Task A to be completed first
+-   **Parallel opportunities**: Tasks that can be executed simultaneously
+-   **Shared resources**: Tasks that modify the same files (potential conflicts)
+-   **Data flow**: Does one task produce data/state needed by another?
+-   **Testing dependencies**: Must tests pass before proceeding to dependent
+    tasks?
 
 6. Create a dependency graph (conceptually) that shows:
     - Which tasks can start immediately (no dependencies)
@@ -96,10 +96,10 @@ This prompt expects the following input parameter:
 
 7. Create sub-task specification files following this naming pattern:
 
-- `.specs/{{spec-name}}-01-[descriptive-name].md`
-- `.specs/{{spec-name}}-02-[descriptive-name].md`
-- `.specs/{{spec-name}}-03-[descriptive-name].md`
-- ... continuing sequentially
+-   `.specs/{{spec-name}}-01-[descriptive-name].md`
+-   `.specs/{{spec-name}}-02-[descriptive-name].md`
+-   `.specs/{{spec-name}}-03-[descriptive-name].md`
+-   ... continuing sequentially
 
 8. Each sub-task file must contain:
 
@@ -118,17 +118,17 @@ This prompt expects the following input parameter:
 
     **Prerequisites** (must be completed before this task):
 
-    - [List any sub-tasks that must be completed first, or "None" if this can start
-      immediately]
+    -   [List any sub-tasks that must be completed first, or "None" if this can start
+        immediately]
 
     **Blocks** (tasks that depend on this one):
 
-    - [List any sub-tasks that depend on this one completing, or "None"]
+    -   [List any sub-tasks that depend on this one completing, or "None"]
 
     **Parallel Opportunities**:
 
-    - [List any sub-tasks that can be executed simultaneously with this one, or
-      "None"]
+    -   [List any sub-tasks that can be executed simultaneously with this one, or
+        "None"]
 
     ## Scope
 
@@ -136,11 +136,11 @@ This prompt expects the following input parameter:
 
     ### In Scope
 
-    - [Specific features, files, components to implement]
+    -   [Specific features, files, components to implement]
 
     ### Out of Scope
 
-    - [What is explicitly NOT part of this sub-task]
+    -   [What is explicitly NOT part of this sub-task]
 
     ## Implementation Requirements
 
@@ -148,8 +148,8 @@ This prompt expects the following input parameter:
 
     ## Files to Create/Modify
 
-    - `./path/to/file1.ts` - [description]
-    - `./path/to/file2.tsx` - [description]
+    -   `./path/to/file1.ts` - [description]
+    -   `./path/to/file2.tsx` - [description]
 
     ## Testing Requirements
 
@@ -157,10 +157,10 @@ This prompt expects the following input parameter:
 
     ## Success Criteria
 
-    - [ ] [Specific, measurable criterion 1]
-    - [ ] [Specific, measurable criterion 2]
-    - [ ] All tests pass
-    - [ ] The verify-code skill has been successfully executed
+    -   [ ] [Specific, measurable criterion 1]
+    -   [ ] [Specific, measurable criterion 2]
+    -   [ ] All tests pass
+    -   [ ] The verify-code skill has been successfully executed
 
     ## Notes
 
@@ -208,9 +208,9 @@ This prompt expects the following input parameter:
 
     Execute these tasks simultaneously:
 
-    - Task 01: [brief description]
-    - Task 02: [brief description]
-    - Task 03: [brief description]
+    -   Task 01: [brief description]
+    -   Task 02: [brief description]
+    -   Task 03: [brief description]
 
     **Wait for Phase 1 completion before proceeding to Phase 2**
 
@@ -220,7 +220,7 @@ This prompt expects the following input parameter:
 
     Execute these tasks simultaneously:
 
-    - Task 04: [brief description]
+    -   Task 04: [brief description]
 
     [Continue with additional phases as needed]
 
@@ -321,16 +321,16 @@ all necessary sections.
 
 <success_criteria>
 
-- [ ] Original specification thoroughly analyzed
-- [ ] Optimal number of sub-tasks identified (2-10, ideally 3-6)
-- [ ] All sub-task files created with complete, well-structured content
-- [ ] Coordinator plan created with accurate dependency graph
-- [ ] Execution strategy clearly defines parallel vs. sequential tasks
-- [ ] No work from original specification is lost or duplicated
-- [ ] All files follow naming conventions
-- [ ] Each sub-task has clear objectives, scope, and success criteria
-- [ ] Dependencies are accurately identified and documented
-- [ ] Coordinator provides actionable execution guidance
+-   [ ] Original specification thoroughly analyzed
+-   [ ] Optimal number of sub-tasks identified (2-10, ideally 3-6)
+-   [ ] All sub-task files created with complete, well-structured content
+-   [ ] Coordinator plan created with accurate dependency graph
+-   [ ] Execution strategy clearly defines parallel vs. sequential tasks
+-   [ ] No work from original specification is lost or duplicated
+-   [ ] All files follow naming conventions
+-   [ ] Each sub-task has clear objectives, scope, and success criteria
+-   [ ] Dependencies are accurately identified and documented
+-   [ ] Coordinator provides actionable execution guidance
 
 </success_criteria>
 
@@ -348,16 +348,16 @@ Example of good sub-task breakdown for an authentication feature:
 
 **Dependencies**:
 
-- Task 02 depends on Task 01 (needs database schema)
-- Tasks 03 and 04 depend on Task 02 (need server utilities)
-- Tasks 03 and 04 can run in parallel (independent UI components)
-- Task 05 depends on Tasks 02, 03, 04 (needs auth system complete)
+-   Task 02 depends on Task 01 (needs database schema)
+-   Tasks 03 and 04 depend on Task 02 (need server utilities)
+-   Tasks 03 and 04 can run in parallel (independent UI components)
+-   Task 05 depends on Tasks 02, 03, 04 (needs auth system complete)
 
 **Execution Strategy**:
 
-- Phase 1: Task 01 (foundation)
-- Phase 2: Task 02 (depends on Phase 1)
-- Phase 3: Tasks 03 and 04 in parallel (depends on Phase 2)
-- Phase 4: Task 05 (depends on Phase 3)
+-   Phase 1: Task 01 (foundation)
+-   Phase 2: Task 02 (depends on Phase 1)
+-   Phase 3: Tasks 03 and 04 in parallel (depends on Phase 2)
+-   Phase 4: Task 05 (depends on Phase 3)
 
 </examples>

@@ -58,11 +58,11 @@ I've completed the implementation of the plan from specs/security-audit.md.
 
 Summary of changes:
 
-- Added RLS policies for customer and participant photo access
-- Created tests covering both authorized and unauthorized access scenarios
-- All tests passing (12/12)
-- ESLint: no errors or warnings
-- TypeScript: no type errors
+-   Added RLS policies for customer and participant photo access
+-   Created tests covering both authorized and unauthorized access scenarios
+-   All tests passing (12/12)
+-   ESLint: no errors or warnings
+-   TypeScript: no type errors
 
 The code is ready for your local testing. Please verify:
 

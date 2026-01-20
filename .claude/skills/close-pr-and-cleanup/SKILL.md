@@ -12,11 +12,11 @@ This skill automates the process of closing a GitHub Pull Request and cleaning u
 
 Before running this skill, ensure:
 
-- You have the PR number
-- You have the local branch name
-- The PR has been approved and is ready to merge
-- You have no uncommitted changes in your working directory
-- You are not currently on the branch you want to delete
+-   You have the PR number
+-   You have the local branch name
+-   The PR has been approved and is ready to merge
+-   You have no uncommitted changes in your working directory
+-   You are not currently on the branch you want to delete
 
 ## Parameters
 
@@ -37,15 +37,15 @@ gh pr view {pr-number} --json state,title,headRefName,mergeable
 
 **Expected Output:**
 
-- `state`: "OPEN"
-- `mergeable`: "MERGEABLE"
-- Verify `headRefName` matches the branch name parameter
+-   `state`: "OPEN"
+-   `mergeable`: "MERGEABLE"
+-   Verify `headRefName` matches the branch name parameter
 
 **Error Handling:**
 
-- If PR is already merged: Inform user and skip to local cleanup (Step 4)
-- If PR is closed without merge: Ask user if they want to proceed with cleanup only
-- If PR is not mergeable: Stop and inform user (may have conflicts or failing checks)
+-   If PR is already merged: Inform user and skip to local cleanup (Step 4)
+-   If PR is closed without merge: Ask user if they want to proceed with cleanup only
+-   If PR is not mergeable: Stop and inform user (may have conflicts or failing checks)
 
 ### Step 2: Display Summary and Request Approval
 
@@ -70,8 +70,8 @@ Actions that will be performed:
 
 Use AskUserQuestion to get explicit approval:
 
-- Question: "Do you want to proceed with closing PR #{pr-number} and cleaning up branch {branch-name}?"
-- Options: "Yes, proceed" / "No, cancel"
+-   Question: "Do you want to proceed with closing PR #{pr-number} and cleaning up branch {branch-name}?"
+-   Options: "Yes, proceed" / "No, cancel"
 
 **If user cancels:** Stop execution and inform user no changes were made.
 
@@ -85,18 +85,18 @@ gh pr merge {pr-number} --squash --delete-branch
 
 **Explanation:**
 
-- `--squash`: Squash all commits into a single commit on main
-- `--delete-branch`: Automatically delete the remote branch after merge
+-   `--squash`: Squash all commits into a single commit on main
+-   `--delete-branch`: Automatically delete the remote branch after merge
 
 **Error Handling:**
 
-- If command fails, display error message and stop execution
-- Common errors: PR already merged, PR not mergeable, insufficient permissions
+-   If command fails, display error message and stop execution
+-   Common errors: PR already merged, PR not mergeable, insufficient permissions
 
 **Success Indicator:**
 
-- Command outputs merge commit hash
-- Command confirms branch deletion
+-   Command outputs merge commit hash
+-   Command confirms branch deletion
 
 ### Step 4: Local Repository Cleanup
 
@@ -124,10 +124,10 @@ git remote prune origin
 
 **Error Handling:**
 
-- If `git checkout main` fails: User may already be on main (safe to continue)
-- If `git pull` fails: Check network connection; may need manual intervention
-- If `git branch -d` fails: Branch may not exist locally (already deleted by `gh pr merge --delete-branch`), which is fine - continue with remaining steps
-- If `git remote prune` fails: Non-critical; inform user to run manually
+-   If `git checkout main` fails: User may already be on main (safe to continue)
+-   If `git pull` fails: Check network connection; may need manual intervention
+-   If `git branch -d` fails: Branch may not exist locally (already deleted by `gh pr merge --delete-branch`), which is fine - continue with remaining steps
+-   If `git remote prune` fails: Non-critical; inform user to run manually
 
 **Important Note:** The `gh pr merge --delete-branch` command may delete the local branch automatically in some configurations. If `git branch -d` fails because the branch doesn't exist, this is expected behavior. Always continue to `git remote prune origin` to clean up stale remote references.
 
@@ -148,9 +148,9 @@ git branch -r | grep {branch-name}
 
 **Expected Results:**
 
-- Current branch: `main`
-- Local branch list: Empty (branch not found)
-- Remote branch list: Empty (branch not found)
+-   Current branch: `main`
+-   Local branch list: Empty (branch not found)
+-   Remote branch list: Empty (branch not found)
 
 **Display Summary:**
 
@@ -188,20 +188,20 @@ Latest commit: {git log -1 --oneline}
 
 **Issue:** "error: Cannot delete branch 'X' checked out at 'Y'"
 
-- **Solution:** Ensure you're not on the branch being deleted; script includes `git checkout main`
+-   **Solution:** Ensure you're not on the branch being deleted; script includes `git checkout main`
 
 **Issue:** "Pull request already merged"
 
-- **Solution:** Skill skips merge step and proceeds with cleanup only
+-   **Solution:** Skill skips merge step and proceeds with cleanup only
 
 **Issue:** "error: The branch 'X' is not fully merged"
 
-- **Solution:** Branch may have commits not in main; ask user if they want to force delete with `-D`
+-   **Solution:** Branch may have commits not in main; ask user if they want to force delete with `-D`
 
 **Issue:** Network failures during `gh` or `git pull` commands
 
-- **Solution:** Check internet connection; retry operation; may need manual intervention
+-   **Solution:** Check internet connection; retry operation; may need manual intervention
 
 ## Version History
 
-- v1.0.0 (2025-12-10): Initial implementation
+-   v1.0.0 (2025-12-10): Initial implementation

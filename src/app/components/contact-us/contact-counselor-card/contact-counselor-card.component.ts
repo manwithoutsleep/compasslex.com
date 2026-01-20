@@ -5,7 +5,7 @@ import { Counselor } from 'src/app/models/counselor';
     selector: 'app-contact-counselor-card',
     templateUrl: './contact-counselor-card.component.html',
     styleUrls: ['./contact-counselor-card.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class ContactCounselorCardComponent implements OnInit {
     @Input() counselor: Counselor | null | undefined;
@@ -15,7 +15,11 @@ export class ContactCounselorCardComponent implements OnInit {
     ngOnInit(): void {}
 
     getImageLink(): string {
-        return '/assets/site-images/' + this.counselor?.firstname?.toLowerCase() + '-contact-us-200x206.jpg';
+        return (
+            '/assets/site-images/' +
+            this.counselor?.firstname?.toLowerCase() +
+            '-contact-us-200x206.jpg'
+        );
     }
 
     getFirstName(): string {

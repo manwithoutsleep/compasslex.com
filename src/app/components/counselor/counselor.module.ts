@@ -5,13 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
-    declarations: [
-        CounselorControllerComponent,
-        CounselorComponent
-    ],
-    imports: [
-        AppRoutingModule,
-        SharedModule
-    ]
+    declarations: [CounselorControllerComponent, CounselorComponent],
+    imports: [AppRoutingModule, SharedModule],
 })
-export class CounselorModule { }
+export class CounselorModule {}

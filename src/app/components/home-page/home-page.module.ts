@@ -5,13 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
-    declarations: [
-        HomePageControllerComponent,
-        HomePageComponent,
-    ],
-    imports: [
-        SharedModule,
-        AppRoutingModule
-    ]
+    declarations: [HomePageControllerComponent, HomePageComponent],
+    imports: [SharedModule, AppRoutingModule],
 })
-export class HomePageModule { }
+export class HomePageModule {}

@@ -1,23 +1,26 @@
 {
-  "permissions": {
-    "allow": [
-      "Bash(ng build)",
-      "Bash(npm run lint)",
-      "Bash(ng serve:*)",
-      "Bash(timeout:*)",
-      "Bash(ng test:*)",
-      "Bash(npm run build:prod:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git tag:*)",
-      "Bash(gh pr create:*)",
-      "Bash(npm ls:*)",
-      "WebSearch",
-      "Bash(node --version)",
-      "Bash(npm view:*)",
-      "Bash(node set-env.js:*)"
-    ],
-    "deny": [],
-    "ask": []
-  }
+    "permissions": {
+        "allow": [
+            "Bash(ng build)",
+            "Bash(npm run lint)",
+            "Bash(ng serve:*)",
+            "Bash(timeout:*)",
+            "Bash(ng test:*)",
+            "Bash(npm run build:prod:*)",
+            "Bash(git add:*)",
+            "Bash(git commit:*)",
+            "Bash(git tag:*)",
+            "Bash(gh pr create:*)",
+            "Bash(npm ls:*)",
+            "WebSearch",
+            "Bash(node --version)",
+            "Bash(npm view:*)",
+            "Bash(node set-env.js:*)",
+            "Bash(tsc:*)",
+            "Bash(npx eslint:*)",
+            "Bash(dir /b node_modules@ngrxeslint-pluginconfigs)"
+        ],
+        "deny": [],
+        "ask": []
+    }
 }

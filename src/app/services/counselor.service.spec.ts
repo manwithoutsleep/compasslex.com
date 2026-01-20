@@ -7,22 +7,20 @@ import { environment } from 'src/environments/environment';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CounselorService', () => {
-
     const baseUrl = '../assets/data/counselor.json';
 
     let sut: CounselorService;
     let httpTestingController: HttpTestingController;
 
     beforeEach(() => {
-
         TestBed.configureTestingModule({
-    imports: [],
-    providers: [
-        CounselorService,
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting()
-    ]
-}).compileComponents();
+            imports: [],
+            providers: [
+                CounselorService,
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
+        }).compileComponents();
         httpTestingController = TestBed.inject(HttpTestingController);
         sut = TestBed.inject(CounselorService);
     });
@@ -47,14 +45,12 @@ describe('CounselorService', () => {
 
         it('should return the counselor list json from the service', fakeAsync(() => {
             const jsonResponse = {
-                counselorList: [
-                    counselorBuilder(),
-                    counselorBuilder(),
-                    counselorBuilder()
-                ]
+                counselorList: [counselorBuilder(), counselorBuilder(), counselorBuilder()],
             } as CounselorData;
 
-            sut.getCounselorList().subscribe(responseFromService => expect(responseFromService).toEqual(jsonResponse));
+            sut.getCounselorList().subscribe((responseFromService) =>
+                expect(responseFromService).toEqual(jsonResponse)
+            );
             flushMicrotasks();
 
             const actualRequest = httpTestingController.expectOne(baseUrl);

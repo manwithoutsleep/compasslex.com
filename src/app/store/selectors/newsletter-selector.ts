@@ -9,7 +9,9 @@ const getNewsletterStoreState = createFeatureSelector<NewsletterState>(StoreLabe
 export const selectAllNewsletters = createSelector(
     getNewsletterStoreState,
     (state: NewsletterState): NewsletterState | undefined => {
-        if (!state) { return undefined; }
+        if (!state) {
+            return undefined;
+        }
         return state;
     }
 );
@@ -50,7 +52,7 @@ export const selectAllButLatestNewsletters = createSelector(
 
 export const selectNewsletterListLoadState = createSelector(
     getNewsletterStoreState,
-    (state: NewsletterState): boolean => state ? state.isLoaded : false
+    (state: NewsletterState): boolean => (state ? state.isLoaded : false)
 );
 
 export const selectNewsletterListErrors = createSelector(

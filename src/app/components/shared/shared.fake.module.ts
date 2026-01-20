@@ -6,15 +6,8 @@ import { ErrorPageFakeComponent } from './error-page/error-page.fake.component';
 // All other tests use the real SharedModule.
 
 @NgModule({
-    declarations: [
-        ErrorPageFakeComponent
-    ],
-    imports: [
-        CommonModule
-    ],
-    exports: [
-        CommonModule,
-        ErrorPageFakeComponent
-    ]
+    declarations: [ErrorPageFakeComponent],
+    imports: [CommonModule],
+    exports: [CommonModule, ErrorPageFakeComponent],
 })
-export class SharedFakeModule { }
+export class SharedFakeModule {}

@@ -1,6 +1,6 @@
 @use '../../../sass/variables' as v;
 
-.newsletters-container {    
+.newsletters-container {
     margin: 0 auto;
     padding: 0 8px;
     max-width: v.$app-max-width;
@@ -11,10 +11,10 @@
         text-align: center;
         width: 288px;
     }
-    .newsletters {      
+    .newsletters {
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;  
+        flex-wrap: wrap;
         justify-content: space-evenly;
         img {
             cursor: pointer;

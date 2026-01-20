@@ -5,7 +5,7 @@ import { Counselor } from 'src/app/models/counselor';
     selector: 'app-meet-counselor-card',
     templateUrl: './meet-counselor-card.component.html',
     styleUrls: ['./meet-counselor-card.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class MeetCounselorCardComponent implements OnInit {
     @Input() counselor: Counselor | null | undefined;
@@ -15,7 +15,9 @@ export class MeetCounselorCardComponent implements OnInit {
     ngOnInit(): void {}
 
     getCounselorName(): string {
-        let counselorName = this.counselor ? this.counselor.firstname + ' ' + this.counselor.lastname : '';
+        let counselorName = this.counselor
+            ? this.counselor.firstname + ' ' + this.counselor.lastname
+            : '';
         if (counselorName === 'Linda Fentress') {
             counselorName += ', Clinical Director';
         }
@@ -23,7 +25,11 @@ export class MeetCounselorCardComponent implements OnInit {
     }
 
     getImageLink(): string {
-        return '/assets/site-images/' + this.counselor?.firstname?.toLowerCase() + '-meet-us-182x235.jpg';
+        return (
+            '/assets/site-images/' +
+            this.counselor?.firstname?.toLowerCase() +
+            '-meet-us-182x235.jpg'
+        );
     }
 
     getFirstName(): string {

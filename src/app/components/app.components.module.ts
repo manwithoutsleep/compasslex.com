@@ -18,7 +18,7 @@ import { HomePageModule } from './home-page/home-page.module';
         GettingStartedComponent,
         NavigationComponent,
         OurServicesComponent,
-        ResourcesComponent
+        ResourcesComponent,
     ],
     imports: [
         AppRoutingModule,
@@ -27,10 +27,8 @@ import { HomePageModule } from './home-page/home-page.module';
         HomePageModule,
         MeetUsModule,
         NewslettersModule,
-        SharedModule
+        SharedModule,
     ],
-    exports: [
-        NavigationComponent
-    ]
+    exports: [NavigationComponent],
 })
 export class AppComponentsModule {}

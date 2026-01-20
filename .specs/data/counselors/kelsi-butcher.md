@@ -13,20 +13,20 @@ Please let me know how I can be a support to you. My approach is warm and empath
 
 ## Educational/Professional
 
-- B.A. of Psychology, Eastern Kentucky University
-- M.A. in Counseling, Eastern Kentucky University
-- Licensed Professional Counseling Associate (LPCC)
-- Gottman Method of Couples Therapy Training
+-   B.A. of Psychology, Eastern Kentucky University
+-   M.A. in Counseling, Eastern Kentucky University
+-   Licensed Professional Counseling Associate (LPCC)
+-   Gottman Method of Couples Therapy Training
 
 ## Memberships
 
-- Kentucky Counseling Association (KCA)
-- The International Honor Society in Psychology
+-   Kentucky Counseling Association (KCA)
+-   The International Honor Society in Psychology
 
 ## Insurance
 
-- Aetna Better Health
-- Passport
-- Wellcare Medicaid
-- Humana Medicaid
-- Anthem BlueCross/BlueShield
+-   Aetna Better Health
+-   Passport
+-   Wellcare Medicaid
+-   Humana Medicaid
+-   Anthem BlueCross/BlueShield

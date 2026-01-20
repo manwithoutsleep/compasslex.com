@@ -5,33 +5,33 @@ import { Counselor } from 'src/app/models/counselor';
     selector: 'app-counselor',
     templateUrl: './counselor.component.html',
     styleUrls: ['./counselor.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class CounselorFakeComponent {
     @Input() counselor: Counselor | null | undefined;
 
     getCounselorName(): string {
-        return "irrelevant counselor name";
+        return 'irrelevant counselor name';
     }
     getImageLink(): string {
         return '/assets/site-images/linda-read-more-221x276.jpg';
     }
     getFirstName(): string {
-        return "irrelevant counselor first name";
+        return 'irrelevant counselor first name';
     }
     getLastName(): string {
-        return "irrelevant counselor last name";
+        return 'irrelevant counselor last name';
     }
     getLongDescription(): string {
-        return "irrelevant counselor long description";
+        return 'irrelevant counselor long description';
     }
     getEmail(): string {
-        return "irrelevant counselor email";
+        return 'irrelevant counselor email';
     }
     getDirectoryId(): string {
-        return "irrelevant counselor directory id";
+        return 'irrelevant counselor directory id';
     }
     getAppointmentLink(): string {
-        return "irrelevant appointment link";
+        return 'irrelevant appointment link';
     }
 }

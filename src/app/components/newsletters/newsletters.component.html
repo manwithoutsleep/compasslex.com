@@ -1,24 +1,30 @@
 <h2>Compass Articles</h2>
 
 <div class="newsletters-container">
-  <p>
-    Compass Christian Counseling Articles cover a variety of topics
-    including coping strategies for stress, relationship skills, and mental and
-    emotional well-being.
-  </p>
+    <p>
+        Compass Christian Counseling Articles cover a variety of topics including coping strategies
+        for stress, relationship skills, and mental and emotional well-being.
+    </p>
 
-  <div class="latest-newsletter ui-card">
-    <img src="{{ getNewsletterImageUrl(latestNewsletter) }}" alt="{{ getNewsletterAltText(latestNewsletter) }}" target="_blank" (click)="handleClick(latestNewsletter)" />
-  </div>
-
-  @if (newsletterList && newsletterList.length > 0) {
-    <div class="newsletters">
-      @for (newsletter of newsletterList; track newsletter) {
-        <div class="ui-card">
-          <img src="{{ getNewsletterImageUrl(newsletter) }}" alt="{{ getNewsletterAltText(newsletter) }}" target="_blank" (click)="handleClick(newsletter)" />
-        </div>
-      }
+    <div class="latest-newsletter ui-card">
+        <img
+            src="{{ getNewsletterImageUrl(latestNewsletter) }}"
+            alt="{{ getNewsletterAltText(latestNewsletter) }}"
+            target="_blank"
+            (click)="handleClick(latestNewsletter)" />
     </div>
-  }
-</div>
 
+    @if (newsletterList && newsletterList.length > 0) {
+        <div class="newsletters">
+            @for (newsletter of newsletterList; track newsletter) {
+                <div class="ui-card">
+                    <img
+                        src="{{ getNewsletterImageUrl(newsletter) }}"
+                        alt="{{ getNewsletterAltText(newsletter) }}"
+                        target="_blank"
+                        (click)="handleClick(newsletter)" />
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -5,7 +5,7 @@ import { Newsletter } from 'src/app/models/newsletter';
     selector: 'app-newsletters',
     templateUrl: './newsletters.component.html',
     styleUrls: ['./newsletters.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class NewslettersComponent implements OnInit {
     @Input() newsletterList: Newsletter[] | null | undefined;
@@ -48,7 +48,10 @@ export class NewslettersComponent implements OnInit {
 
     public handleClick(newsletter: Newsletter | null | undefined): void {
         if (newsletter) {
-            window.open(`/assets/newsletters/CompassNewsletter${newsletter.year}Q${newsletter.quarter}.pdf`, '_blank');
+            window.open(
+                `/assets/newsletters/CompassNewsletter${newsletter.year}Q${newsletter.quarter}.pdf`,
+                '_blank'
+            );
         }
     }
 

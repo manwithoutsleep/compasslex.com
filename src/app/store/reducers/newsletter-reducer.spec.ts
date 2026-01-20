@@ -19,11 +19,9 @@ describe('newsletterReducer', () => {
     });
 
     it('should replace the Newsletter state when the getNewsletterListSuccessAction is fired', () => {
-        const expectedNewsletterState = { newsletterList: [
-            newsletterBuilder(),
-            newsletterBuilder(),
-            newsletterBuilder()
-        ] } as NewsletterData;
+        const expectedNewsletterState = {
+            newsletterList: [newsletterBuilder(), newsletterBuilder(), newsletterBuilder()],
+        } as NewsletterData;
 
         const action = getNewsletterListSuccessAction(expectedNewsletterState);
 

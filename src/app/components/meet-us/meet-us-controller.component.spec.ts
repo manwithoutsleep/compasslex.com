@@ -11,17 +11,11 @@ describe('MeetUsControllerComponent', () => {
     let mockReduxStore: MockStore<{}>;
 
     const initialState = {
-        counselors: createCounselorState([], false)
+        counselors: createCounselorState([], false),
     };
     const moduleDef = {
-        declarations: [
-            MeetUsControllerComponent,
-            MeetUsFakeComponent,
-            ErrorPageFakeComponent
-        ],
-        providers: [
-            provideMockStore({ initialState })
-        ]
+        declarations: [MeetUsControllerComponent, MeetUsFakeComponent, ErrorPageFakeComponent],
+        providers: [provideMockStore({ initialState })],
     };
 
     beforeEach(() => {

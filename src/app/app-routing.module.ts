@@ -10,7 +10,6 @@ import { ContactUsControllerComponent } from './components/contact-us/contact-us
 import { NewslettersControllerComponent } from './components/newsletters/newsletters-controller.component';
 import { HomePageControllerComponent } from './components/home-page/home-page-controller.component';
 
-
 const routes: Routes = [
     { path: 'home', component: HomePageControllerComponent },
     { path: 'meet-us', component: MeetUsControllerComponent },
@@ -21,18 +20,16 @@ const routes: Routes = [
     { path: 'resources', component: ResourcesComponent },
     { path: 'contact-us', component: ContactUsControllerComponent },
     { path: 'newsletters', component: NewslettersControllerComponent },
-    { path: '', redirectTo: '/home', pathMatch: 'full', },
-    { path: '**', redirectTo: '/home', pathMatch: 'full' }
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
     imports: [
         RouterModule.forRoot(routes, {
-            scrollPositionRestoration: 'top'
-        })
+            scrollPositionRestoration: 'top',
+        }),
     ],
-    exports: [
-        RouterModule
-    ]
+    exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

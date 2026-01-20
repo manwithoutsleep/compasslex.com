@@ -10,18 +10,18 @@ Enforce code quality by automatically running TypeScript compilation checks, ESL
 <when_to_use>
 Invoke this skill at these key moments:
 
-- **After completing a phase or task**: Before marking phase todos as complete
-- **Before committing code**: As part of the pre-commit workflow
-- **After significant changes**: When modifying 3+ files or major refactoring
-- **When explicitly requested**: User asks to verify, check, or validate code quality
-- **Before creating a PR**: Final verification before code review
+-   **After completing a phase or task**: Before marking phase todos as complete
+-   **Before committing code**: As part of the pre-commit workflow
+-   **After significant changes**: When modifying 3+ files or major refactoring
+-   **When explicitly requested**: User asks to verify, check, or validate code quality
+-   **Before creating a PR**: Final verification before code review
 
 **When NOT to use:**
 
-- After every single file edit (too frequent)
-- For documentation-only changes (.md files without code)
-- During exploratory coding where you expect things to be broken
-  </when_to_use>
+-   After every single file edit (too frequent)
+-   For documentation-only changes (.md files without code)
+-   During exploratory coding where you expect things to be broken
+    </when_to_use>
 
 <quick_start>
 After modifying files in a phase or when called manually, automatically trigger verification:
@@ -47,17 +47,17 @@ See `references/examples.md` for more verification scenarios.
 
 At the start of each phase, initialize tracking:
 
-- Create a mental list or use TodoWrite to track files
-- Update the list each time you Edit or Write a file
-- Include both source files and test files
+-   Create a mental list or use TodoWrite to track files
+-   Update the list each time you Edit or Write a file
+-   Include both source files and test files
 
 Example tracking approach:
 Phase: Implement authentication validation
 Modified files:
 
-- src/lib/validation/auth.ts (created)
-- src/app/api/login/route.ts (edited)
-- tests/lib/validation/auth.test.ts (created)
+-   src/lib/validation/auth.ts (created)
+-   src/app/api/login/route.ts (edited)
+-   tests/lib/validation/auth.test.ts (created)
 
 When ready to verify, use this list to construct verification commands.
 </phase_tracking>
@@ -151,24 +151,24 @@ After 3 consecutive failures on same command:
 <common_errors>
 **TypeScript Common Errors:**
 
-- `Cannot find module 'X'` → Check import paths, may need file extension or path alias
-- `Type 'X' is not assignable to type 'Y'` → Review type definitions, may need type assertion or fix types
-- `Object is possibly 'undefined'` → Add null check (`if (obj)`) or optional chaining (`obj?.prop`)
-- `Property 'X' does not exist on type 'Y'` → Check object shape, may need to extend interface
+-   `Cannot find module 'X'` → Check import paths, may need file extension or path alias
+-   `Type 'X' is not assignable to type 'Y'` → Review type definitions, may need type assertion or fix types
+-   `Object is possibly 'undefined'` → Add null check (`if (obj)`) or optional chaining (`obj?.prop`)
+-   `Property 'X' does not exist on type 'Y'` → Check object shape, may need to extend interface
 
 **ESLint Common Errors:**
 
-- `React Hook useEffect has a missing dependency` → Add dependency to array or wrap in useCallback
-- `'X' is assigned a value but never used` → Remove variable or use it, or prefix with `_` if intentional
-- `Unexpected any. Specify a different type` → Replace `any` with specific type or `unknown`
-- `Prefer const` → Change `let` to `const` if variable is never reassigned
+-   `React Hook useEffect has a missing dependency` → Add dependency to array or wrap in useCallback
+-   `'X' is assigned a value but never used` → Remove variable or use it, or prefix with `_` if intentional
+-   `Unexpected any. Specify a different type` → Replace `any` with specific type or `unknown`
+-   `Prefer const` → Change `let` to `const` if variable is never reassigned
 
 **Vitest Common Errors:**
 
-- `Test timeout of 5000ms exceeded` → Kill and retry, or increase timeout in specific test
-- `Cannot find module 'X' from 'test.ts'` → Check tsconfig.json paths, may need to adjust test configuration
-- `ReferenceError: X is not defined` → Import missing dependency or mock it
-- `Expected X to be Y` → Implementation doesn't match test expectation, review logic
+-   `Test timeout of 5000ms exceeded` → Kill and retry, or increase timeout in specific test
+-   `Cannot find module 'X' from 'test.ts'` → Check tsconfig.json paths, may need to adjust test configuration
+-   `ReferenceError: X is not defined` → Import missing dependency or mock it
+-   `Expected X to be Y` → Implementation doesn't match test expectation, review logic
 
 **Recovery strategy:**
 After each fix, re-run ONLY the failed command, not the entire verification sequence.
@@ -190,22 +190,22 @@ Ask yourself these questions in order:
 
 **Red Phase** (expect failures):
 
-- Created new test files matching `__tests__/**/*.test.ts` or `**/*.test.ts`
-- Added new test cases (`it()`, `test()`, `describe()`) to existing test files
-- Have NOT yet modified corresponding implementation files
-- Action: Test failures are EXPECTED, do NOT count as verification failure
+-   Created new test files matching `__tests__/**/*.test.ts` or `**/*.test.ts`
+-   Added new test cases (`it()`, `test()`, `describe()`) to existing test files
+-   Have NOT yet modified corresponding implementation files
+-   Action: Test failures are EXPECTED, do NOT count as verification failure
 
 **Green Phase** (expect pass):
 
-- Modified implementation files after being in Red phase
-- Tests were previously failing
-- Action: Tests should now pass, any failure is a real error
+-   Modified implementation files after being in Red phase
+-   Tests were previously failing
+-   Action: Tests should now pass, any failure is a real error
 
 **Refactor Phase** (expect pass):
 
-- Modified implementation files only
-- No new tests added
-- Action: All existing tests MUST still pass
+-   Modified implementation files only
+-   No new tests added
+-   Action: All existing tests MUST still pass
 
 **When uncertain about phase:**
 Use AskUserQuestion to confirm: "Are we in Red phase (expecting test failures) or Green/Refactor phase (expecting all tests to pass)?"
@@ -239,25 +239,25 @@ This transparency helps users understand what's happening, especially for long v
 
 **Before verification:**
 
-- Current phase todo should be marked as in_progress
-- Example: "Implementing authentication module"
+-   Current phase todo should be marked as in_progress
+-   Example: "Implementing authentication module"
 
 **During verification (if failures found):**
 
-- Keep phase todo as in_progress
-- Do NOT mark complete until all verification passes
+-   Keep phase todo as in_progress
+-   Do NOT mark complete until all verification passes
 
 **After successful verification:**
 
-- Mark phase todo as completed
-- You may add a completion note: "Verified: tsc ✓ eslint ✓ prettier ✓ vitest ✓"
+-   Mark phase todo as completed
+-   You may add a completion note: "Verified: tsc ✓ eslint ✓ prettier ✓ vitest ✓"
 
 **If verification fails 3 times:**
 
-- Keep phase todo as in_progress
-- Add new todo: "Blocked: [describe specific issue] - needs human guidance"
-- Use AskUserQuestion to get help from user
-  </todo_integration>
+-   Keep phase todo as in_progress
+-   Add new todo: "Blocked: [describe specific issue] - needs human guidance"
+-   Use AskUserQuestion to get help from user
+    </todo_integration>
 
 <command_execution>
 **Important execution details:**
@@ -283,24 +283,24 @@ tsc --noEmit
 <success_indicators>
 Verification succeeded when:
 
-- `tsc --noEmit` exits with code 0
-- `npx eslint --fix {files}` exits with code 0, no errors/warnings
-- `npx prettier --write {files}` exits with code 0
-- `npx vitest related run {files}` exits with code 0 (unless Red phase)
-- All files properly formatted and linted
-  </success_indicators>
+-   `tsc --noEmit` exits with code 0
+-   `npx eslint --fix {files}` exits with code 0, no errors/warnings
+-   `npx prettier --write {files}` exits with code 0
+-   `npx vitest related run {files}` exits with code 0 (unless Red phase)
+-   All files properly formatted and linted
+    </success_indicators>
 
 <failure_indicators>
 Verification failed when:
 
-- Any command exits with non-zero code
-- TypeScript errors reported
-- ESLint errors or warnings reported
-- Prettier cannot format files
-- Tests fail (outside Red phase)
-- Same command fails 3 times
-  </failure_indicators>
-  </validation>
+-   Any command exits with non-zero code
+-   TypeScript errors reported
+-   ESLint errors or warnings reported
+-   Prettier cannot format files
+-   Tests fail (outside Red phase)
+-   Same command fails 3 times
+    </failure_indicators>
+    </validation>
 
 <anti_patterns>
 <batching_verification>
@@ -337,14 +337,14 @@ Verification failed when:
 <success_criteria>
 Verification is successful when:
 
-- All four commands (tsc, eslint, prettier, vitest) complete without errors
-- Modified files are tracked accurately throughout the phase
-- TDD phase correctly detected (if applicable)
-- Test failures in Red phase are recognized as expected
-- Failures in Green/Refactor phases trigger proper error handling
-- After 3 failures, work stops and human guidance is requested
-- Code is ready for commit or next implementation phase
-  </success_criteria>
+-   All four commands (tsc, eslint, prettier, vitest) complete without errors
+-   Modified files are tracked accurately throughout the phase
+-   TDD phase correctly detected (if applicable)
+-   Test failures in Red phase are recognized as expected
+-   Failures in Green/Refactor phases trigger proper error handling
+-   After 3 failures, work stops and human guidance is requested
+-   Code is ready for commit or next implementation phase
+    </success_criteria>
 
 <output_format>
 When reporting verification results, use the template in `references/output-template.md`.
@@ -362,32 +362,32 @@ Include only relevant sections (omit sections that passed successfully on the fi
 
 **When to Verify:**
 
-- ✓ After completing a phase (before marking todo complete)
-- ✓ Before committing code
-- ✓ After modifying 3+ files
-- ✓ When user explicitly requests
-- ✗ After every single file edit
+-   ✓ After completing a phase (before marking todo complete)
+-   ✓ Before committing code
+-   ✓ After modifying 3+ files
+-   ✓ When user explicitly requests
+-   ✗ After every single file edit
 
 **Failure Limits:**
 
-- 3 attempts per command → then ask user for help
-- Retry only the failed command, not entire sequence
+-   3 attempts per command → then ask user for help
+-   Retry only the failed command, not entire sequence
 
 **TDD Quick Guide:**
 
-- **RED**: New tests added, no implementation → failures expected ✓
-- **GREEN**: Implementation added after RED → must pass ✓
-- **REFACTOR**: Only implementation changed → must pass ✓
-- **Uncertain?** → Ask user which phase
+-   **RED**: New tests added, no implementation → failures expected ✓
+-   **GREEN**: Implementation added after RED → must pass ✓
+-   **REFACTOR**: Only implementation changed → must pass ✓
+-   **Uncertain?** → Ask user which phase
 
 **Exit Codes:**
 
-- 0 = Success, continue to next step
-- Non-zero = Failure, fix and retry same command
+-   0 = Success, continue to next step
+-   Non-zero = Failure, fix and retry same command
 
 **Special Cases:**
 
-- No tests exist for files → Skip vitest, note in output
-- Documentation-only (.md) → Skip verification entirely
-- Test files hanging → Kill after 2 minutes, retry once
-  </quick_reference>
+-   No tests exist for files → Skip vitest, note in output
+-   Documentation-only (.md) → Skip verification entirely
+-   Test files hanging → Kill after 2 minutes, retry once
+    </quick_reference>

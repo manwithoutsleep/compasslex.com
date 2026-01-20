@@ -13,21 +13,16 @@ describe('ContactUsControllerComponent', () => {
     let mockReduxStore: MockStore<{}>;
 
     const initialState = {
-        counselors: createCounselorState([], false)
+        counselors: createCounselorState([], false),
     };
     const moduleDef = {
         declarations: [
             ContactUsControllerComponent,
             ContactUsFakeComponent,
-            ErrorPageFakeComponent
+            ErrorPageFakeComponent,
         ],
-        imports: [
-            SharedFakeModule
-        ],
-        providers: [
-            provideRouter([]),
-            provideMockStore({ initialState })
-        ]
+        imports: [SharedFakeModule],
+        providers: [provideRouter([]), provideMockStore({ initialState })],
     };
 
     beforeEach(() => {

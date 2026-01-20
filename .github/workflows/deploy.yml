@@ -1,63 +1,63 @@
 name: Deploy to GoDaddy
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
+    push:
+        branches: [main]
+    workflow_dispatch:
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-        cache: 'npm'
-        
-    - name: Install dependencies
-      run: npm ci
-      
-    - name: Create .env file
-      run: |
-        echo "GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" > .env
-        
-    - name: Build application
-      run: npm run build:prod
-      
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v1.0.0
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          # Create backup of current deployment
-          if [ -d "${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}" ]; then
-            rm -rf ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}
-          fi
-          if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}" ]; then
-            cp -r ${{ secrets.DEPLOY_FOLDER_PROD }} ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}
-          fi
-          
-          # Clear existing files (except .htaccess if it exists)
-          mkdir -p ${{ secrets.DEPLOY_FOLDER_PROD }}
-          find ${{ secrets.DEPLOY_FOLDER_PROD }} -type f ! -name '.htaccess' -delete
-          find ${{ secrets.DEPLOY_FOLDER_PROD }} -type d -empty -delete
-          
-    - name: Setup SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-        
-    - name: Add server to known hosts
-      run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-      
-    - name: Upload build files
-      run: |
-        # Deploy files using rsync (excluding .htaccess)
-        rsync -avz --delete --exclude='.htaccess' dist/browser/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_FOLDER_PROD }}/
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '20'
+                  cache: 'npm'
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Create .env file
+              run: |
+                  echo "GOOGLE_MAPS_API_KEY=${{ secrets.GOOGLE_MAPS_API_KEY }}" > .env
+
+            - name: Build application
+              run: npm run build:prod
+
+            - name: Deploy to server
+              uses: appleboy/ssh-action@v1.0.0
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.SSH_USER }}
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  script: |
+                      # Create backup of current deployment
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}" ]; then
+                        rm -rf ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}
+                      fi
+                      if [ -d "${{ secrets.DEPLOY_FOLDER_PROD }}" ]; then
+                        cp -r ${{ secrets.DEPLOY_FOLDER_PROD }} ${{ secrets.DEPLOY_FOLDER_PROD_BACKUP }}
+                      fi
+
+                      # Clear existing files (except .htaccess if it exists)
+                      mkdir -p ${{ secrets.DEPLOY_FOLDER_PROD }}
+                      find ${{ secrets.DEPLOY_FOLDER_PROD }} -type f ! -name '.htaccess' -delete
+                      find ${{ secrets.DEPLOY_FOLDER_PROD }} -type d -empty -delete
+
+            - name: Setup SSH
+              uses: webfactory/ssh-agent@v0.9.0
+              with:
+                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+            - name: Add server to known hosts
+              run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+            - name: Upload build files
+              run: |
+                  # Deploy files using rsync (excluding .htaccess)
+                  rsync -avz --delete --exclude='.htaccess' dist/browser/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_FOLDER_PROD }}/

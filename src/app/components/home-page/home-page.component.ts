@@ -5,7 +5,7 @@ import { Newsletter } from 'src/app/models/newsletter';
     selector: 'app-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss'],
-    standalone: false
+    standalone: false,
 })
 export class HomePageComponent implements OnInit {
     @Input() latestNewsletter: Newsletter | null | undefined;
@@ -19,9 +19,9 @@ export class HomePageComponent implements OnInit {
         }, 7000);
     }
 
-    ngOnInit(): void {        
+    ngOnInit(): void {
         this.loadImages();
-     }
+    }
 
     public getRotatorImageIndex(): number {
         return this.rotatorImageIndex;
@@ -67,16 +67,16 @@ export class HomePageComponent implements OnInit {
     }
 
     images = [
-        "/assets/slider-images/slider-image-1.jpg",
-        "/assets/slider-images/slider-image-2.jpg",
-        "/assets/slider-images/slider-image-3.jpg",
-        "/assets/slider-images/slider-image-4.jpg",
-        "/assets/slider-images/slider-image-5.jpg"
+        '/assets/slider-images/slider-image-1.jpg',
+        '/assets/slider-images/slider-image-2.jpg',
+        '/assets/slider-images/slider-image-3.jpg',
+        '/assets/slider-images/slider-image-4.jpg',
+        '/assets/slider-images/slider-image-5.jpg',
     ];
 
-    loadImages(){
-        for(let i = 0; i < this.images.length; i++){
-            let img = new Image();
+    loadImages() {
+        for (let i = 0; i < this.images.length; i++) {
+            const img = new Image();
             img.src = this.images[i];
         }
     }

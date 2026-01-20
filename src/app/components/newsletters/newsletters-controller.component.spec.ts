@@ -11,28 +11,20 @@ describe('NewsletterControllerComponent', () => {
     let mockReduxStore: MockStore<{}>;
 
     const initialState = {
-        counselors: createNewsletterState([], false)
+        counselors: createNewsletterState([], false),
     };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                NewslettersControllerComponent,
-                NewslettersFakeComponent
-            ],
-            imports: [
-                SharedFakeModule
-            ],
-            providers: [
-                provideMockStore({ initialState })
-            ]
+            declarations: [NewslettersControllerComponent, NewslettersFakeComponent],
+            imports: [SharedFakeModule],
+            providers: [provideMockStore({ initialState })],
         }).compileComponents();
 
         fixture = TestBed.createComponent(NewslettersControllerComponent);
         component = fixture.componentInstance;
         mockReduxStore = TestBed.inject(MockStore);
     });
-
 
     it('should create', () => {
         expect(component).toBeTruthy();

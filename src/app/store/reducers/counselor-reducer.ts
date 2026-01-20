@@ -7,5 +7,7 @@ export const initialCounselorState = createCounselorState([] as readonly Counsel
 
 export const counselorReducer = createReducer(
     initialCounselorState,
-    on(getCounselorListSuccessAction, (_state, { counselorList }) => createCounselorState(counselorList, true))
+    on(getCounselorListSuccessAction, (_state, { counselorList }) =>
+        createCounselorState(counselorList, true)
+    )
 );

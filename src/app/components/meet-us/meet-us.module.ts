@@ -6,14 +6,7 @@ import { MeetCounselorCardComponent } from './meet-counselor-card/meet-counselor
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
-    declarations: [
-        MeetUsControllerComponent,
-        MeetUsComponent,
-        MeetCounselorCardComponent
-    ],
-    imports: [
-        SharedModule,
-        AppRoutingModule
-    ]
+    declarations: [MeetUsControllerComponent, MeetUsComponent, MeetCounselorCardComponent],
+    imports: [SharedModule, AppRoutingModule],
 })
-export class MeetUsModule { }
+export class MeetUsModule {}

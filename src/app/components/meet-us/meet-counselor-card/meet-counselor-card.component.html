@@ -1,22 +1,25 @@
 @if (counselor) {
-  <div class="counselor-card-container ui-card">
-    <div class="ui-card-title">Hi, I'm {{ getFirstName() }}</div>
-    <div class="ui-card-content">
-      <div class="counselor-card-left-column">
-        <img src="{{ getImageLink() }}" routerLink="{{ getFirstName() }}" class="counselor-card-image" />
-      </div>
-      <div class="counselor-card-right-column">
-        <p>{{ getShortDescription() }}</p>
-        <div>
-          {{ getCounselorName() }}<br />
-          <ul class="counselor-card-titles">
-            @for (title of counselor.titles; track title) {
-              <li>{{ title }}</li>
-            }
-          </ul>
+    <div class="counselor-card-container ui-card">
+        <div class="ui-card-title">Hi, I'm {{ getFirstName() }}</div>
+        <div class="ui-card-content">
+            <div class="counselor-card-left-column">
+                <img
+                    src="{{ getImageLink() }}"
+                    routerLink="{{ getFirstName() }}"
+                    class="counselor-card-image" />
+            </div>
+            <div class="counselor-card-right-column">
+                <p>{{ getShortDescription() }}</p>
+                <div>
+                    {{ getCounselorName() }}<br />
+                    <ul class="counselor-card-titles">
+                        @for (title of counselor.titles; track title) {
+                            <li>{{ title }}</li>
+                        }
+                    </ul>
+                </div>
+                <a routerLink="{{ getFirstName() }}">Read More&hellip;</a>
+            </div>
         </div>
-        <a routerLink="{{ getFirstName() }}">Read More&hellip;</a>
-      </div>
     </div>
-  </div>
 }

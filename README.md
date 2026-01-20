@@ -62,7 +62,7 @@ This project is deployed manually to a GoDaddy Web Hosting Plus server at https:
 1. Build the project for production using the `ng build` command.
 2. Use an FTP client to copy the contents of the `dist/browser/` folder to `ftp://198.12.213.112:21/public_html/compasslex.com`
 3. Open the site at https://compasslex.com
-3. Manually test all functionality and visually inspect the site for anomalies.
+4. Manually test all functionality and visually inspect the site for anomalies.
 
 ## Running end-to-end tests
 

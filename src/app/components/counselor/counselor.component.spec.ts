@@ -8,20 +8,19 @@ describe('CounselorComponent', () => {
     let fixture: ComponentFixture<CounselorComponent>;
 
     beforeEach(waitForAsync(() => {
-      TestBed.configureTestingModule({
-        declarations: [ CounselorComponent ]
-      })
-      .compileComponents();
+        TestBed.configureTestingModule({
+            declarations: [CounselorComponent],
+        }).compileComponents();
     }));
 
     beforeEach(() => {
-      fixture = TestBed.createComponent(CounselorComponent);
-      component = fixture.componentInstance;
-      fixture.detectChanges();
+        fixture = TestBed.createComponent(CounselorComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
     });
 
     it('should create', () => {
-      expect(component).toBeTruthy();
+        expect(component).toBeTruthy();
     });
 
     describe('getCounselorName', () => {
@@ -44,9 +43,9 @@ describe('CounselorComponent', () => {
         });
 
         it('should append Clinical Director when the counselor name is Linda Fentress', () => {
-            component.counselor = counselorBuilder( {
+            component.counselor = counselorBuilder({
                 firstname: 'Linda',
-                lastname: 'Fentress'
+                lastname: 'Fentress',
             });
 
             const expected = 'Linda Fentress, Clinical Director';
@@ -74,8 +73,8 @@ describe('CounselorComponent', () => {
 
     describe('getFirstName', () => {
         it('should return the counselor first name', () => {
-          component.counselor = counselorBuilder();
-          const actual = component.getFirstName();
+            component.counselor = counselorBuilder();
+            const actual = component.getFirstName();
             expect(actual).toEqual(component.counselor.firstname);
         });
         it('should return an empty string when the counselor is null', () => {
@@ -92,8 +91,8 @@ describe('CounselorComponent', () => {
 
     describe('getLastName', () => {
         it('should return the counselor last name', () => {
-          component.counselor = counselorBuilder();
-          const actual = component.getLastName();
+            component.counselor = counselorBuilder();
+            const actual = component.getLastName();
             expect(actual).toEqual(component.counselor.lastname);
         });
         it('should return an empty string when the counselor is null', () => {
@@ -128,8 +127,8 @@ describe('CounselorComponent', () => {
 
     describe('getEmail', () => {
         it('should return the counselor email', () => {
-          component.counselor = counselorBuilder();
-          const actual = component.getEmail();
+            component.counselor = counselorBuilder();
+            const actual = component.getEmail();
             expect(actual).toEqual(component.counselor.email);
         });
         it('should return an empty string when the counselor is null', () => {

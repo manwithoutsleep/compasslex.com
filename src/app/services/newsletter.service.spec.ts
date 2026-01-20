@@ -7,22 +7,20 @@ import { environment } from 'src/environments/environment';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('NewsletterService', () => {
-
     const baseUrl = '../assets/data/newsletter.json';
 
     let sut: NewsletterService;
     let httpTestingController: HttpTestingController;
 
     beforeEach(() => {
-
         TestBed.configureTestingModule({
-    imports: [],
-    providers: [
-        NewsletterService,
-        provideHttpClient(withInterceptorsFromDi()),
-        provideHttpClientTesting()
-    ]
-}).compileComponents();
+            imports: [],
+            providers: [
+                NewsletterService,
+                provideHttpClient(withInterceptorsFromDi()),
+                provideHttpClientTesting(),
+            ],
+        }).compileComponents();
         httpTestingController = TestBed.inject(HttpTestingController);
         sut = TestBed.inject(NewsletterService);
     });
@@ -47,14 +45,12 @@ describe('NewsletterService', () => {
 
         it('should return the newsletter list json from the service', fakeAsync(() => {
             const jsonResponse = {
-                newsletterList: [
-                    newsletterBuilder(),
-                    newsletterBuilder(),
-                    newsletterBuilder()
-                ]
+                newsletterList: [newsletterBuilder(), newsletterBuilder(), newsletterBuilder()],
             } as NewsletterData;
 
-            sut.getNewsletterList().subscribe(responseFromService => expect(responseFromService).toEqual(jsonResponse));
+            sut.getNewsletterList().subscribe((responseFromService) =>
+                expect(responseFromService).toEqual(jsonResponse)
+            );
             flushMicrotasks();
 
             const actualRequest = httpTestingController.expectOne(baseUrl);
