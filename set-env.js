@@ -3,8 +3,14 @@ const path = require('path');
 require('dotenv').config();
 
 // Environment file content
-const envConfig = `export const environment = {
+const envConfigProd = `export const environment = {
   production: true,
+  currentBaseUrl: 'https://' + window.location.host + '/api/public',
+  googleMapsApiKey: '${process.env.GOOGLE_MAPS_API_KEY || ''}'
+};`;
+
+const envConfigDev = `export const environment = {
+  production: false,
   currentBaseUrl: 'https://' + window.location.host + '/api/public',
   googleMapsApiKey: '${process.env.GOOGLE_MAPS_API_KEY || ''}'
 };`;
@@ -18,8 +24,8 @@ try {
     fs.mkdirSync(targetDir, { recursive: true });
 
     // 3. Write the files (overwriting if they exist)
-    fs.writeFileSync(targetFile, '');
-    fs.writeFileSync(targetFileProd, envConfig);
+    fs.writeFileSync(targetFile, envConfigDev);
+    fs.writeFileSync(targetFileProd, envConfigProd);
 
     console.log(`Successfully created environment file at ${targetFile}`);
 } catch (err) {
