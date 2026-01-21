@@ -2,21 +2,27 @@
 
 ## Parent Specification
 
-This is sub-task 03 of the parent specification: `2026-01-20-angular-21-upgrade.md`
+This is sub-task 03 of the parent specification: `.specs\2026-01-20-angular-21-upgrade.md`.
+The sub-tasks are coordinated by `.specs\2026-01-20-angular-21-upgrade-00-coordinator.md`
 
 ## Objective
 
 Upgrade Angular ESLint from 18.3.1 to 21.x and TypeScript ESLint to v8 for TypeScript 5.9 compatibility.
 
+**Development Environment**: Windows 11 with PowerShell (all commands use PowerShell syntax)
+
 ## Dependencies
 
 **Prerequisites** (must be completed before this task):
+
 - Task 01: Preparation and Core Angular/TypeScript Upgrade (requires Angular 21 and TypeScript 5.9 to be installed)
 
 **Blocks** (tasks that depend on this one):
+
 - None - This task is independent of other tasks
 
 **Parallel Opportunities**:
+
 - Can run in parallel with Task 02 (NgRx Upgrade) - different package sets
 - Can run in parallel with Task 04 (Vitest Migration) - different concerns
 - Should complete before Task 05 (CI/CD Updates) to ensure lint step works correctly
@@ -51,7 +57,7 @@ Upgrade all ESLint-related packages to support Angular 21 and TypeScript 5.9, en
 
 ### Commands to Execute
 
-```bash
+```powershell
 # Phase 1: Angular ESLint Upgrade
 ng update @angular-eslint/schematics@21
 
@@ -82,11 +88,13 @@ npm run lint:fix  # If auto-fixable errors exist
 ### Linting Verification
 
 **Run Lint Check**:
-```bash
+
+```powershell
 npm run lint
 ```
 
 **Expected Results**:
+
 - No lint errors
 - If errors exist, use `npm run lint:fix` to auto-fix
 - Manually fix any errors that can't be auto-fixed
@@ -94,6 +102,7 @@ npm run lint
 ### Common New Lint Errors
 
 With TypeScript ESLint v8 and Angular ESLint v21, watch for:
+
 - Stricter type checking rules
 - New Angular template rules
 - Deprecated rule warnings
@@ -138,6 +147,7 @@ With TypeScript ESLint v8 and Angular ESLint v21, watch for:
 ### Configuration Review
 
 After running the migration, review `.eslintrc.json` for:
+
 - Deprecated rules (will show warnings)
 - New recommended rules to enable
 - Rules that may conflict with project style
@@ -153,6 +163,7 @@ After running the migration, review `.eslintrc.json` for:
 ### Rollback Strategy
 
 If ESLint upgrade causes issues:
+
 1. Can rollback ESLint packages independently
 2. Restore `.eslintrc.json` from git history if needed
 3. ESLint issues shouldn't affect runtime behavior

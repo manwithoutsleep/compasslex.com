@@ -8,6 +8,13 @@ This coordinator plan manages the execution of sub-tasks for the parent specific
 **Estimated Total Effort**: 9-11 hours
 **Parallelization Potential**: Medium (some tasks can run in parallel, but core dependencies exist)
 
+### Development Environment
+
+**Operating System**: Windows 11
+**Shell Preference**: PowerShell (preferred over Bash for all commands)
+
+All command examples in this plan and sub-tasks should use PowerShell syntax. Where npm commands are shown, they work identically in PowerShell and Bash.
+
 ## Sub-Task Index
 
 | Task | File                         | Status  | Dependencies   | Can Run In Parallel With |
@@ -295,7 +302,7 @@ After all sub-tasks are complete, verify the complete system:
 
 ### Package Version Verification
 
-```bash
+```powershell
 npm list @angular/core    # Should show 21.x
 npm list @ngrx/store      # Should show 21.x
 npm list typescript       # Should show 5.9.x
@@ -304,14 +311,14 @@ npx ng version            # Full version report
 
 ### Code Quality Verification
 
-```bash
+```powershell
 npm run lint              # Should pass with no errors
 npm test                  # All tests should pass (100%)
 ```
 
 ### Build Verification
 
-```bash
+```powershell
 npm run build             # Development build
 npm run build:prod        # Production build
 ```

@@ -2,22 +2,28 @@
 
 ## Parent Specification
 
-This is sub-task 04 of the parent specification: `2026-01-20-angular-21-upgrade.md`
+This is sub-task 04 of the parent specification: `.specs\2026-01-20-angular-21-upgrade.md`.
+The sub-tasks are coordinated by `.specs\2026-01-20-angular-21-upgrade-00-coordinator.md`
 
 ## Objective
 
 Migrate from Karma/Jasmine to Vitest (Angular's recommended test runner) and ensure all tests pass.
 
+**Development Environment**: Windows 11 with PowerShell (all commands use PowerShell syntax)
+
 ## Dependencies
 
 **Prerequisites** (must be completed before this task):
+
 - Task 01: Preparation and Core Angular/TypeScript Upgrade (requires Angular 21 CLI)
 - Task 02: NgRx Upgrade (effects test fixes must be in place)
 
 **Blocks** (tasks that depend on this one):
+
 - Task 05: CI/CD Pipeline Updates (needs test command to be working)
 
 **Parallel Opportunities**:
+
 - Cannot run in parallel - depends on Tasks 01 and 02 being complete
 - Task 03 (ESLint) can run in parallel with this task (different concerns)
 
@@ -55,7 +61,7 @@ Migrate the test infrastructure from Karma/Jasmine to Vitest using Angular's aut
 
 ### Commands to Execute
 
-```bash
+```powershell
 # Phase 1: Run Migration Schematic
 ng generate @angular/core:karma-to-vitest
 
@@ -78,18 +84,22 @@ npm test
 ## Files to Create/Modify
 
 ### Files Created by Migration
+
 - `vitest.config.ts` - Vitest configuration file
 
 ### Files Modified by Migration
+
 - `package.json` - Test script updates, dependency changes
 - `package-lock.json` - Dependency tree updates
 - `angular.json` - Remove Karma test configuration
 
 ### Files to Remove
+
 - `karma.conf.js` - Karma configuration (if exists)
 - Test files may need adjustments (rare, but possible)
 
 ### Test Files to Verify
+
 - `src/app/store/effects/counselor-service-effects.service.spec.ts`
 - `src/app/store/effects/newsletter-service-effects.service.spec.ts`
 - `src/app/store/reducers/counselor-reducer.spec.ts`
@@ -103,11 +113,13 @@ npm test
 ### Migration Verification
 
 **Step 1: Run Tests**
-```bash
+
+```powershell
 npm test
 ```
 
 **Expected Results**:
+
 - All tests should run with Vitest
 - Output format will be different from Karma
 - Should see Vitest's modern test UI
@@ -115,23 +127,23 @@ npm test
 ### Common Migration Issues
 
 1. **NgRx Testing Utilities**:
-   - `TestBed` should work the same
-   - `provideMockStore` should work the same
-   - Effects testing with `provideMockActions` should work
+    - `TestBed` should work the same
+    - `provideMockStore` should work the same
+    - Effects testing with `provideMockActions` should work
 
 2. **RxJS Marbles**:
-   - If using `rxjs-marbles`, may need adjustments
-   - Vitest has built-in async testing support
+    - If using `rxjs-marbles`, may need adjustments
+    - Vitest has built-in async testing support
 
 3. **Jasmine to Vitest Syntax**:
-   - Most Jasmine syntax is compatible
-   - `describe`, `it`, `expect` work the same
-   - Spy syntax may need minor adjustments
+    - Most Jasmine syntax is compatible
+    - `describe`, `it`, `expect` work the same
+    - Spy syntax may need minor adjustments
 
 4. **Browser APIs**:
-   - Vitest uses jsdom or happy-dom
-   - Most browser APIs should work
-   - Some may need polyfills
+    - Vitest uses jsdom or happy-dom
+    - Most browser APIs should work
+    - Some may need polyfills
 
 ### Test Failure Strategy
 
@@ -146,6 +158,7 @@ If tests fail after migration:
 ### Performance Comparison
 
 Vitest should be significantly faster than Karma:
+
 - Karma: ~30-60 seconds for full suite
 - Vitest: ~5-15 seconds for full suite (expected)
 
@@ -171,6 +184,7 @@ Vitest should be significantly faster than Karma:
 ### Why Vitest?
 
 From Angular 21 release notes:
+
 - **Karma is deprecated and removed** from Angular CLI
 - **Vitest is the recommended test runner**
 - Better performance (native ESM, parallel execution)
@@ -180,6 +194,7 @@ From Angular 21 release notes:
 ### Migration Schematic Features
 
 The Angular schematic should:
+
 - Remove Karma and Jasmine packages
 - Install Vitest and dependencies
 - Generate `vitest.config.ts`
@@ -196,6 +211,7 @@ The Angular schematic should:
 ### Vitest Configuration
 
 Review `vitest.config.ts` for:
+
 - Test environment (jsdom/happy-dom)
 - Coverage configuration
 - Test include/exclude patterns
@@ -205,6 +221,7 @@ Review `vitest.config.ts` for:
 ### Rollback Strategy
 
 If Vitest migration fails critically:
+
 1. Can revert the migration commits
 2. Would need to restore Karma configuration
 3. This is why we have the backup and feature branch

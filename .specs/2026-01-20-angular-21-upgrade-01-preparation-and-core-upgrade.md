@@ -2,23 +2,29 @@
 
 ## Parent Specification
 
-This is sub-task 01 of the parent specification: `2026-01-20-angular-21-upgrade.md`
+This is sub-task 01 of the parent specification: `.specs\2026-01-20-angular-21-upgrade.md`.
+The sub-tasks are coordinated by `.specs\2026-01-20-angular-21-upgrade-00-coordinator.md`
 
 ## Objective
 
 Set up the upgrade environment and complete the core Angular and TypeScript upgrades to version 21.x and 5.9.x respectively.
 
+**Development Environment**: Windows 11 with PowerShell (all commands use PowerShell syntax)
+
 ## Dependencies
 
 **Prerequisites** (must be completed before this task):
+
 - None - This is the first task in the sequence
 
 **Blocks** (tasks that depend on this one):
+
 - Task 02: NgRx Upgrade (requires Angular 21 to be installed)
 - Task 03: Angular ESLint Upgrade (requires Angular 21 to be installed)
 - Task 04: Vitest Migration (requires Angular 21 CLI)
 
 **Parallel Opportunities**:
+
 - None - This is the foundation task that all others depend on
 
 ## Scope
@@ -56,13 +62,13 @@ Upgrade Angular from 20.1.0 to 21.x and TypeScript from 5.8.3 to 5.9.x, establis
 
 ### Commands to Execute
 
-```bash
+```powershell
 # Phase 1: Preparation
 git checkout development
 git pull origin development
 git checkout -b upgrade/angular-21-ngrx-21
 npm test > baseline-tests.txt
-cp package-lock.json package-lock.json.backup
+Copy-Item package-lock.json package-lock.json.backup
 
 # Phase 2: Core Angular Upgrade
 ng update @angular/core@21 @angular/cli@21
@@ -92,15 +98,18 @@ npm run build:prod
 ## Testing Requirements
 
 ### Baseline Testing
+
 - Capture current test results before any changes
 - Document any existing test failures
 
 ### Post-Upgrade Testing
+
 - Run full test suite: `npm test`
 - Expected: Some tests may fail due to TypeScript strictness or Angular changes
 - Document any new test failures for resolution in Task 02
 
 ### Build Verification
+
 - Development build: `npm run build`
 - Production build: `npm run build:prod`
 - Verify no compilation errors
@@ -139,6 +148,7 @@ npm run build:prod
 ### Rollback Strategy
 
 If critical issues occur:
+
 1. Delete feature branch
 2. Restore from `package-lock.json.backup`
 3. Run `npm ci` to restore original dependencies

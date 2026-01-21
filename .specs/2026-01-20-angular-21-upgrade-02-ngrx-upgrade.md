@@ -2,21 +2,27 @@
 
 ## Parent Specification
 
-This is sub-task 02 of the parent specification: `2026-01-20-angular-21-upgrade.md`
+This is sub-task 02 of the parent specification: `.specs\2026-01-20-angular-21-upgrade.md`.
+The sub-tasks are coordinated by `.specs\2026-01-20-angular-21-upgrade-00-coordinator.md`
 
 ## Objective
 
 Upgrade NgRx from 20.0.0 to 21.x and fix known test pattern issues in effects files.
 
+**Development Environment**: Windows 11 with PowerShell (all commands use PowerShell syntax)
+
 ## Dependencies
 
 **Prerequisites** (must be completed before this task):
+
 - Task 01: Preparation and Core Angular/TypeScript Upgrade (requires Angular 21 to be installed)
 
 **Blocks** (tasks that depend on this one):
+
 - None - This task is independent of Tasks 03, 04, and 05
 
 **Parallel Opportunities**:
+
 - Can run in parallel with Task 03 (Angular ESLint Upgrade) - different package sets
 - Must complete before Task 04 (Vitest Migration) to ensure test fixes are in place
 - Must complete before Task 05 (CI/CD Updates) to ensure all code is stable
@@ -51,7 +57,7 @@ Upgrade all NgRx packages to version 21.x and fix the known inconsistent effects
 
 ### Commands to Execute
 
-```bash
+```powershell
 # Phase 1: NgRx Core Upgrade
 ng update @ngrx/store@21
 
@@ -80,15 +86,19 @@ npm run lint
 **File**: `src/app/store/effects/newsletter-service-effects.service.spec.ts`
 
 **Line 48** - Change from:
+
 ```typescript
 const initialAction = getNewsletterListAction;
 ```
+
 To:
+
 ```typescript
 const initialAction = getNewsletterListAction();
 ```
 
 **Line 59** - Same fix needed:
+
 ```typescript
 const initialAction = getNewsletterListAction();
 ```
@@ -96,21 +106,24 @@ const initialAction = getNewsletterListAction();
 ## Testing Requirements
 
 ### NgRx Store Testing
+
 - Run full test suite: `npm test`
 - Focus on NgRx-related test files:
-  - `counselor-service-effects.service.spec.ts`
-  - `newsletter-service-effects.service.spec.ts`
-  - `counselor-reducer.spec.ts`
-  - `newsletter-reducer.spec.ts`
-  - `counselor-selector.spec.ts`
-  - `newsletter-selector.spec.ts`
+    - `counselor-service-effects.service.spec.ts`
+    - `newsletter-service-effects.service.spec.ts`
+    - `counselor-reducer.spec.ts`
+    - `newsletter-reducer.spec.ts`
+    - `counselor-selector.spec.ts`
+    - `newsletter-selector.spec.ts`
 
 ### Expected Results
+
 - All effects tests should pass after action creator fix
 - Reducers should continue working with no changes needed
 - Selectors should continue working with no changes needed
 
 ### Linting
+
 - Run `npm run lint` to ensure no NgRx ESLint errors
 - NgRx ESLint plugin v21 may have new rules; fix any violations
 
@@ -133,6 +146,7 @@ const initialAction = getNewsletterListAction();
 ### NgRx 21 Breaking Changes
 
 According to the parent specification:
+
 - **No breaking changes for traditional effects/store usage**
 - Signal-based APIs are new additions (optional)
 - This means the upgrade should be straightforward
@@ -140,6 +154,7 @@ According to the parent specification:
 ### Known Issues Being Fixed
 
 **Issue**: Inconsistent NgRx effects pattern in test file
+
 - **Root Cause**: Action creators should be invoked as functions, not assigned as variables
 - **Impact**: Tests may fail or not properly test the effect
 - **Solution**: Change `const initialAction = getNewsletterListAction;` to `getNewsletterListAction();`
@@ -153,6 +168,7 @@ According to the parent specification:
 ### Rollback Strategy
 
 If critical issues occur with NgRx:
+
 1. Identify if issue is with NgRx packages or code changes
 2. Can selectively revert code changes while keeping NgRx 21
 3. If NgRx 21 is incompatible, would need to rollback Task 01 as well (unlikely)

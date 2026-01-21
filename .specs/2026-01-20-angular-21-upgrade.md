@@ -4,6 +4,8 @@
 
 Upgrade Angular from 20.1.0 to 21.x and NgRx from 20.0.0 to 21.x, migrating tests from Karma to Vitest and updating the CI/CD pipeline.
 
+**Development Environment**: Windows 11 with PowerShell (all commands use PowerShell syntax)
+
 ## Granted Permissions
 
 · Bash(prompt: run git commands for branch management and commits)
@@ -69,11 +71,11 @@ Upgrade Angular from 20.1.0 to 21.x and NgRx from 20.0.0 to 21.x, migrating test
 ### Phase 2: Core Angular & TypeScript Upgrade
 
 1. Run Angular update command:
-    ```bash
+    ```powershell
     ng update @angular/core@21 @angular/cli@21
     ```
 2. Update TypeScript to 5.9+ (required by Angular 21):
-    ```bash
+    ```powershell
     npm install --save-dev typescript@~5.9.0
     ```
 3. Verify all `@angular/*` packages are at 21.x
@@ -81,11 +83,11 @@ Upgrade Angular from 20.1.0 to 21.x and NgRx from 20.0.0 to 21.x, migrating test
 ### Phase 3: NgRx Upgrade
 
 1. Update NgRx packages:
-    ```bash
+    ```powershell
     ng update @ngrx/store@21
     ```
 2. Manually update NgRx ESLint plugin:
-    ```bash
+    ```powershell
     npm install --save-dev @ngrx/eslint-plugin@21
     ```
 3. Fix NgRx effects test pattern:
@@ -96,24 +98,24 @@ Upgrade Angular from 20.1.0 to 21.x and NgRx from 20.0.0 to 21.x, migrating test
 ### Phase 4: Angular ESLint Upgrade
 
 1. Update Angular ESLint to v21:
-    ```bash
+    ```powershell
     ng update @angular-eslint/schematics@21
     ```
 2. Update TypeScript ESLint to v8 (for TypeScript 5.9 support):
-    ```bash
+    ```powershell
     npm install --save-dev @typescript-eslint/eslint-plugin@^8.0.0 @typescript-eslint/parser@^8.0.0
     ```
 
 ### Phase 5: Migrate to Vitest
 
 1. Run Angular's migration schematic:
-    ```bash
+    ```powershell
     ng generate @angular/core:karma-to-vitest
     ```
 2. Review generated `vitest.config.ts`
 3. Verify test scripts updated in `package.json`
 4. Test the migration with:
-    ```bash
+    ```powershell
     npm test
     ```
 5. Fix any test failures (common areas: NgRx testing utilities, rxjs-marbles)
@@ -149,7 +151,7 @@ Same changes as deploy.yml:
 ### Phase 7: Optional Dependency Updates
 
 1. Update supporting libraries:
-    ```bash
+    ```powershell
     npm install tslib@^2.8.0
     npm install --save-dev @types/node@^22.0.0
     npm update @angular/google-maps @googlemaps/js-api-loader @types/google.maps
@@ -158,16 +160,16 @@ Same changes as deploy.yml:
 ### Phase 8: Build System Verification
 
 1. Verify `set-env.js` still works:
-    ```bash
+    ```powershell
     node set-env.js
     ```
 2. Check that environment files are created in `src/environments/`
 3. Test development build:
-    ```bash
+    ```powershell
     npm run build
     ```
 4. Test production build:
-    ```bash
+    ```powershell
     npm run build:prod
     ```
 
@@ -175,14 +177,14 @@ Same changes as deploy.yml:
 
 ### Code Quality Checks
 
-```bash
+```powershell
 npm run lint              # Should pass with no errors
 npm run lint:fix          # Auto-fix any fixable issues
 ```
 
 ### Testing
 
-```bash
+```powershell
 npm test                  # All tests should pass
 ```
 
@@ -197,7 +199,7 @@ Focus on these test files:
 
 ### Build Verification
 
-```bash
+```powershell
 npm run build             # Development build
 npm run build:prod        # Production build
 ```
@@ -211,7 +213,7 @@ Verify:
 
 ### Version Verification
 
-```bash
+```powershell
 npm list @angular/core    # Should show 21.x
 npm list @ngrx/store      # Should show 21.x
 npm list typescript       # Should show 5.9.x
@@ -221,7 +223,7 @@ npx ng version            # Full version report
 ### Application Testing
 
 1. Run development server:
-    ```bash
+    ```powershell
     npm start
     ```
 2. Manual checks:
