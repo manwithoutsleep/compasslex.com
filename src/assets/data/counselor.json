@@ -277,7 +277,7 @@
             "titles": ["M.A., Marriage and Family Therapist Associate"],
             "directoryid": "",
             "id": "14",
-            "appointmentlink": "https://portal.therapyappointment.com/index.cfm/public:therapistdetail?directoryId=55a158cbbb159d09dff1889c40b3af5d"
+            "appointmentlink": "https://api.portal.therapyappointment.com/n/public/clientRegistration?therapistId=E96A32CC5BB04BC1A0BAC83297EBC523"
         },
         {
             "credentials": [
